@@ -110,4 +110,26 @@ section#role .roleSelector {
     opacity: 1;
   }
 }
+
+/*Scroll Bar*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e4dd09;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: red;
+}
 /*# sourceMappingURL=style.css.map */
