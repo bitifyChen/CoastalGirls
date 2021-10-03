@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+section#role {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+section#role .background {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+section#role .roleMain {
+  width: 80%;
+  margin-left: auto;
+  height: 100vh;
+  position: relative;
+}
+
+section#role .roleMain .rolePic {
+  height: 100%;
+  position: relative;
+}
+
+section#role .roleMain .rolePic img {
+  position: absolute;
+  height: 90%;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  -webkit-animation-name: MoveToLeft;
+          animation-name: MoveToLeft;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+section#role .roleMain .roleInfo {
+  position: absolute;
+  width: 40%;
+  height: 100vh;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+section#role .roleMain .roleInfo .roleName {
+  font-size: 30px;
+  color: white;
+}
+
+section#role .roleMain .roleInfo .roleStory {
+  height: 40%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+section#role .roleSelector {
+  position: absolute;
+  height: 20vh;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@-webkit-keyframes MoveToLeft {
+  0% {
+    left: 80%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes MoveToLeft {
+  0% {
+    left: 80%;
+    opacity: 0;
+  }
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+section#role{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    .background{
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+    }
+    .roleMain{
+        width: 80%;
+        margin-left:auto;
+        height: 100vh;
+        position: relative;
+        .rolePic{
+            height: 100%;
+            position: relative;
+            img {
+                position: absolute;
+                height:90%;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%);
+                animation-name: MoveToLeft;
+                animation-duration: 1s;
+            }
+        }
+        .roleInfo{
+            position: absolute;
+            width: 40%;
+            height: 100vh;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .roleName{
+                font-size: 30px;
+                color:white;
+            }
+            .roleStory{
+                height: 40%;
+                background-color: rgba(0,0,0,.5);
+                padding: 20px;
+                color: white;
+                overflow-x: hidden;
+                overflow-y: scroll;
+            }
+        }
+    }
+    .roleSelector{
+        position: absolute;
+        height: 20vh;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(255,255,255,.4)
+    }        
+}
+
+@keyframes MoveToLeft {
+    0% { left: 80%; opacity: 0;}
+    100% { left: 50%; opacity: 1;}
+}
