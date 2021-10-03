@@ -17,12 +17,21 @@ section#role {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+  height: 100%;
 }
 
 section#role .background {
-  width: 100%;
   position: absolute;
+  height: 100%;
+  width: 100%;
   z-index: -1;
+}
+
+section#role .background img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 section#role .roleMain {
@@ -115,6 +124,7 @@ section#role .roleSelector {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  cursor: pointer;
 }
 
 /* Track */
@@ -124,12 +134,58 @@ section#role .roleSelector {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #e4dd09;
+  background: #dbb17d;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: red;
+  background: #e4c6a1;
+}
+
+.roleSelector {
+  width: 80%;
+}
+
+.roleSelector .roleCards .roleCard {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 200px;
+  max-width: 200px;
+  margin: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.roleSelector .roleCards .roleCard img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.roleSelector .roleCards .roleCard .roleName {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0;
+          flex: 0 0;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 0.5em;
+  font-weight: 900;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
