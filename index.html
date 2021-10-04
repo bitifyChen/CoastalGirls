@@ -28,9 +28,9 @@
   </head>
   <body>
     <section id="role">
-      <div class="background">
-        <img src="img/index/bgc.jpg" alt="" />
-      </div>
+      <img class="background active" src="img/index/bgc.jpg" alt="" />
+      <img class="background" src="img/index/bgc2.jpg" alt="" />
+
       <div class="roleMain">
         <div class="roleInfo">
           <div class="roleName">諾拉族</div>
@@ -218,43 +218,60 @@
         </div>
       </div>
       <div class="roleSelector">
+        <div class="container">
           <div class="roleCards">
-            <div class="roleCard">
-              <img src="img/index/小圖1.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖2.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖3.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖1.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖2.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖3.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖1.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-            <div class="roleCard">
-              <img src="img/index/小圖2.png" alt="" class="roleCardImg">
-              <div class="roleName">凱西</div>
-            </div>  
-          </div> 
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖1.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖2.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖3.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖1.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖2.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖3.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖1.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+            <div class="">
+              <div class="roleCard">
+                <img src="img/index/小圖2.png" alt="" class="roleCardImg" />
+                <div class="roleName">凱西</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    
 
     <!--jQuery-->
     <script
@@ -282,15 +299,45 @@
 
     <script>
       $(".roleCards").slick({
-        slidesToShow: 5,
-        slidesToScroll: 3,
+        slidesToShow: 4,
+        slidesToScroll: 1,
         dots: true,
         speed: 300,
         centerMode: true,
-      centerPadding: '200px',
-      slidesToShow: 1,
-      focusOnSelect: true,
+        focusOnSelect: true,
       });
+    </script>
+    <script>
+      const backgroundList = document.querySelectorAll(".background");
+      let nowIndex = 0;
+      let nextIndex = 0;
+      function backgroundNext() {
+        backgroundList.forEach((background, index) => {
+          if (background.className.match("active")) {
+            nowIndex = index;
+            if (index === backgroundList.length - 1) {
+              nextIndex = 0;
+            } else {
+              nextIndex = index + 1;
+            }
+          }
+        });
+        backgroundChange();
+      }
+      function backgroundChange() {
+        backgroundList.forEach((background, index) => {
+          background.classList.remove("leave");
+          background.classList.remove("active");
+          if (index === nextIndex) {
+            background.classList.add("active");
+          } else if (index === nowIndex) {
+            background.classList.add("leave");
+          }
+        });
+      }
+      setInterval(function () {
+        backgroundNext();
+      }, 12000);
     </script>
     <script>
       var app = new Vue({
@@ -300,7 +347,5 @@
         },
       });
     </script>
-
-  
   </body>
 </html>
