@@ -21,114 +21,144 @@ section#role {
     object-fit: cover;
     top: -50%;
     left: -50%;
-    transform: translate(50%,50%) scale(1,1);
+    transform: translate(50%, 50%) scale(1, 1);
     z-index: -1;
-    animation:scaleChange 12s;
+    animation: scaleChange 12s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     opacity: 0;
-    &.active{
-        opacity: 1;
-        transition: opacity 6s;
+    &.active {
+      opacity: 1;
+      transition: opacity 6s;
     }
-    &.leave{
-        opacity: 0;
-        transition: opacity 6s;
+    &.leave {
+      opacity: 0;
+      transition: opacity 6s;
     }
-
   }
-  .roleMain {
-    width: 80%;
-    margin-left: auto;
-    height: 100vh;
+}
+
+.roleMain {
+  width: 80%;
+  margin-left: auto;
+  height: 100vh;
+  position: relative;
+  .rolePic {
+    height: 100%;
     position: relative;
-    .rolePic {
-      height: 100%;
-      position: relative;
-      user-select: none;
-      img {
-        position: absolute;
-        height: 90%;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%);
-        animation-name: MoveToLeft;
-        animation-duration: 1s;
+    user-select: none;
+    img {
+      position: absolute;
+      height: 90%;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+      animation-name: MoveToLeft;
+      animation-duration: 1s;
+      display: none;
+      &.active {
+        display: block;
       }
     }
-    .roleInfo {
-      position: absolute;
-      width: 40%;
-      height: 100vh;
-      z-index: 1;
+  }
+  .roleInfo {
+    position: absolute;
+    width: 40%;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .roleName {
+      font-size: 40px;
+      color: white;
+    }
+    .roleStory {
+      height: 40%;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      color: white;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      border-radius: 10px;
+    }
+  }
+}
+.roleSelector {
+  position: absolute;
+  min-height: 150px;
+  height: 20vh;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 99;
+  cursor: pointer;
+  padding: 10px 0px;
+  .roleCards {
+    .roleCard {
+      background-color: rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .roleName {
-        font-size: 40px;
-        color: white;
+      align-items: center;
+      cursor: pointer;
+      margin: 0 10px;
+      height: 100%;
+      &:hover {
+        .rolePic img {
+          transform: translate(-50%, -50%) scale(1.4, 1.4);
+        }
       }
-      .roleStory {
-        height: 40%;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 20px;
+      .rolePic {
+        width: 100%;
+        flex: 1 1 auto;
+        position: relative;
+        overflow: hidden;
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1.2, 1.2);
+          object-fit: cover;
+          flex: 0 0 auto;
+          height: 100%;
+        }
+      }
+
+      .roleName {
+        margin-top: auto;
         color: white;
-        overflow-x: hidden;
-        overflow-y: scroll;
+        letter-spacing: 0.5em;
+        font-weight: 900;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        width: 100%;
+        height: 30px;
         font-size: 20px;
-        letter-spacing: 0.1em;
       }
     }
   }
-  .roleSelector {
-    position: absolute;
-    height: 20vh;
-    bottom: 0;
+}
+@media only screen and (max-device-width: 480px) {
+  .roleMain {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
-    z-index: 99;
-    cursor: pointer;
-    padding: 10px 0px;
-      .roleCards {
-        .roleCard {
-          background-color: rgba(0, 0, 0, 0.5);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          margin: 0 10px;
-          border: rgba(255,255,255,0) 5px solid;
-          &:hover{
-              border: white 5px solid;
-          }
-          img {
-            object-fit: cover;
-            background-color: rgba(0, 0, 0, 0.5);
-          }
-          .roleName {
-            color: white;
-            font-size: 20px;
-            letter-spacing: 0.5em;
-            font-weight: 900;
-            background-color: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            width: 100%;
-          }
-        }
-      }
+    .roleInfo {
+      width: 80%;
+      left: 10%;
     }
-  
+  }
 }
 
 @keyframes scaleChange {
-    0% {
-        transform: translate(50%,50%) scale(1,1)
-    }
-    100% {
-        transform: translate(50%,50%) scale(1.05,1.05)
-    }
+  0% {
+    transform: translate(50%, 50%) scale(1, 1);
   }
+  100% {
+    transform: translate(50%, 50%) scale(1.05, 1.05);
+  }
+}
 
 @keyframes MoveToLeft {
   0% {
@@ -150,7 +180,6 @@ section#role {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Handle */
@@ -164,7 +193,6 @@ section#role {
   background: #e4c6a1;
 }
 
-
 .slick-slide {
-    height: calc(20vh - 40px);
-  }
+  min-height: calc(20vh - 40px);
+}

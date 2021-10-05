@@ -52,14 +52,14 @@ section#role .background.leave {
   transition: opacity 6s;
 }
 
-section#role .roleMain {
+.roleMain {
   width: 80%;
   margin-left: auto;
   height: 100vh;
   position: relative;
 }
 
-section#role .roleMain .rolePic {
+.roleMain .rolePic {
   height: 100%;
   position: relative;
   -webkit-user-select: none;
@@ -68,7 +68,7 @@ section#role .roleMain .rolePic {
           user-select: none;
 }
 
-section#role .roleMain .rolePic img {
+.roleMain .rolePic img {
   position: absolute;
   height: 90%;
   bottom: 0;
@@ -79,9 +79,14 @@ section#role .roleMain .rolePic img {
           animation-name: MoveToLeft;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
+  display: none;
 }
 
-section#role .roleMain .roleInfo {
+.roleMain .rolePic img.active {
+  display: block;
+}
+
+.roleMain .roleInfo {
   position: absolute;
   width: 40%;
   height: 100vh;
@@ -98,12 +103,12 @@ section#role .roleMain .roleInfo {
           justify-content: center;
 }
 
-section#role .roleMain .roleInfo .roleName {
+.roleMain .roleInfo .roleName {
   font-size: 40px;
   color: white;
 }
 
-section#role .roleMain .roleInfo .roleStory {
+.roleMain .roleInfo .roleStory {
   height: 40%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
@@ -112,10 +117,12 @@ section#role .roleMain .roleInfo .roleStory {
   overflow-y: scroll;
   font-size: 20px;
   letter-spacing: 0.1em;
+  border-radius: 10px;
 }
 
-section#role .roleSelector {
+.roleSelector {
   position: absolute;
+  min-height: 150px;
   height: 20vh;
   bottom: 0;
   width: 100%;
@@ -125,7 +132,7 @@ section#role .roleSelector {
   padding: 10px 0px;
 }
 
-section#role .roleSelector .roleCards .roleCard {
+.roleSelector .roleCards .roleCard {
   background-color: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -142,27 +149,57 @@ section#role .roleSelector .roleCards .roleCard {
           align-items: center;
   cursor: pointer;
   margin: 0 10px;
-  border: rgba(255, 255, 255, 0) 5px solid;
+  height: 100%;
 }
 
-section#role .roleSelector .roleCards .roleCard:hover {
-  border: white 5px solid;
+.roleSelector .roleCards .roleCard:hover .rolePic img {
+  -webkit-transform: translate(-50%, -50%) scale(1.4, 1.4);
+          transform: translate(-50%, -50%) scale(1.4, 1.4);
 }
 
-section#role .roleSelector .roleCards .roleCard img {
+.roleSelector .roleCards .roleCard .rolePic {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.roleSelector .roleCards .roleCard .rolePic img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(1.2, 1.2);
+          transform: translate(-50%, -50%) scale(1.2, 1.2);
   -o-object-fit: cover;
      object-fit: cover;
-  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  height: 100%;
 }
 
-section#role .roleSelector .roleCards .roleCard .roleName {
+.roleSelector .roleCards .roleCard .roleName {
+  margin-top: auto;
   color: white;
-  font-size: 20px;
   letter-spacing: 0.5em;
   font-weight: 900;
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   width: 100%;
+  height: 30px;
+  font-size: 20px;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .roleMain {
+    width: 100%;
+  }
+  .roleMain .roleInfo {
+    width: 80%;
+    left: 10%;
+  }
 }
 
 @-webkit-keyframes scaleChange {
@@ -217,10 +254,6 @@ section#role .roleSelector .roleCards .roleCard .roleName {
 }
 
 /* Track */
-::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #dbb17d;
@@ -233,6 +266,6 @@ section#role .roleSelector .roleCards .roleCard .roleName {
 }
 
 .slick-slide {
-  height: calc(20vh - 40px);
+  min-height: calc(20vh - 40px);
 }
 /*# sourceMappingURL=style.css.map */
