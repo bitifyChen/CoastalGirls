@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--Slick-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+      integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="scss/style.css" />
+  </head>
+  <body>
+    <section id="role">
+      <!-- <img class="background" :class="{ 'active': index == 0 } " v-for="(banner,index) in roleShow.bannerList" :src="banner" alt="" /> -->
+
+      <img class="background active" :src="roleShow.bannerList[0]" alt="" />
+      <img class="background" :src="roleShow.bannerList[1]" alt="" />
+
+      <div class="roleMain">
+        <div class="roleInfo">
+          <div class="roleName">{{roleShow.name}}</div>
+          <div class="roleStory" v-html="roleShow.info"></div>
+        </div>
+        <div class="rolePic">
+          <img
+            v-for="(role,key) in rolePictureList"
+            :src="role"
+            :key="key"
+            :class="{active:key === nowRole} "
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="roleSelector">
+        <div class="container">
+          <div class="roleCards">
+              <div class="roleCard" @click="roleChange(index)" v-for="(role,index) in roles">
+                <div class="rolePic">
+                  <img :src="role.qPic" class="roleCardImg" @click="roleChange(0)" />
+                </div>
+                <div class="roleName">{{ role.name}}</div>
+              </div>       
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--jQuery-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!---Vue-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"
+      integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=="
+      crossorigin="anonymous"
+    ></script>
+    <!--Slick-->
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+
+    <script>
+      var app = new Vue({
+        el: "#role",
+        data: {
+          nowRole: 0,
+          roles: [
+            {
+              name: "璐醬",
+              bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
+              picture: "img/role/腳色2.png",
+              qPic:'img/role/小圖1.png',
+              info: "【屬性】<br /> ‧璐醬擁有強烈的好奇心，對所有事物充滿興趣，常常把不能吃的東西往嘴裡塞。<br> ‧樂觀天真的璐醬，常不小心弄巧成拙，但多虧她極好的運氣，常誤打誤撞讓事情往好方向發展。<br> ‧璐醬頭上的角是由靈氣匯集成，由於頭上的鹿角很重，因此璐醬從小就訓練出極大的力氣，同時也造就她超乎常人的食量。 <br /> 【服裝】<br /> 在日治時期被正名為優雅的「沙鹿」，因此優雅的和服成為璐醬最喜歡的穿著，為了在森林裡奔跑，所以把衣服改為方便活動的短和服。<br /> 【成長小故事】<br /> ‧璐醬是一隻可愛的山鹿，某天變成人形後發了高燒，被獵人發現後帶回小屋照顧。<br> ．璐醬第一次在海邊看到消波塊時，誤以為是可以吃的粽子便帶了一顆回家，獵人看到嚇了一跳對於擁有強大力氣的璐醬表示佩服，璐醬認為受到了稱讚，便喜歡上了消波塊。",
+            },
+            {
+              name: "璐醬2",
+              bannerList: ["img/role/bgc3.png", "img/role/bgc4.png"],
+              picture: "img/role/腳色2.png",
+              qPic:'img/role/小圖1.png',
+              info: "【屬性】<br /> ‧璐醬擁有強烈的好奇心，對所有事物充滿興趣，常常把不能吃的東西往嘴裡塞。<br> ‧樂觀天真的璐醬，常不小心弄巧成拙，但多虧她極好的運氣，常誤打誤撞讓事情往好方向發展。<br> ‧璐醬頭上的角是由靈氣匯集成，由於頭上的鹿角很重，因此璐醬從小就訓練出極大的力氣，同時也造就她超乎常人的食量。 <br /> 【服裝】<br /> 在日治時期被正名為優雅的「沙鹿」，因此優雅的和服成為璐醬最喜歡的穿著，為了在森林裡奔跑，所以把衣服改為方便活動的短和服。<br /> 【成長小故事】<br /> ‧璐醬是一隻可愛的山鹿，某天變成人形後發了高燒，被獵人發現後帶回小屋照顧。<br> ．璐醬第一次在海邊看到消波塊時，誤以為是可以吃的粽子便帶了一顆回家，獵人看到嚇了一跳對於擁有強大力氣的璐醬表示佩服，璐醬認為受到了稱讚，便喜歡上了消波塊。",
+            },
+            {
+              name: "琴",
+              bannerList: ["img/role/新增資料夾/bgc.jpg","img/role/新增資料夾/bgc2.jpg"],
+              picture: "img/role/腳色.png",
+              qPic:'img/role/小圖2.png',
+              info: "身為西風騎士團的代理團長，琴一直忠於職守，為人們帶來安寧。雖然並非天賦異稟，但經過刻苦訓練，如今的她已然能夠獨當一面。當風魔龍的威脅開始臨近，這位可靠的代理團長早已做好了準備，誓要守護蒙德。",
+            },
+            {
+              name: "迪魯克",
+              bannerList: ["img/role/新增資料夾/bgc.jpg","img/role/新增資料夾/bgc2.jpg"],
+              picture: "img/role/腳色3.png",
+              qPic:'img/role/小圖3.png',
+              info: "身為蒙德城第一富豪，風度翩翩的迪盧克總是以完美的貴公子形象示人。<br>然而他真實的一面，是秉承堅定信念的戰士，他那「不惜一切守護蒙德」的意志如火焰般熾熱，令他能以恐怖的攻勢，毫不留情地將一切敵人無情擊潰。",
+            },
+          ],
+        },
+
+        methods: {
+          roleChange(id) {
+            this.nowRole = id;
+          },
+        },
+        computed: {
+          roleShow() {
+            return this.roles[this.nowRole];
+          },
+          rolePictureList() {
+            let picArr = [];
+            this.roles.forEach((role) => picArr.push(role.picture));
+            return picArr;
+          },
+        },
+      });
+    </script>
+    <script>
+      $(".roleCards").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        dots: true,
+        speed: 300,
+        centerMode: true,
+        focusOnSelect: true,
+      });
+    </script>
+    <script>
+      const backgroundList = document.querySelectorAll(".background");
+      let nowIndex = 0;
+      let nextIndex = 0;
+      function backgroundNext() {
+        backgroundList.forEach((background, index) => {
+          if (background.className.match("active")) {
+            nowIndex = index;
+            if (index === backgroundList.length - 1) {
+              nextIndex = 0;
+            } else {
+              nextIndex = index + 1;
+            }
+          }
+        });
+        backgroundChange();
+      }
+      function backgroundChange() {
+        backgroundList.forEach((background, index) => {
+          background.classList.remove("leave");
+          background.classList.remove("active");
+          if (index === nextIndex) {
+            background.classList.add("active");
+          } else if (index === nowIndex) {
+            background.classList.add("leave");
+          }
+        });
+      }
+      setInterval(function () {
+        backgroundNext();
+      }, 12000);
+    </script>
+  </body>
+</html>

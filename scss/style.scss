@@ -1,12 +1,109 @@
-* {
+*,
+html,
+body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body {
-  height: 100vh;
-  width: 100vw;
+
+nav {
+  background-color: rgba(0, 0, 0, 0.75);
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  img {
+    height: 40px;
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    li {
+      list-style: none;
+      margin: 0 20px;
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+  button.menu {
+    display: none;
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    padding: 15px;
+    &.open{
+      height: 100vh;
+      img{
+        margin-bottom: 15px;
+      }
+      ul {
+        flex:1 1 auto;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    }
+    ul {
+      display: none;
+    }
+    button.menu {
+      position: absolute;
+      top:15px;
+      right: 15px;
+      display: unset;
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
+
+section.full-hight {
+  height: 100vh;
+}
+section.index-section {
+  position: relative;
+  overflow: hidden;
+  video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position:absolute;
+    top: 0;
+    left: 0;
+  }
+  img {
+    display: none;
+    vertical-align:middle;
+  }
+
+  @media (max-width: 900px) {
+    video {
+      display: none;
+    }
+    img {
+      display: unset;
+      position: absolute;
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+      top: -50%;
+      left: -50%;
+      transform: translate(50%, 50%);
+    }
+  }
+}
+section.news-section {
+ background-color: red;
 }
 
 section#role {
@@ -141,7 +238,7 @@ section#role {
     }
   }
 }
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 900px) {
   .roleMain {
     width: 100%;
     .roleInfo {
@@ -174,7 +271,7 @@ section#role {
 /*Scroll Bar*/
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0;
   cursor: pointer;
 }
 
