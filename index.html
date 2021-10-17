@@ -6,36 +6,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>海線少女</title>
     <link rel="stylesheet" href="scss/style.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.css' integrity='sha512-Q0DfJ+I5cbH4Wm20NlPZ/fENHil7k3ZgzI9b71LfQAB1IlM8Gt7aO7eOPX2QzYT+4fZaF6u1kSfZAHczl4r/9Q==' crossorigin='anonymous'/>
   </head>
-  
+
   <body>
     <nav>
-        <img class="logo" src="img/index/logo.png" alt="">
-        <ul>
-            <li><a href="#">新聞</a></li>
-            <li><a href="#">故事</a></li>
-            <li><a href="#">角色介紹</a></li>
-            <li><a href="#">周邊小物</a></li>
-            <li><a href="#">關於我們</a></li>
-            <li><a href="#">在地美照</a></li>
-            <li><a href="#">媒體中心</a></li>
-        </ul>
-        <button class="menu"></button>
+      <img class="logo" src="img/index/logo.png" alt="" />
+      <ul>
+        <li><a href="#">最新消息</a></li>
+        <li><a href="#">故事</a></li>
+        <li class="dropdown">
+          <label for="btn-2"
+            >世界觀
+            <ion-icon name="caret-down-outline"></ion-icon>
+          </label>
+          <input type="checkbox" id="btn-2" />
+          <ul>
+            <li><a href="#">地區故事</a></li>
+            <li><a href="#">漫畫</a></li>
+          </ul>
+        </li>
+        <li><a href="#">周邊小物</a></li>
+        <li><a href="#">關於我們</a></li>
+        <li><a href="#">在地美照</a></li>
+        <li><a href="#">媒體中心</a></li>
+      </ul>
+      <button class="menu"></button>
     </nav>
     <section class="full-hight index-section">
-      <video src="img/index/高美動圖.mp4" autoplay></video>
-      <img  src="https://picsum.photos/300/600?random=2" alt="">
+      <video src="img/index/高美動圖.mp4" autoplay="autoplay"></video>
+      <img
+        class="full-hight"
+        src="https://picsum.photos/300/600?random=2"
+        alt=""
+      />
+      <button>精彩海線，隨心出發GO!</button>
     </section>
     <section class="full-hight news-section">
-      
+      <img class="full-hight" src="img/index/news.jpg" alt="" />
+      <div class="news-title">
+        <h1 class="section-title">最新消息</h1>
+      </div>
+      <div class="container">
+        <div class="news-box">
+          <img
+            class="news-role-left"
+            src="img/index/news_role_left.png"
+            alt=""
+          />
+          <img
+            class="news-role-right"
+            src="img/index/news_role_right.png"
+            alt=""
+          />
+          <div class="news-left"></div>
+          <div class="news-right"></div>
+        </div>
+      </div>
     </section>
-    <section class="full-hight role-section">
-      123
+
+    <section class="role-section">
+      <div class="role-box role-right">
+        <img src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="" class="role-bgc" />
+        <div class="role-mask" style="background-color: #ae699b"></div>
+        <img
+          src="img/index/地區/沙鹿/首頁地區沙鹿LOGO.svg"
+          alt=""
+          class="role-logo"
+        />
+        <img src="img/index/地區/沙鹿/璐醬立牌2.png" alt="" class="role" />
+      </div>
+      <div class="role-box role-left">
+        <img src="img/index/地區/梧棲/梧棲底圖.jpg" alt="" class="role-bgc" />
+        <div class="role-mask" style="background-color: #6985ae"></div>
+        <img
+          src="img/index/地區/梧棲/首頁地區梧棲LOGO.svg"
+          alt=""
+          class="role-logo"
+        />
+        <img src="img/index/地區/梧棲/梧棲立牌.png" alt="" class="role" />
+      </div>
+      <div class="role-box role-left">
+        <img src="img/index/地區//清水/清水底圖.jpg" alt="" class="role-bgc" />
+        <div class="role-mask" style="background-color: #AE8269"></div>
+        <img
+          src="img/index/地區/清水/首頁地區清水LOGO.svg"
+          alt=""
+          class="role-logo"
+        />
+        <img src="img/index/地區/清水/小清立牌.png" alt="" class="role" />
+      </div>
+      <div class="role-box"></div>
     </section>
+    <footer>
+      <div class="container">
+        <div class="footer-left">
+          <img src="img/index/logo.png" alt="" class="logo">
+        </div>
+        <div class="footer-right">
+          <div class="footer-social">
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-square fa-fw"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube fa-fw"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter-square fa-fw"></i></a></li>
+              <li><a href="#"><i class="far fa-envelope fa-fw"></i></a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#">隱私權政策</a></li>
+              <li><a href="#">使用者協議</a></li>
+              <li><a href="#">使用者協議</a></li>
+            </ul>
+          </div>
+          <div class="footer-copyright">
+            Copyright © 2021 Owlcreativecradle All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    
     <script>
-      const menuBtn = document.querySelector('nav > button.menu');
-      const menu = document.querySelector('nav');
-      menuBtn.addEventListener('click',()=>{menu.classList.toggle('open')})
+      //Nav JS
+      const menuBtn = document.querySelector("nav > button.menu");
+      const menu = document.querySelector("nav");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+      //Role JS
+      const roleBoxs = document.querySelectorAll(".role-section > .role-box");
+      roleBoxs.forEach((rolebox) => {
+        rolebox.addEventListener("mouseenter", () => {
+          rolebox.addEventListener("animationend", () => {
+            rolebox.classList.add("active");
+          });
+        });
+      });
     </script>
   </body>
 </html>
