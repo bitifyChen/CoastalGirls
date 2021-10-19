@@ -2,15 +2,6 @@
   --mainColor: #00ffff;
 }
 
-*,
-html,
-body {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 body {
   background-color: #535353;
 }
@@ -29,36 +20,10 @@ h2 {
   font-size: 2rem;
 }
 
-ul li {
-  list-style: none;
-}
-
-ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 900px) {
-  .container {
-    width: 860px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
-
 nav {
   background-color: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   position: fixed;
   width: 100%;
   height: 70px;
@@ -122,23 +87,43 @@ nav ul li label:hover {
   text-shadow: 0 0 0.2em var(--mainColor), 0 0 0.2em var(--mainColor);
 }
 
-nav ul li.dropdown:hover ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 nav ul li.dropdown ul {
   display: none;
   position: absolute;
-  width: 200%;
-  left: -50%;
+  width: 300%;
+  left: -100%;
   top: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+nav ul li.dropdown:after {
+  content: "";
+  display: block;
+  border-top: 5px solid #ccc;
+  border-left: 4.5px solid transparent;
+  border-right: 4.5px solid transparent;
+  margin-left: 9px;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+}
+
+nav ul li.dropdown:hover ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav ul li.dropdown:hover:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 nav ul input[type="checkbox"] {
@@ -151,11 +136,32 @@ nav button.menu {
 
 @media (max-width: 900px) {
   nav {
+    background-color: transparent;
+    -webkit-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     padding: 15px;
+  }
+  nav img {
+    position: absolute;
+    top: 20vh;
+    width: 60%;
+    height: auto;
+  }
+  nav.no-top {
+    background-color: rgba(0, 0, 0, 0.75);
+    -webkit-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+  }
+  nav.no-top img {
+    position: unset;
+    height: 40px;
+    width: auto;
   }
   nav ul {
     display: none;
@@ -194,7 +200,7 @@ nav button.menu {
     left: 0%;
     top: 100%;
     padding: 0 10%;
-    background-color: white;
+    background-color: black;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -215,17 +221,94 @@ nav button.menu {
     display: unset;
     height: 40px;
     width: 40px;
+    background-color: transparent;
+  }
+  nav button.menu::before {
+    content: "\f0c9";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    line-height: 40px;
+    font-size: 30px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    color: white;
+    text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
   }
   nav.open {
-    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    -webkit-transition: background-color 0.3s linear;
+    transition: background-color 0.3s linear;
+    -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+    height: 100%;
+  }
+  nav.open button.menu::before {
+    content: "\f00d";
   }
   nav.open img {
     margin-bottom: 15px;
+    position: unset;
+    height: 40px;
+    width: auto;
   }
   nav.open ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+.nav-tab {
+  padding: 30px 10px;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.nav-tab ul.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav-tab ul.nav li {
+  padding: 5px 15px;
+  margin: 0px 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-tab ul.nav li.active, .nav-tab ul.nav li:hover {
+  border-bottom: 2px solid var(--mainColor);
+  color: var(--mainColor);
+}
+
+.nav-tab .info-tab {
+  padding: 20px 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+@media (max-width: 900px) {
+  .nav-tab {
+    padding: 10px 10px;
+  }
+  .nav-tab .info-tab {
+    padding: 10px 5px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
   }
 }
 
@@ -324,7 +407,9 @@ footer .footer-right .footer-copyright {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
   }
-  footer .footer-copyright, footer .footer-links ul, footer .footer-social ul {
+  footer .footer-copyright,
+  footer .footer-links ul,
+  footer .footer-social ul {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -424,6 +509,16 @@ section.index-section button:hover {
 
 section.news-section {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 section.news-section .news-title {
@@ -445,14 +540,11 @@ section.news-section .news-title h1 {
   z-index: 99;
 }
 
-section.news-section .container {
-  height: 60%;
-}
-
 section.news-section .news-box {
-  height: 100%;
-  min-height: 400px;
+  height: 400px;
   background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -460,44 +552,90 @@ section.news-section .news-box {
 }
 
 section.news-section .news-box .news-left {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  background-color: yellow;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  overflow: hidden;
 }
 
 section.news-section .news-box .news-right {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  overflow: hidden;
 }
 
-section.news-section .news-box img {
+section.news-section .news-box > img {
   position: absolute;
 }
 
-section.news-section .news-box img.news-role-left {
+section.news-section .news-box > img.news-role-left {
   height: 120px;
   left: 20px;
   top: -120px;
 }
 
-section.news-section .news-box img.news-role-right {
+section.news-section .news-box > img.news-role-right {
   height: 160px;
   right: 20px;
   top: -125px;
 }
 
+section.news-section .mySwiper {
+  height: 100%;
+}
+
+section.news-section .mySwiper .swiper-slide {
+  overflow: hidden;
+  position: relative;
+}
+
+section.news-section .mySwiper .swiper-slide img {
+  display: unset;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: -50%;
+  left: -50%;
+  -webkit-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+}
+
+section.news-section .mySwiper .swiper-pagination-bullet-active {
+  background-color: white;
+}
+
 @media (max-width: 900px) {
   section.news-section .container {
-    height: 70%;
+    width: 100%;
+    height: 80%;
+  }
+  section.news-section .news-title {
+    height: 10%;
+    min-height: 100px;
   }
   section.news-section .news-box {
+    width: 100%;
+    height: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
   }
-  section.news-section .news-box img {
-    position: absolute;
+  section.news-section .news-box .news-left {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+  }
+  section.news-section .news-box .news-right {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
   }
   section.news-section .news-box img.news-role-left {
     display: none;
@@ -506,6 +644,86 @@ section.news-section .news-box img.news-role-right {
     height: 80px;
     right: 10px;
     top: -62.5px;
+    z-index: 99;
+  }
+}
+
+ul.news-in-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+ul.news-in-tab li {
+  padding: 0px 5px;
+  height: 20%;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+ul.news-in-tab li:hover {
+  background-color: rgba(255, 212, 159, 0.2);
+}
+
+ul.news-in-tab a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ul.news-in-tab a p.title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+ul.news-in-tab a p.date {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 14px;
+}
+
+button.news-in-tab-more {
+  background-color: transparent;
+  padding: 5px 10px;
+  margin-left: auto;
+}
+
+button.news-in-tab-more a {
+  color: white;
+  text-decoration: none;
+}
+
+button.news-in-tab-more a:hover {
+  color: var(--mainColor);
+}
+
+@media (max-width: 900px) {
+  button.news-in-tab-more {
+    background-color: rgba(0, 147, 147, 0.5);
+    border: 1px solid var(--mainColor);
+    width: 100%;
+    padding: 15px;
+  }
+  button.news-in-tab-more a {
+    color: var(--mainColor);
   }
 }
 
