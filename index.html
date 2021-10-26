@@ -24,7 +24,6 @@
       <img class="logo" src="img/index/logo.png" alt="" />
       <ul>
         <li><a href="#">最新消息</a></li>
-        <li><a href="#">故事</a></li>
         <li class="dropdown">
           <label for="btn-2">世界觀 </label>
           <input type="checkbox" id="btn-2" />
@@ -234,6 +233,8 @@
       const menu = document.querySelector("nav");
       menuBtn.addEventListener("click", () => {
         menu.classList.toggle("open");
+        menu.classList.add("no-top");
+        document.body.classList.toggle('lock-scroll');
       });
       window.addEventListener("scroll", function () {
         if (window.scrollY < 50) {
@@ -251,6 +252,7 @@
           });
         });
       });
+      //swiper
 
       var swiper = new Swiper(".mySwiper", {
         pagination: {
