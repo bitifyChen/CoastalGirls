@@ -262,6 +262,10 @@ footer {
       margin: 10px 0px;
       ul {
         display: flex;
+        li:hover i{
+          color: var(--mainColor);
+          transition: color 0.3s linear;
+        }
         li + li {
           margin-left: 10px;
         }
@@ -294,6 +298,7 @@ footer {
     .footer-copyright {
       margin: 10px 0px;
       color: white;
+      font-family: 'Calibri';
     }
   }
   @media (max-width: 900px) {
@@ -454,6 +459,9 @@ section.news-section {
     .news-title {
       height: 10%;
       min-height: 100px;
+      h1.section-title{
+        font-size:42px ;
+      }
     }
     .news-box {
       width: 100%;
@@ -490,7 +498,7 @@ ul.news-in-tab {
     cursor: pointer;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     &:hover {
-      background-color: rgba(255, 212, 159, 0.2);
+      background-color: rgba(149, 178, 235, 0.2);
     }
   }
   a {
