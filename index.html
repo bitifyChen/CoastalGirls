@@ -21,9 +21,9 @@
 
   <body>
     <nav>
-      <img class="logo" src="img/index/logo.png" alt="" />
+      <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
       <ul>
-        <li><a href="#">最新消息</a></li>
+        <li><a href="news.html">最新消息</a></li>
         <li class="dropdown">
           <label for="btn-2">世界觀 </label>
           <input type="checkbox" id="btn-2" />
@@ -42,7 +42,8 @@
     <section class="full-hight index-section">
       <video src="img/index/高美動圖.mp4" autoplay="autoplay"></video>
       <img class="full-hight" src="img/index/index_m.jpg" alt="" />
-      <button>精彩海線，隨心出發GO!</button>
+      <button class="modal-open" data-name="video">精彩海線，隨心出發GO!</button>
+      <button class="modal-open" data-name="story">故事</button>
     </section>
     <section class="full-hight news-section">
       <img class="full-hight" src="img/index/news.jpg" alt="" />
@@ -192,6 +193,16 @@
       </div>
       <div class="role-box"></div>
     </section>
+    
+    <section class="modal" data-name="video">
+      <div class="modal-content">
+        <div class="modal-video">
+          <iframe src="https://www.youtube.com/embed/9tobL8U7dQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <button class="modal-close"></button>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div class="container">
         <div class="footer-left">
@@ -248,6 +259,26 @@
           menu.classList.add("no-top");
         }
       });
+
+      //Modal JS
+      const modalCloseBtn = document.querySelector("button.modal-close");
+      const modalOpenBtn = document.querySelector("button.modal-open");
+      const modal = document.querySelector("section.modal");
+      modal.addEventListener("click",()=>{
+        modal.classList.remove('open')
+        document.body.classList.remove('lock-scroll');
+      });
+
+      modalCloseBtn.addEventListener("click",()=>{
+        modal.classList.remove('open')
+        document.body.classList.remove('lock-scroll');
+      });
+
+      modalOpenBtn.addEventListener("click",()=>{
+        modal.classList.add('open')
+        document.body.classList.toggle('lock-scroll');
+      });
+
       //Role JS
       const roleBoxs = document.querySelectorAll(".role-section > .role-box");
       roleBoxs.forEach((rolebox) => {
@@ -257,8 +288,8 @@
           });
         });
       });
-      //swiper
 
+      //swiper
       var swiper = new Swiper(".mySwiper", {
         pagination: {
           el: ".swiper-pagination",
