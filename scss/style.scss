@@ -7,6 +7,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
   &.lock-scroll {
     overflow: hidden;
   }
@@ -113,20 +114,14 @@ nav {
     padding: 15px;
     img {
       position: absolute;
-      top: 20vh;
-      width: 60%;
-      height: auto;
+      height: 40px;
+      width: auto;
+      left: 15px;
+      top: 15px;
     }
     &.no-top {
       background-color: rgba(0, 0, 0, 0.75);
       transition: background-color 0.3s linear;
-      img {
-        position: absolute;
-        height: 40px;
-        width: auto;
-        left: 15px;
-        top: 15px;
-      }
     }
     ul {
       display: none;
@@ -137,7 +132,7 @@ nav {
       li {
         justify-content: center;
         width: 100%;
-        a{
+        a {
           width: 100%;
           text-align: center;
         }
@@ -149,7 +144,7 @@ nav {
         display: flex;
         ul {
           display: none;
-          position:static;
+          position: static;
           width: 100%;
           background-color: rgba(0, 0, 0, 1);
           flex-direction: column;
@@ -265,9 +260,9 @@ footer {
         li + li {
           margin-left: 10px;
         }
-        li:hover i{
+        li:hover i {
           color: var(--mainColor);
-          transition: color .3s linear;
+          transition: color 0.3s linear;
         }
         i {
           font-size: 20px;
@@ -314,6 +309,90 @@ footer {
     }
   }
 }
+/*Modal*/
+section.modal {
+  display: none;
+  &.open {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(3px);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .modal-content {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: calc(900px / 16 * 9);
+    .modal-head {
+      color: white;
+      height: 40px;
+      line-height: 40px;
+      position: relative;
+    }
+    .modal-video {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    @media (max-width: 900px) {
+      height: 40vh;
+      width: calc(40vh / 9 * 16);
+      max-width: 100%;
+      margin: 0px 20px;
+    }
+  }
+  button.modal-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0px;
+    right: -40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s linear;
+    &:hover {
+      background-color: var(--mainColor);
+      transition: background-color 0.2s linear;
+    }
+    &::before {
+      content: "\f00d";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      line-height: 40px;
+      font-size: 30px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 40px;
+      height: 40px;
+      display: block;
+      color: white;
+      text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
+    }
+    @media (max-width: 900px) {
+      width: 40px;
+      height: 40px;
+      top: -40px;
+      right: 0px;
+    }
+  }
+}
 
 /*section*/
 section.top {
@@ -337,6 +416,31 @@ button {
   border: none;
   cursor: pointer;
 }
+
+/*PATH*/
+ul.path {
+  color: white;
+  display: flex;
+  margin: 20px 0px;
+  li {
+    cursor: pointer;
+    color: #808080;
+    &:hover {
+      color: var(--mainColor);
+    }
+  }
+  li:last-child {
+    color: white;
+  }
+  li + li {
+    &::before {
+      content: ">";
+      color: #808080;
+      margin: 0 5px;
+    }
+  }
+}
+
 /*--------------------Index--------------------*/
 section.index-section {
   position: relative;
@@ -408,10 +512,10 @@ section.news-section {
     backdrop-filter: blur(3px);
     position: relative;
     display: flex;
-    @media (min-width: 900px) and (max-width:1440px){
+    @media (min-width: 900px) and (max-width: 1440px) {
       height: 260px;
     }
-    @media (min-width:1440px){
+    @media (min-width: 1440px) {
       height: 376.5px;
     }
     .news-left {
@@ -678,7 +782,6 @@ section.news-top {
         border-radius: 10px;
         width: 100%;
       }
-<<<<<<< HEAD
 
       h3.title {
         margin: 10px 0px;
@@ -700,29 +803,6 @@ section.news-top {
   }
 }
 
-=======
-
-      h3.title {
-        margin: 10px 0px;
-      }
-      pre.description {
-        margin: 10px 0px;
-        white-space: pre-wrap;
-      }
-      .info {
-        display: flex;
-        margin-top: auto;
-        p.date {
-        }
-        p.tag {
-          margin-left: auto;
-        }
-      }
-    }
-  }
-}
-
->>>>>>> master
 section.news-main {
   background-color: #ededed;
   margin: 20px 0px;
@@ -753,6 +833,12 @@ section.news-main {
   .news-main-boxs {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+    border: 3px solid transparent;
+    &:hover {
+      border: 3px solid rgba(57, 59, 64, 0.15);
+      transition: all 0.3s linear;
+    }
     .news-main-box {
       background-color: white;
       display: flex;
@@ -806,6 +892,64 @@ section.news-main {
     }
   }
 }
+
+section.news-detail {
+  background: #4d6e80 url("https://genshin.mihoyo.com/_nuxt/img/ea6ea46.jpg") no-repeat top center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 150px 0px;
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .news-article {
+    display: flex;
+    .news-body {
+      background-color: #f0f0f0;
+      padding: 10% 5%;
+      display: flex;
+      flex-direction: column;
+      width: 900px;
+      border-top: var(--mainColor) solid 6px;
+      .news-title {
+        line-height: 40px;
+        font-size: 32px;
+        color: #333;
+      }
+      .news-date {
+        margin-top: 13px;
+        font-size: 16px;
+        line-height: 22px;
+        color: #999;
+      }
+      .news-content {
+        margin-top: 51px;
+        font-size: 14px;
+        color: #7d7d7d;
+        line-height: 24px;
+        display: flex;
+        flex-direction: column;
+        p {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    .news-side {
+      border-top: var(--mainColor) solid 6px;
+      margin-left: 30px;
+      width: 350px;
+      background-color: white;
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+  }
+}
+
 /*--------------------NEWS--------------------*/
 /*--------------------Role--------------------*/
 section#role {
