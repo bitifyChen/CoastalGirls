@@ -63,7 +63,7 @@ li > a{
   
   @media (min-width: 900px) {
     .container {
-      width: 860px;
+      width: 900px;
     }
   }
   @media (min-width: 1440px) {
