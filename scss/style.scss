@@ -678,6 +678,7 @@ section.news-top {
         border-radius: 10px;
         width: 100%;
       }
+<<<<<<< HEAD
 
       h3.title {
         margin: 10px 0px;
@@ -699,6 +700,29 @@ section.news-top {
   }
 }
 
+=======
+
+      h3.title {
+        margin: 10px 0px;
+      }
+      pre.description {
+        margin: 10px 0px;
+        white-space: pre-wrap;
+      }
+      .info {
+        display: flex;
+        margin-top: auto;
+        p.date {
+        }
+        p.tag {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
+
+>>>>>>> master
 section.news-main {
   background-color: #ededed;
   margin: 20px 0px;
