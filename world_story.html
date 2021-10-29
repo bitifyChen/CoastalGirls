@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>海線少女</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.css"
+      integrity="sha512-Q0DfJ+I5cbH4Wm20NlPZ/fENHil7k3ZgzI9b71LfQAB1IlM8Gt7aO7eOPX2QzYT+4fZaF6u1kSfZAHczl4r/9Q=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="scss/reset.css" />
+    <link rel="stylesheet" href="scss/style.css" />
+
+  </head>
+
+  <body>
+    <nav class="no-top">
+      <a href="index.html"
+        ><img class="logo" src="img/index/logo.png" alt=""
+      /></a>
+      <ul>
+        <li><a href="news.html">最新消息</a></li>
+        <li class="dropdown">
+          <label for="btn-2">世界觀 </label>
+          <input type="checkbox" id="btn-2" />
+          <ul>
+            <li><a href="#">地區故事</a></li>
+            <li><a href="#">漫畫</a></li>
+          </ul>
+        </li>
+        <li><a href="#">周邊小物</a></li>
+        <li><a href="#">關於我們</a></li>
+        <li><a href="#">在地美照</a></li>
+        <li><a href="#">媒體中心</a></li>
+      </ul>
+      <button class="menu"></button>
+    </nav>
+   <section class="full-hight worldStory">
+    <div class="swiper storySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #ae8269"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #6985ae"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #ae8269"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #6985ae"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #ae8269"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #6985ae"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #ae8269"></div>
+        </div>
+        <div class="swiper-slide world-box">
+          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
+          <div class="world-mask" style="background-color: #6985ae"></div>
+        </div> 
+      </div>
+      <div class="swiper-pagination">
+        123
+      </div>
+    </div>
+   </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-left">
+          <img src="img/index/logo.png" alt="" class="logo" />
+        </div>
+        <div class="footer-right">
+          <div class="footer-social">
+            <ul>
+              <li>
+                <a href="#"><i class="fab fa-facebook-square fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-youtube fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-instagram fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter-square fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="far fa-envelope fa-fw"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#">隱私權政策</a></li>
+              <li><a href="#">使用者協議</a></li>
+              <li><a href="#">使用者協議</a></li>
+            </ul>
+          </div>
+          <div class="footer-copyright">
+            Copyright © 2021 Owlcreativecradle All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script>
+      //Nav JS
+      const menuBtn = document.querySelector("nav > button.menu");
+      const menu = document.querySelector("nav");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+
+      //swiper
+      let names = ['沙鹿', '梧棲', '沙鹿', '梧棲', '沙鹿', '梧棲', '沙鹿', '梧棲'];
+      var swiper = new Swiper(".storySwiper", {
+        direction: "vertical",
+        mousewheel:{
+          sensitivity:0,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+          return '<div class="' + className + '"><div class="nametag">' + names[index]+ '</div></div>';}
+        },     
+      });
+    </script>
+  </body>
+</html>

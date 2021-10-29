@@ -1,5 +1,5 @@
 :root {
-  --mainColor: #00ffff;
+  --mainColor: #00e4e4;
 }
 
 body {
@@ -273,7 +273,7 @@ nav button.menu {
 }
 
 .nav-tab {
-  padding: 30px 10px;
+  padding: 30px 10px 10px 10px;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -384,7 +384,7 @@ footer .footer-right .footer-social ul i {
 }
 
 footer .footer-right .footer-links {
-  margin: 10px 0px;
+  margin: 10px 0px 5px 0px;
 }
 
 footer .footer-right .footer-links ul {
@@ -414,9 +414,13 @@ footer .footer-right .footer-links ul li a:hover {
   transition: color 0.3s linear;
 }
 
+footer .footer-right .footer-links ul li:last-child {
+  border: none;
+}
+
 footer .footer-right .footer-copyright {
-  margin: 10px 0px;
   color: white;
+  font-family: "Calibri";
 }
 
 @media (max-width: 900px) {
@@ -718,13 +722,13 @@ section.news-section .news-box {
   display: flex;
 }
 
-@media (min-width: 900px) and (max-width: 1440px) {
+@media (min-width: 900px) and (max-width: 1280px) {
   section.news-section .news-box {
     height: 260px;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   section.news-section .news-box {
     height: 376.5px;
   }
@@ -847,7 +851,7 @@ ul.news-in-tab li {
 }
 
 ul.news-in-tab li:hover {
-  background-color: rgba(255, 212, 159, 0.2);
+  background-color: rgba(149, 178, 235, 0.2);
 }
 
 ul.news-in-tab a {
@@ -897,13 +901,13 @@ button.news-in-tab-more a:hover {
 
 @media (max-width: 900px) {
   button.news-in-tab-more {
-    background-color: rgba(0, 147, 147, 0.5);
-    border: 1px solid var(--mainColor);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
     width: 100%;
-    padding: 15px;
+    padding: 10px;
   }
   button.news-in-tab-more a {
-    color: var(--mainColor);
+    color: white;
   }
 }
 
@@ -1072,14 +1076,14 @@ section.news-top .news-top-boxs {
 }
 
 section.news-top .news-top-boxs .news-top-box {
-  padding: 10px;
+  padding: 15px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  margin: 10px;
+  margin: 10px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 10px;
+  border-radius: 5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1090,17 +1094,19 @@ section.news-top .news-top-boxs .news-top-box {
 }
 
 section.news-top .news-top-boxs .news-top-box img {
-  border-radius: 10px;
+  border-radius: 5px;
   width: 100%;
 }
 
 section.news-top .news-top-boxs .news-top-box h3.title {
-  margin: 10px 0px;
+  margin: 15px 0px;
 }
 
 section.news-top .news-top-boxs .news-top-box pre.description {
-  margin: 10px 0px;
+  margin-bottom: 15px;
   white-space: pre-wrap;
+  line-height: 20px;
+  font-size: 16px;
 }
 
 section.news-top .news-top-boxs .news-top-box .info {
@@ -1110,8 +1116,14 @@ section.news-top .news-top-boxs .news-top-box .info {
   margin-top: auto;
 }
 
+section.news-top .news-top-boxs .news-top-box .info p.date {
+  font-size: 14px;
+}
+
 section.news-top .news-top-boxs .news-top-box .info p.tag {
   margin-left: auto;
+  font-size: 14px;
+  color: #fad200;
 }
 
 section.news-main {
@@ -1130,7 +1142,7 @@ section.news-main ul.news-main-btns li {
   width: 200px;
   height: 45px;
   background-color: #b0b0b0;
-  border-radius: 10px;
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1144,7 +1156,7 @@ section.news-main ul.news-main-btns li {
 }
 
 section.news-main ul.news-main-btns li + li {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 section.news-main ul.news-main-btns li.active,
@@ -1163,7 +1175,7 @@ section.news-main .news-main-boxs {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border: 3px solid transparent;
 }
 
@@ -1179,7 +1191,7 @@ section.news-main .news-main-boxs .news-main-box {
   display: -ms-flexbox;
   display: flex;
   height: 200px;
-  padding: 20px;
+  padding: 15px;
 }
 
 section.news-main .news-main-boxs .news-main-box img {
@@ -1198,11 +1210,19 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 0px 20px;
+  padding-left: 20px;
+}
+
+section.news-main .news-main-boxs .news-main-box .news-main-box-r h3.title {
+  line-height: 26px;
 }
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r pre {
   margin: 10px 0px;
+  white-space: pre-wrap;
+  line-height: 20px;
+  font-size: 16px;
+  color: #303030;
 }
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r .info {
@@ -1220,6 +1240,7 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.date {
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag {
   margin: 0px 10px;
+  color: #fad200;
 }
 
 @media (max-width: 900px) {
@@ -1232,10 +1253,15 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag {
     height: auto;
   }
   section.news-main .news-main-boxs .news-main-box .news-main-box-r {
-    padding: 0px 10px;
+    padding-left: 10px;
   }
   section.news-main .news-main-boxs .news-main-box .news-main-box-r pre {
     display: none;
+  }
+  section.news-main .news-main-boxs .news-main-box .news-main-box-r .info {
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
   }
   section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.date {
     margin: 0px 5px;
@@ -1332,6 +1358,106 @@ section.news-detail .news-article .news-side {
 }
 
 /*--------------------NEWS--------------------*/
+/*--------------------WORLD--------------------*/
+.storySwiper {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.storySwiper .swiper-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  right: calc(100vw - 30px) !important;
+  height: 60vh;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.storySwiper .swiper-pagination::before {
+  content: "";
+  height: 100%;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  left: calc(50% - 1px);
+  z-index: -99;
+}
+
+.storySwiper .swiper-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #c4c4c4;
+  opacity: 1;
+  position: relative;
+}
+
+.storySwiper .swiper-pagination .swiper-pagination-bullet:hover {
+  background-color: #fff;
+}
+
+.storySwiper .swiper-pagination .swiper-pagination-bullet:hover .nametag {
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: background-color .3s linear;
+  transition: background-color .3s linear;
+}
+
+.storySwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--mainColor);
+}
+
+.storySwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active .nametag {
+  background-color: rgba(0, 228, 228, 0.5);
+  -webkit-transition: background-color .3s linear;
+  transition: background-color .3s linear;
+}
+
+.storySwiper .swiper-pagination .nametag {
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  line-height: 18px;
+  top: -10px;
+  left: 30px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 10px;
+}
+
+section.worldStory .world-box {
+  position: relative;
+}
+
+section.worldStory .world-box img.world-bgc {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+section.worldStory .world-box .world-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+/*--------------------WORLD--------------------*/
 /*--------------------Role--------------------*/
 section#role {
   position: relative;
