@@ -17,7 +17,6 @@
     />
     <link rel="stylesheet" href="scss/reset.css" />
     <link rel="stylesheet" href="scss/style.css" />
-
   </head>
 
   <body>
@@ -42,47 +41,77 @@
       </ul>
       <button class="menu"></button>
     </nav>
-   <section class="full-hight worldStory">
-    <div class="swiper storySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #ae8269"></div>
+    <section class="full-hight worldStory">
+      <div class="swiper storySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/沙鹿/沙鹿底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #ae8269"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/清水/清水底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #6985ae"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/沙鹿/沙鹿底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #ae8269"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/清水/清水底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #6985ae"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/沙鹿/沙鹿底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #ae8269"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/清水/清水底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #6985ae"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/沙鹿/沙鹿底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #ae8269"></div>
+          </div>
+          <div class="swiper-slide world-box">
+            <img
+              class="world-bgc"
+              src="img/index/地區/清水/清水底圖.jpg"
+              alt=""
+            />
+            <div class="world-mask" style="background-color: #6985ae"></div>
+          </div>
         </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #6985ae"></div>
-        </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #ae8269"></div>
-        </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #6985ae"></div>
-        </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #ae8269"></div>
-        </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #6985ae"></div>
-        </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #ae8269"></div>
-        </div>
-        <div class="swiper-slide world-box">
-          <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="">
-          <div class="world-mask" style="background-color: #6985ae"></div>
-        </div> 
+        <div class="swiper-pagination">123</div>
       </div>
-      <div class="swiper-pagination">
-        123
-      </div>
-    </div>
-   </section>
+    </section>
 
     <footer>
       <div class="container">
@@ -133,19 +162,51 @@
       });
 
       //swiper
-      let names = ['沙鹿', '梧棲', '沙鹿', '梧棲', '沙鹿', '梧棲', '沙鹿', '梧棲'];
+      let names = ["初始","沙鹿","梧棲","沙鹿","梧棲","沙鹿","梧棲","沙鹿"];
       var swiper = new Swiper(".storySwiper", {
         direction: "vertical",
-        mousewheel:{
-          sensitivity:0,
+        mousewheel: {
+          sensitivity: 0,
         },
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
           renderBullet: function (index, className) {
-          return '<div class="' + className + '"><div class="nametag">' + names[index]+ '</div></div>';}
-        },     
+            return (
+              '<div class="' +
+              className +
+              '"><div class="nametag">' +
+              names[index] +
+              "</div></div>"
+            );
+          },
+        },
+        on: {
+          slideChangeTransitionStart: function(){
+            const indexTotal = swiper.slides.length;
+            //在非首頁時，顯示導覽列
+            if(this.activeIndex > 0 ){
+              document.querySelector('.swiper-pagination').classList.add('active');
+              if(this.activeIndex == swiper.slides.length - 1){
+                swiper.mousewheel.disable();
+              }
+            }
+            else if (this.activeIndex == 0){
+              document.querySelector('.swiper-pagination').classList.remove('active');
+            }
+          },
+        },
       });
+
+      //如果在頂端時開啟
+      window.addEventListener('scroll', function(e) {
+        if(window.scrollY == 0){
+          swiper.mousewheel.enable();
+        }else{
+          swiper.mousewheel.disable();
+        }
+      });
+      
     </script>
   </body>
 </html>
