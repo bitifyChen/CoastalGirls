@@ -1373,11 +1373,21 @@ section.news-detail .news-article .news-side {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  right: calc(100vw - 30px) !important;
   height: 60vh;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  right: 130vw;
+  opacity: 0;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+}
+
+.storySwiper .swiper-pagination.active {
+  right: calc(100vw - 30px) !important;
+  opacity: 1;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 
 .storySwiper .swiper-pagination::before {
@@ -1404,8 +1414,8 @@ section.news-detail .news-article .news-side {
 
 .storySwiper .swiper-pagination .swiper-pagination-bullet:hover .nametag {
   background-color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: background-color .3s linear;
-  transition: background-color .3s linear;
+  -webkit-transition: background-color 0.3s linear;
+  transition: background-color 0.3s linear;
 }
 
 .storySwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -1414,8 +1424,8 @@ section.news-detail .news-article .news-side {
 
 .storySwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active .nametag {
   background-color: rgba(0, 228, 228, 0.5);
-  -webkit-transition: background-color .3s linear;
-  transition: background-color .3s linear;
+  -webkit-transition: background-color 0.3s linear;
+  transition: background-color 0.3s linear;
 }
 
 .storySwiper .swiper-pagination .nametag {
@@ -1436,8 +1446,53 @@ section.news-detail .news-article .news-side {
   padding-left: 10px;
 }
 
+@media (max-width: 900px) {
+  .storySwiper .swiper-pagination {
+    top: calc(100vh - 100px);
+    width: 100vw;
+    left: 0px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 100px;
+  }
+  .storySwiper .swiper-pagination::before {
+    height: 2px;
+    width: 100vw;
+    left: 0;
+    top: 10px;
+  }
+  .storySwiper .swiper-pagination .nametag {
+    width: 30px;
+    height: 80px;
+    top: 20px;
+    left: -10px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-left: 0px;
+  }
+}
+
 section.worldStory .world-box {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0px 200px;
+  overflow: hidden;
 }
 
 section.worldStory .world-box img.world-bgc {
@@ -1448,6 +1503,7 @@ section.worldStory .world-box img.world-bgc {
      object-fit: cover;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  z-index: -2;
 }
 
 section.worldStory .world-box .world-mask {
@@ -1455,6 +1511,65 @@ section.worldStory .world-box .world-mask {
   width: 100%;
   height: 100%;
   opacity: 0.5;
+  z-index: -1;
+}
+
+section.worldStory .world-box .title {
+  color: white;
+  text-align: center;
+  font-size: 48px;
+  padding: 10px 0px;
+  border-bottom: 2px solid white;
+  margin: 10px 0px;
+}
+
+section.worldStory .world-box .title span {
+  font-size: 36px;
+  padding: 0px 10px;
+}
+
+section.worldStory .world-box .description {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+section.worldStory .world-box img.icon {
+  width: 100px;
+}
+
+section.worldStory .world-box .btn-list button {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  color: #4B4B4B;
+  background-color: #E2E2E2;
+  font-size: 14px;
+}
+
+section.worldStory .world-box .btn-list button span {
+  font-size: 24px;
+  display: block;
+}
+
+section.worldStory .world-box .btn-list button:hover {
+  background-color: #4B4B4B;
+  color: #E2E2E2;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+section.worldStory .world-box .btn-list button:hover span {
+  color: #E2E2E2;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+@media (max-width: 900px) {
+  section.worldStory .world-box {
+    padding: 0px 20px;
+  }
 }
 
 /*--------------------WORLD--------------------*/

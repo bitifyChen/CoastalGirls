@@ -21,7 +21,9 @@
 
   <body>
     <nav>
-      <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
+      <a href="index.html"
+        ><img class="logo" src="img/index/logo.png" alt=""
+      /></a>
       <ul>
         <li><a href="news.html">最新消息</a></li>
         <li class="dropdown">
@@ -40,9 +42,13 @@
       <button class="menu"></button>
     </nav>
     <section class="full-hight index-section">
-      <video src="img/index/高美動圖.mp4" autoplay="autoplay" loop></video>
+      <video id="video" autoplay="true" muted="muted" loop>
+        <source src="img/index/高美動圖.mp4" type="video/mp4" />
+      </video>
       <img class="full-hight" src="img/index/index_m.jpg" alt="" />
-      <button class="modal-open" data-name="video">精彩海線，隨心出發GO!</button>
+      <button class="modal-open" data-name="video">
+        精彩海線，隨心出發GO!
+      </button>
     </section>
     <section class="full-hight news-section">
       <img class="full-hight" src="img/index/news.jpg" alt="" />
@@ -65,40 +71,24 @@
             <div class="swiper mySwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <img
-                    src="https://via.placeholder.com/680x400"
-                    alt=""
-                  />
+                  <img src="https://via.placeholder.com/680x400" alt="" />
                 </div>
 
                 <div class="swiper-slide">
-                  <img
-                    src="https://via.placeholder.com/680x400"
-                    alt=""
-                  />
+                  <img src="https://via.placeholder.com/680x400" alt="" />
                 </div>
 
                 <div class="swiper-slide">
-                  <img
-                    src="https://via.placeholder.com/680x400"
-                    alt=""
-                  />
+                  <img src="https://via.placeholder.com/680x400" alt="" />
                 </div>
 
                 <div class="swiper-slide">
-                  <img
-                    src="https://via.placeholder.com/680x400"
-                    alt=""
-                  />
+                  <img src="https://via.placeholder.com/680x400" alt="" />
                 </div>
 
                 <div class="swiper-slide">
-                  <img
-                    src="https://via.placeholder.com/680x400"
-                    alt=""
-                  />
+                  <img src="https://via.placeholder.com/680x400" alt="" />
                 </div>
-                
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -192,11 +182,17 @@
       </div>
       <div class="role-box"></div>
     </section>
-    
+
     <section class="modal" data-name="video">
       <div class="modal-content">
         <div class="modal-video">
-          <iframe src="https://www.youtube.com/embed/9tobL8U7dQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/9tobL8U7dQo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <button class="modal-close"></button>
         </div>
       </div>
@@ -249,7 +245,7 @@
       menuBtn.addEventListener("click", () => {
         menu.classList.toggle("open");
         menu.classList.add("no-top");
-        document.body.classList.toggle('lock-scroll');
+        document.body.classList.toggle("lock-scroll");
       });
       window.addEventListener("scroll", function () {
         if (window.scrollY < 50) {
@@ -263,19 +259,19 @@
       const modalCloseBtn = document.querySelector("button.modal-close");
       const modalOpenBtn = document.querySelector("button.modal-open");
       const modal = document.querySelector("section.modal");
-      modal.addEventListener("click",()=>{
-        modal.classList.remove('open')
-        document.body.classList.remove('lock-scroll');
+      modal.addEventListener("click", () => {
+        modal.classList.remove("open");
+        document.body.classList.remove("lock-scroll");
       });
 
-      modalCloseBtn.addEventListener("click",()=>{
-        modal.classList.remove('open')
-        document.body.classList.remove('lock-scroll');
+      modalCloseBtn.addEventListener("click", () => {
+        modal.classList.remove("open");
+        document.body.classList.remove("lock-scroll");
       });
 
-      modalOpenBtn.addEventListener("click",()=>{
-        modal.classList.add('open')
-        document.body.classList.toggle('lock-scroll');
+      modalOpenBtn.addEventListener("click", () => {
+        modal.classList.add("open");
+        document.body.classList.toggle("lock-scroll");
       });
 
       //Role JS
@@ -294,11 +290,10 @@
           el: ".swiper-pagination",
         },
         autoplay: {
-            delay: 5000,
+          delay: 5000,
         },
-
       });
-
     </script>
+
   </body>
 </html>
