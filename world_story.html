@@ -44,38 +44,42 @@
     <section class="full-hight worldStory">
       <div class="swiper storySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide world-box first-box">
+          <!-- <div class="swiper-slide world-box first-box">
             <img
               class="world-bgc"
-              src="img/index/地區/沙鹿/沙鹿底圖.jpg"
+              src="https://genshin.mihoyo.com/_nuxt/img/5c125a1.png"
               alt=""
             />
-            <div class="world-mask" style="background-color: #ae8269"></div>
+            <div class="world-mask" style="background-color: #6985ae"></div>
+            <div class="world-content">
             <div class="title">
               八道神祕力量<br>落到中部海線地區
             </div>
             <div class="description">傳言，八道白光事件後，<br>各地開始有不知來歷的少女陸續現身。<br>雖然，目前都與人們和平的生活著，<br>但他們好像都擁有著某種神力與秘密...
             </div>
-          </div>
+            </div>
+          </div> -->
           <div class="swiper-slide world-box">
             <img
               class="world-bgc"
               src="img/index/地區/清水/清水底圖.jpg"
               alt=""
             />
-            <div class="world-mask" style="background-color: #6985ae"></div>
-            <img class="icon" src="img/index/地區/沙鹿/首頁地區沙鹿LOGO.svg"></img>
-            <div class="title">
-              沙鹿<span>ShaLu</span>
+            <div class="world-mask" style="background-color: #ae8269"></div>
+            <div class="world-content">
+               <img class="icon" src="img/index/地區/沙鹿/首頁地區沙鹿LOGO.svg"></img>
+              <div class="title">
+                沙鹿<span>ShaLu</span>
+              </div>
+              <div class="description">
+                沙鹿區，舊稱「沙轆」，前身「沙鹿鎮」，<br>位於臺灣臺中市西部海岸平原的中心，介於臺中市區與臺中港之間、<br>鄰近中部科學園區，是臺中國際機場所在地。<br>區內人口約有9.6萬人，是臺中市海線地區的人口第一大城市，<br>地形平坦少屏障，季風強、雨量少。重要特產為甘藷、豬肉副食產品。
+              </div>
+              <div class="btn-list">
+                <button class="modal-open" data-name="world">介紹<span>沙鹿</span></button>
+                <button>介紹<span>璐醬</span></button>
+              </div>
+              <img class="role"src="img/role/小圖1.png" alt="">
             </div>
-            <div class="description">
-              沙鹿區，舊稱「沙轆」，前身「沙鹿鎮」，位於臺灣臺中市西部海岸平原的中心，介於臺中市區與臺中港之間、鄰近中部科學園區，是臺中國際機場所在地。區內人口約有9.6萬人，是臺中市海線地區的人口第一大城市，地形平坦少屏障，季風強、雨量少。重要特產為甘藷、豬肉副食產品。
-            </div>
-            <div class="btn-list">
-              <button>介紹<span>沙鹿</span></button>
-              <button>介紹<span>璐醬</span></button>
-            </div>
-            <img class="role"src="img/role/小圖1.png" alt="">
           </div>
           <div class="swiper-slide world-box">
             <img
@@ -84,6 +88,7 @@
               alt=""
             />
             <div class="world-mask" style="background-color: #ae8269"></div>
+            <button class="modal-open" data-name="world2">介紹<span>沙鹿</span></button>
           </div>
           <div class="swiper-slide world-box">
             <img
@@ -130,6 +135,55 @@
       </div>
     </section>
 
+    <section class="modal modal-full open" data-name="world">
+      <div class="modal-content">
+       <div class="modal-sidebar">
+         <ul>
+           <li>歷史沿革</li>
+           <li>地理環境</li>
+           <li>人口概況</li>
+           <li>教育醫療</li>
+           <li>產業發展</li>
+           <li>宗教信仰</li>
+           <li>特產小吃</li>
+           <li>觀光景點</li>
+         </ul>
+       </div>
+       <div class="modal-main">
+         <div class="modal-title">認識沙鹿
+          <button class="modal-close"></button>
+         </div>
+         <div class="modal-infos">
+            <div class="modal-info">
+              <div class="modal-info-title">
+                歷史沿革
+              </div>
+              <div class="modal-info-content">
+                ■ 千百年來，大肚山台地都是一片荒山礫石地，人煙稀少，約在四千五百年前，本區已有人煙活動。不過，那是根據「考古資料」說的，並沒有文字的記載。沙鹿，這個台灣中西部海岸平原上的小鎮，臺語叫做「Soa-lak」。 ■ 約在西元一六五０年。荷蘭人、西班牙人佔領台灣時，便開始著手進行全台島民調查，當時沙鹿稱為「沙轆社」，共有三十餘戶，是平埔族中的大村落，文獻指出這個族群名為Papora(巴布拉族)。他們的生活以狩獵捕鹿為主，並從事簡單的耕作，種植芋頭、甘藷、玉米等作物。 ■ 居住於沙轆社的平埔族原住民，對於本地的拓殖、開墾有相當的貢獻。 他們居住在大甲溪以南、大肚溪以北的地區，分為四個聚落，最北的一個是「Gomach」，而「Salach」位於「Gomach」南邊的大肚台地西麓，這是此地最早的文獻記錄。 ■ 鄭氏時期以後，漢民族陸續來台開墾大肚山鹿寮山麓，早期山鹿多，漢人來到此地捕捉山鹿，搭建簡單的寮舍，以供休息暫歇或存放獵物。後來漸漸形成村落，此地就叫做鹿寮。鹿寮漸漸繁榮後，有「九萬十八千」的美譽，當時鹿寮地區居民生活富裕，家財上萬元的有九戶，千元以上的有十八戶。
+              </div>
+            </div>
+            <div class="modal-info">
+              <div class="modal-info-title">
+                地理環境
+              </div>
+              <div class="modal-info-content">
+                ■ 千百年來，大肚山台地都是一片荒山礫石地，人煙稀少，約在四千五百年前，本區已有人煙活動。不過，那是根據「考古資料」說的，並沒有文字的記載。沙鹿，這個台灣中西部海岸平原上的小鎮，臺語叫做「Soa-lak」。 ■ 約在西元一六五０年。荷蘭人、西班牙人佔領台灣時，便開始著手進行全台島民調查，當時沙鹿稱為「沙轆社」，共有三十餘戶，是平埔族中的大村落，文獻指出這個族群名為Papora(巴布拉族)。他們的生活以狩獵捕鹿為主，並從事簡單的耕作，種植芋頭、甘藷、玉米等作物。 ■ 居住於沙轆社的平埔族原住民，對於本地的拓殖、開墾有相當的貢獻。 他們居住在大甲溪以南、大肚溪以北的地區，分為四個聚落，最北的一個是「Gomach」，而「Salach」位於「Gomach」南邊的大肚台地西麓，這是此地最早的文獻記錄。 ■ 鄭氏時期以後，漢民族陸續來台開墾大肚山鹿寮山麓，早期山鹿多，漢人來到此地捕捉山鹿，搭建簡單的寮舍，以供休息暫歇或存放獵物。後來漸漸形成村落，此地就叫做鹿寮。鹿寮漸漸繁榮後，有「九萬十八千」的美譽，當時鹿寮地區居民生活富裕，家財上萬元的有九戶，千元以上的有十八戶。
+              </div>
+            </div>     
+         </div>
+       </div>
+      </div>
+    </section>
+
+    <section class="modal" data-name="world2">
+      <div class="modal-content">
+        <div class="modal-video">
+       
+          <button class="modal-close"></button>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div class="container">
         <div class="footer-left">
@@ -169,14 +223,8 @@
       </div>
     </footer>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
+    <script src="js/main.js"></script>
     <script>
-      //Nav JS
-      const menuBtn = document.querySelector("nav > button.menu");
-      const menu = document.querySelector("nav");
-      menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("open");
-      });
 
       //swiper
       let names = ["初始","沙鹿","梧棲","沙鹿","梧棲","沙鹿","梧棲","沙鹿"];
