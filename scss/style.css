@@ -2,16 +2,21 @@
   --mainColor: #00e4e4;
 }
 
+html {
+  min-height: 100% !important;
+  height: 100%;
+}
+
 @media (max-width: 900px) {
   html {
-    height: 100%;
     overflow: hidden;
   }
 }
 
 body {
   background-color: #ededed;
-  min-height: 100vh;
+  min-height: 100% !important;
+  height: 100%;
   position: relative;
 }
 
@@ -602,13 +607,13 @@ section.modal .modal-content .modal-main .modal-infos .modal-info + .modal-info 
 
 @media (max-width: 900px) {
   section.modal .modal-content {
-    height: 40vh;
-    width: calc(40vh / 9 * 16);
+    height: 40%;
+    width: calc(40% / 9 * 16);
     max-width: 100%;
     margin: 0px 20px;
   }
   section.modal.modal-full .modal-content {
-    height: 80vh;
+    height: 80%;
   }
   section.modal.modal-full .modal-content .modal-sidebar {
     display: none;
@@ -663,12 +668,13 @@ section.top {
 }
 
 section.full-hight {
-  height: 100vh;
+  min-height: 100% !important;
+  height: 100%;
 }
 
 section.full-hight img.full-hight {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -716,7 +722,7 @@ ul.path li + li::before {
 /*--------------------Index--------------------*/
 section.index-section {
   position: relative;
-  padding-bottom: 10vh;
+  padding-bottom: 10%;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -733,7 +739,7 @@ section.index-section video {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -764,7 +770,7 @@ section.index-section button:hover {
   section.index-section img.full-hight {
     display: unset;
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -1371,7 +1377,7 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag {
 
 section.news-detail {
   background: #4d6e80 url("https://genshin.mihoyo.com/_nuxt/img/ea6ea46.jpg") no-repeat top center;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
   padding: 150px 0px;
 }
@@ -1471,7 +1477,7 @@ section.news-detail .news-article .news-side {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 60vh;
+  height: 60%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -1542,7 +1548,7 @@ section.news-detail .news-article .news-side {
 
 @media (max-width: 900px) {
   .storySwiper .swiper-pagination {
-    top: calc(100vh - 100px);
+    top: calc(100% - 100px);
     width: 100vw;
     left: 0px;
     -webkit-box-orient: horizontal;
@@ -1625,7 +1631,7 @@ section.worldStory .world-box .world-content {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  margin-top: 20vh;
+  margin-top: 20%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1654,17 +1660,17 @@ section.worldStory .world-box .world-content .description {
 }
 
 section.worldStory .world-box .world-content img.icon {
-  width: 12vh;
+  width: 12%;
 }
 
 section.worldStory .world-box .world-content img.role {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 20vh;
-          flex: 0 1 20vh;
+      -ms-flex: 0 1 20%;
+          flex: 0 1 20%;
 }
 
 section.worldStory .world-box .world-content .btn-list {
-  margin: 4.5vh 0;
+  margin: 4.5% 0;
 }
 
 section.worldStory .world-box .world-content .btn-list button {
@@ -1756,7 +1762,7 @@ section#role .background.leave {
 .roleMain {
   width: 80%;
   margin-left: auto;
-  height: 100vh;
+  height: 100%;
   position: relative;
 }
 
@@ -1790,7 +1796,7 @@ section#role .background.leave {
 .roleMain .roleInfo {
   position: absolute;
   width: 40%;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1824,7 +1830,7 @@ section#role .background.leave {
 .roleSelector {
   position: absolute;
   min-height: 150px;
-  height: 20vh;
+  height: 20%;
   bottom: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.4);

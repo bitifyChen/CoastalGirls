@@ -1,23 +1,24 @@
 :root {
   --mainColor: #00e4e4;
 }
-@media (max-width: 900px) {
-  html {
-    height: 100%;
+html {
+  min-height: 100% !important;
+  height: 100%;
+  @media (max-width: 900px) {
     overflow: hidden;
   }
 }
 
 body {
   background-color: #ededed;
-  min-height: 100vh;
-  // display: flex;
-  // flex-direction: column;
+  min-height: 100% !important;
+  height: 100%;
+
   position: relative;
   &.lock-scroll {
     overflow: hidden;
   }
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     height: 100%;
     overflow-y: scroll;
     min-height: unset;
@@ -433,13 +434,13 @@ section.modal {
   }
   @media (max-width: 900px) {
     .modal-content {
-      height: 40vh;
-      width: calc(40vh / 9 * 16);
+      height: 40%;
+      width: calc(40% / 9 * 16);
       max-width: 100%;
       margin: 0px 20px;
     }
     &.modal-full .modal-content {
-      height: 80vh;
+      height: 80%;
       .modal-sidebar {
         display: none;
       }
@@ -486,10 +487,11 @@ section.top {
   padding-top: 70px;
 }
 section.full-hight {
-  height: 100vh;
+  min-height: 100% !important;
+  height: 100%;
   img.full-hight {
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     object-fit: cover;
     top: -50%;
@@ -531,7 +533,7 @@ ul.path {
 /*--------------------Index--------------------*/
 section.index-section {
   position: relative;
-  padding-bottom: 10vh;
+  padding-bottom: 10%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -539,7 +541,7 @@ section.index-section {
   video {
     object-fit: cover;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -567,7 +569,7 @@ section.index-section {
     img.full-hight {
       display: unset;
       position: absolute;
-      height: 100vh;
+      height: 100%;
       width: 100%;
       object-fit: cover;
       top: -50%;
@@ -997,7 +999,7 @@ section.news-main {
 section.news-detail {
   background: #4d6e80 url("https://genshin.mihoyo.com/_nuxt/img/ea6ea46.jpg")
     no-repeat top center;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
   padding: 150px 0px;
   .container {
@@ -1061,7 +1063,7 @@ section.news-detail {
   .swiper-pagination {
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: 60%;
     justify-content: space-evenly;
     right: 130vw;
     opacity: 0;
@@ -1113,7 +1115,7 @@ section.news-detail {
       padding-left: 10px;
     }
     @media (max-width: 900px) {
-      top: calc(100vh - 100px);
+      top: calc(100% - 100px);
       width: 100vw;
       left: 0px;
       flex-direction: row;
@@ -1171,7 +1173,7 @@ section.worldStory {
       display: flex;
       flex-direction: column;
       height: 100%;
-      margin-top: 20vh;
+      margin-top: 20%;
       align-items: center;
       .title {
         color: white;
@@ -1195,13 +1197,13 @@ section.worldStory {
       }
 
       img.icon {
-        width: 12vh;
+        width: 12%;
       }
       img.role {
-        flex: 0 1 20vh;
+        flex: 0 1 20%;
       }
       .btn-list {
-        margin: 4.5vh 0;
+        margin: 4.5% 0;
         button {
           width: 85px;
           height: 85px;
@@ -1277,7 +1279,7 @@ section#role {
 .roleMain {
   width: 80%;
   margin-left: auto;
-  height: 100vh;
+  height: 100%;
   position: relative;
   .rolePic {
     height: 100%;
@@ -1300,7 +1302,7 @@ section#role {
   .roleInfo {
     position: absolute;
     width: 40%;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -1325,7 +1327,7 @@ section#role {
 .roleSelector {
   position: absolute;
   min-height: 150px;
-  height: 20vh;
+  height: 20%;
   bottom: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.4);
