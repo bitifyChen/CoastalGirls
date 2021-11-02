@@ -15,21 +15,17 @@ window.addEventListener("scroll", function () {
 });
 
 //Modal JS
-const modalCloseBtn = document.querySelector("button.modal-close");
+const modalCloseBtns = document.querySelectorAll("button.modal-close");
 const modalOpenBtns = document.querySelectorAll("button.modal-open");
 const modals = document.querySelectorAll("section.modal");
-modals.forEach((modal) => {
-  modal.addEventListener("click", () => {
-    modal.classList.remove("open");
+
+modalCloseBtns.forEach((modalCloseBtn) => {
+  modalCloseBtn.addEventListener("click", () => {
+    modals.forEach((modal) => {
+      modal.classList.remove("open");
+    });
     document.body.classList.remove("lock-scroll");
   });
-});
-
-modalCloseBtn.addEventListener("click", () => {
-  modals.forEach((modal) => {
-    modal.classList.remove("open");
-  });
-  document.body.classList.remove("lock-scroll");
 });
 
 modalOpenBtns.forEach((modalOpenBtn) => {
@@ -39,5 +35,15 @@ modalOpenBtns.forEach((modalOpenBtn) => {
       .querySelector("section.modal[data-name='" + modalName + "']")
       .classList.add("open");
     document.body.classList.toggle("lock-scroll");
+  });
+});
+
+modals.forEach((modal) => {
+  modal.addEventListener("click", (e) => {
+    const clickModal = e.target.classList.contains("modal");
+    if (clickModal) {
+      modal.classList.remove("open");
+      document.body.classList.remove("lock-scroll");
+    }
   });
 });

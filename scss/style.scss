@@ -376,6 +376,10 @@ section.modal {
           width: 200px;
           color: white;
           cursor: pointer;
+          &:hover,
+          &.active {
+            background-color: rgba(0, 228, 228, 0.5);
+          }
         }
         li + li {
           margin-top: 10px;
@@ -422,7 +426,7 @@ section.modal {
           border-bottom: 2px solid rgba(255, 255, 255, 0.5);
         }
         .modal-info-content {
-          padding: 20px 0px;
+          padding: 20px 10px;
           color: white;
           line-height: 20px;
         }
@@ -441,6 +445,7 @@ section.modal {
     }
     &.modal-full .modal-content {
       height: 80%;
+      width: unset;
       .modal-sidebar {
         display: none;
       }
@@ -1115,7 +1120,7 @@ section.news-detail {
       padding-left: 10px;
     }
     @media (max-width: 900px) {
-      top: calc(100% - 100px);
+      top: calc(100% - 25px);
       width: 100vw;
       left: 0px;
       flex-direction: row;
@@ -1127,9 +1132,10 @@ section.news-detail {
         top: 10px;
       }
       .nametag {
+        background-color: transparent !important;
         width: 30px;
-        height: 80px;
-        top: 20px;
+        height: 50px;
+        top: 10px;
         left: -10px;
         justify-content: center;
         padding-left: 0px;
@@ -1173,7 +1179,7 @@ section.worldStory {
       display: flex;
       flex-direction: column;
       height: 100%;
-      margin-top: 20%;
+      justify-content: center;
       align-items: center;
       .title {
         color: white;
@@ -1197,7 +1203,7 @@ section.worldStory {
       }
 
       img.icon {
-        width: 12%;
+        width: 20%;
       }
       img.role {
         flex: 0 1 20%;

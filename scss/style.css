@@ -535,6 +535,10 @@ section.modal .modal-content .modal-sidebar ul li {
   cursor: pointer;
 }
 
+section.modal .modal-content .modal-sidebar ul li:hover, section.modal .modal-content .modal-sidebar ul li.active {
+  background-color: rgba(0, 228, 228, 0.5);
+}
+
 section.modal .modal-content .modal-sidebar ul li + li {
   margin-top: 10px;
 }
@@ -596,7 +600,7 @@ section.modal .modal-content .modal-main .modal-infos .modal-info-title {
 }
 
 section.modal .modal-content .modal-main .modal-infos .modal-info-content {
-  padding: 20px 0px;
+  padding: 20px 10px;
   color: white;
   line-height: 20px;
 }
@@ -614,6 +618,7 @@ section.modal .modal-content .modal-main .modal-infos .modal-info + .modal-info 
   }
   section.modal.modal-full .modal-content {
     height: 80%;
+    width: unset;
   }
   section.modal.modal-full .modal-content .modal-sidebar {
     display: none;
@@ -1548,7 +1553,7 @@ section.news-detail .news-article .news-side {
 
 @media (max-width: 900px) {
   .storySwiper .swiper-pagination {
-    top: calc(100% - 100px);
+    top: calc(100% - 25px);
     width: 100vw;
     left: 0px;
     -webkit-box-orient: horizontal;
@@ -1564,9 +1569,10 @@ section.news-detail .news-article .news-side {
     top: 10px;
   }
   .storySwiper .swiper-pagination .nametag {
+    background-color: transparent !important;
     width: 30px;
-    height: 80px;
-    top: 20px;
+    height: 50px;
+    top: 10px;
     left: -10px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -1631,7 +1637,9 @@ section.worldStory .world-box .world-content {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  margin-top: 20%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1660,7 +1668,7 @@ section.worldStory .world-box .world-content .description {
 }
 
 section.worldStory .world-box .world-content img.icon {
-  width: 12%;
+  width: 20%;
 }
 
 section.worldStory .world-box .world-content img.role {
