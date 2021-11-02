@@ -1002,8 +1002,7 @@ section.news-main {
 }
 
 section.news-detail {
-  background: #4d6e80 url("https://genshin.mihoyo.com/_nuxt/img/ea6ea46.jpg")
-    no-repeat top center;
+  background: #4d6e80 url("https://genshin.mihoyo.com/_nuxt/img/ea6ea46.jpg") no-repeat top center;
   min-height: 100%;
   width: 100%;
   padding: 150px 0px;
@@ -1198,8 +1197,7 @@ section.worldStory {
         text-align: center;
         font-size: 16px;
         line-height: 28px;
-        text-shadow: 0 0 12px rgba(110, 159, 193, 0.36),
-          0 0 12px rgba(110, 159, 193, 0.36);
+        text-shadow: 0 0 12px rgba(110, 159, 193, 0.36), 0 0 12px rgba(110, 159, 193, 0.36);
       }
 
       img.icon {
