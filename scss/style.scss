@@ -678,13 +678,8 @@ section.news-section {
       position: relative;
       img {
         display: unset;
-        position: absolute;
         height: 100%;
         width: 100%;
-        object-fit: cover;
-        top: -50%;
-        left: -50%;
-        transform: translate(50%, 50%);
       }
     }
     .swiper-pagination-bullet-active {
@@ -704,13 +699,20 @@ section.news-section {
       width: 100%;
       height: 100%;
       flex-direction: column;
-      flex: 1 1 auto;
+
       .news-left {
-        flex: 0 0 40%;
+        flex: unset;
         width: 100%;
+        .mySwiper {
+          height: unset;
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+        }
       }
       .news-right {
-        flex: 0 0 60%;
+        flex: 1 1 auto;
       }
       img {
         &.news-role-left {
@@ -1013,6 +1015,7 @@ section.news-detail {
   }
   .news-article {
     display: flex;
+    align-items: flex-start;
     .news-body {
       background-color: #f0f0f0;
       padding: 10% 5%;
@@ -1052,6 +1055,37 @@ section.news-detail {
       margin-left: 30px;
       width: 350px;
       background-color: white;
+      padding: 30px 0px;
+      display: flex;
+      flex-direction: column;
+      .title {
+        background-color: #eeebeb;
+        text-align: center;
+        line-height: 40px;
+      }
+      .last-news-box {
+        background-color: #f0f0f0;
+        padding: 10px;
+        display: flex;
+        margin-top: 10px;
+        > img {
+          width: 40%;
+          height: auto;
+        }
+        .last-news-info {
+          display: flex;
+          flex-direction: column;
+          padding-left: 10px;
+        }
+        .last-news-title {
+        }
+        .last-news-date {
+          margin-top: auto;
+        }
+      }
+      a:hover .last-news-box {
+        background-color: #d6d6d6;
+      }
       @media (max-width: 900px) {
         display: none;
       }
@@ -1296,9 +1330,9 @@ section.comics-main {
           margin-top: 10px;
         }
       }
-      &:hover{
+      &:hover {
         background-color: var(--mainColor);
-        transition: all .3s linear;
+        transition: all 0.3s linear;
       }
     }
 

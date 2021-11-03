@@ -6,8 +6,12 @@ menuBtn.addEventListener("click", () => {
   menu.classList.add("no-top");
   document.body.classList.toggle("lock-scroll");
 });
+
 window.addEventListener("scroll", function () {
-  if (window.scrollY < 50) {
+  const firstSection = document.querySelector('section');
+  const firstSectionToTop = firstSection.getBoundingClientRect().y
+  console.log(firstSectionToTop);
+  if (firstSectionToTop < -50) {
     menu.classList.remove("no-top");
   } else {
     menu.classList.add("no-top");
