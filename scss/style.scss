@@ -505,6 +505,20 @@ section.full-hight {
     z-index: -99;
   }
 }
+section.background-image {
+  padding-bottom: 50px;
+  position: relative;
+  > img {
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
 /*Button*/
 button {
   border: none;
@@ -535,6 +549,29 @@ ul.path {
   }
 }
 
+ul.main-btns {
+  display: flex;
+  margin: 20px 0px;
+  li {
+    width: 200px;
+    height: 45px;
+    background-color: #b0b0b0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    & + li {
+      margin-left: 15px;
+    }
+  }
+  li.active,
+  li:hover {
+    background-color: #303030;
+    color: var(--mainColor);
+    transition: all 0.2s linear;
+  }
+}
 /*--------------------Index--------------------*/
 section.index-section {
   position: relative;
@@ -848,18 +885,6 @@ section.role-section {
 /*--------------------Index--------------------*/
 /*--------------------NEWS--------------------*/
 section.news-top {
-  padding-bottom: 50px;
-  position: relative;
-  > img {
-    position: absolute;
-    z-index: -1;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
   .news-top-boxs {
     display: flex;
     width: 100%;
@@ -905,30 +930,6 @@ section.news-top {
 section.news-main {
   background-color: #ededed;
   margin: 20px 0px;
-  ul.news-main-btns {
-    display: flex;
-    margin: 20px 0px;
-    li {
-      width: 200px;
-      height: 45px;
-      background-color: #b0b0b0;
-      border-radius: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      & + li {
-        margin-left: 15px;
-      }
-    }
-    li.active,
-    li:hover {
-      background-color: #303030;
-      color: var(--mainColor);
-      transition: all 0.2s linear;
-    }
-  }
-
   .news-main-boxs {
     display: flex;
     flex-direction: column;
@@ -1142,7 +1143,7 @@ section.news-detail {
     }
   }
 }
-section.worldStory {
+section.world-story {
   .world-box.first-box {
     .world-content {
       align-items: center;
@@ -1245,6 +1246,65 @@ section.worldStory {
           font-size: 0.8rem;
           line-height: 1rem;
         }
+      }
+    }
+  }
+}
+section.comics-top {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 0px;
+    min-height: 300px;
+    img.webtoon-logo {
+      height: 100px;
+    }
+    .title {
+      font-size: 2rem;
+      color: white;
+      text-shadow: 0 0 0.2em var(--mainColor);
+      border-top: 2px white solid;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+  }
+}
+
+section.comics-main {
+  margin-bottom: 100px;
+  .comics {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      flex-basis: 33.3333%;
+      overflow: hidden;
+      .comic {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        > img {
+          width: 100%;
+          height: auto;
+        }
+        .comic-description {
+          padding: 10px 20px;
+          text-align: center;
+          line-height: 20px;
+          background-color: #e3e3e3;
+          margin-top: 10px;
+        }
+      }
+      &:hover{
+        background-color: var(--mainColor);
+        transition: all .3s linear;
+      }
+    }
+
+    @media (max-width: 900px) {
+      a {
+        flex-basis: 100%;
       }
     }
   }

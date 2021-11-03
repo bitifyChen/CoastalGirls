@@ -690,6 +690,24 @@ section.full-hight img.full-hight {
   z-index: -99;
 }
 
+section.background-image {
+  padding-bottom: 50px;
+  position: relative;
+}
+
+section.background-image > img {
+  position: absolute;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 /*Button*/
 button {
   border: none;
@@ -722,6 +740,42 @@ ul.path li + li::before {
   content: ">";
   color: #808080;
   margin: 0 5px;
+}
+
+ul.main-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 0px;
+}
+
+ul.main-btns li {
+  width: 200px;
+  height: 45px;
+  background-color: #b0b0b0;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+ul.main-btns li + li {
+  margin-left: 15px;
+}
+
+ul.main-btns li.active,
+ul.main-btns li:hover {
+  background-color: #303030;
+  color: var(--mainColor);
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 /*--------------------Index--------------------*/
@@ -1159,24 +1213,6 @@ section.role-section .role-box.role-left.active img.role {
 
 /*--------------------Index--------------------*/
 /*--------------------NEWS--------------------*/
-section.news-top {
-  padding-bottom: 50px;
-  position: relative;
-}
-
-section.news-top > img {
-  position: absolute;
-  z-index: -1;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
 section.news-top .news-top-boxs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1238,42 +1274,6 @@ section.news-top .news-top-boxs .news-top-box .info p.tag {
 section.news-main {
   background-color: #ededed;
   margin: 20px 0px;
-}
-
-section.news-main ul.news-main-btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 20px 0px;
-}
-
-section.news-main ul.news-main-btns li {
-  width: 200px;
-  height: 45px;
-  background-color: #b0b0b0;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-}
-
-section.news-main ul.news-main-btns li + li {
-  margin-left: 15px;
-}
-
-section.news-main ul.news-main-btns li.active,
-section.news-main ul.news-main-btns li:hover {
-  background-color: #303030;
-  color: var(--mainColor);
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
 }
 
 section.news-main .news-main-boxs {
@@ -1581,7 +1581,7 @@ section.news-detail .news-article .news-side {
   }
 }
 
-section.worldStory .world-box.first-box .world-content {
+section.world-story .world-box.first-box .world-content {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1589,7 +1589,7 @@ section.worldStory .world-box.first-box .world-content {
   height: unset;
 }
 
-section.worldStory .world-box {
+section.world-story .world-box {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1609,7 +1609,7 @@ section.worldStory .world-box {
   overflow: hidden;
 }
 
-section.worldStory .world-box img.world-bgc {
+section.world-story .world-box img.world-bgc {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1620,7 +1620,7 @@ section.worldStory .world-box img.world-bgc {
   z-index: -2;
 }
 
-section.worldStory .world-box .world-mask {
+section.world-story .world-box .world-mask {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1628,7 +1628,7 @@ section.worldStory .world-box .world-mask {
   z-index: -1;
 }
 
-section.worldStory .world-box .world-content {
+section.world-story .world-box .world-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1645,7 +1645,7 @@ section.worldStory .world-box .world-content {
           align-items: center;
 }
 
-section.worldStory .world-box .world-content .title {
+section.world-story .world-box .world-content .title {
   color: white;
   text-align: center;
   font-size: 48px;
@@ -1654,12 +1654,12 @@ section.worldStory .world-box .world-content .title {
   margin: 10px 0px;
 }
 
-section.worldStory .world-box .world-content .title span {
+section.world-story .world-box .world-content .title span {
   font-size: 36px;
   padding: 0px 10px;
 }
 
-section.worldStory .world-box .world-content .description {
+section.world-story .world-box .world-content .description {
   color: white;
   text-align: center;
   font-size: 16px;
@@ -1667,21 +1667,21 @@ section.worldStory .world-box .world-content .description {
   text-shadow: 0 0 12px rgba(110, 159, 193, 0.36), 0 0 12px rgba(110, 159, 193, 0.36);
 }
 
-section.worldStory .world-box .world-content img.icon {
+section.world-story .world-box .world-content img.icon {
   width: 20%;
 }
 
-section.worldStory .world-box .world-content img.role {
+section.world-story .world-box .world-content img.role {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 20%;
           flex: 0 1 20%;
 }
 
-section.worldStory .world-box .world-content .btn-list {
+section.world-story .world-box .world-content .btn-list {
   margin: 4.5% 0;
 }
 
-section.worldStory .world-box .world-content .btn-list button {
+section.world-story .world-box .world-content .btn-list button {
   width: 85px;
   height: 85px;
   border-radius: 50%;
@@ -1690,37 +1690,123 @@ section.worldStory .world-box .world-content .btn-list button {
   font-size: 14px;
 }
 
-section.worldStory .world-box .world-content .btn-list button span {
+section.world-story .world-box .world-content .btn-list button span {
   font-size: 24px;
   display: block;
 }
 
-section.worldStory .world-box .world-content .btn-list button:hover {
+section.world-story .world-box .world-content .btn-list button:hover {
   background-color: #4b4b4b;
   color: #e2e2e2;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
-section.worldStory .world-box .world-content .btn-list button:hover span {
+section.world-story .world-box .world-content .btn-list button:hover span {
   color: #e2e2e2;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
 @media (max-width: 900px) {
-  section.worldStory .world-box {
+  section.world-story .world-box {
     padding: 0px 20px;
   }
-  section.worldStory .world-box .world-content .title {
+  section.world-story .world-box .world-content .title {
     font-size: 2rem;
   }
-  section.worldStory .world-box .world-content .title span {
+  section.world-story .world-box .world-content .title span {
     font-size: 1.8rem;
   }
-  section.worldStory .world-box .world-content .description {
+  section.world-story .world-box .world-content .description {
     font-size: 0.8rem;
     line-height: 1rem;
+  }
+}
+
+section.comics-top .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 0px;
+  min-height: 300px;
+}
+
+section.comics-top .container img.webtoon-logo {
+  height: 100px;
+}
+
+section.comics-top .container .title {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 0.2em var(--mainColor);
+  border-top: 2px white solid;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+section.comics-main {
+  margin-bottom: 100px;
+}
+
+section.comics-main .comics {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section.comics-main .comics a {
+  -ms-flex-preferred-size: 33.3333%;
+      flex-basis: 33.3333%;
+  overflow: hidden;
+}
+
+section.comics-main .comics a .comic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+}
+
+section.comics-main .comics a .comic > img {
+  width: 100%;
+  height: auto;
+}
+
+section.comics-main .comics a .comic .comic-description {
+  padding: 10px 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #e3e3e3;
+  margin-top: 10px;
+}
+
+section.comics-main .comics a:hover {
+  background-color: var(--mainColor);
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+@media (max-width: 900px) {
+  section.comics-main .comics a {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
   }
 }
 
