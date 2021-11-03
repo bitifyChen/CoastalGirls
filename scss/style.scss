@@ -4,7 +4,9 @@
 html {
   min-height: 100% !important;
   height: 100%;
+  font-size: 16px;
   @media (max-width: 900px) {
+    font-size: 14px;
     overflow: hidden;
   }
 }
@@ -42,6 +44,10 @@ h3 {
   font-size: 1.5rem;
 }
 
+h4{
+  font-size: 1.2rem;
+}
+
 nav {
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(3px);
@@ -72,7 +78,7 @@ nav {
       a,
       label {
         color: white;
-        font-size: 16px;
+        font-size: 1rem;
         cursor: pointer;
         &:hover {
           text-shadow: 0 0 0.2em var(--mainColor), 0 0 0.2em var(--mainColor);
@@ -376,6 +382,7 @@ section.modal {
           width: 200px;
           color: white;
           cursor: pointer;
+          font-size: 1rem;
           &:hover,
           &.active {
             background-color: rgba(0, 228, 228, 0.5);
@@ -399,7 +406,7 @@ section.modal {
         line-height: 42px;
         text-align: center;
         position: relative;
-        font-size: 24px;
+        font-size: 2rem;
         color: white;
         font-weight: 700;
       }
@@ -420,7 +427,7 @@ section.modal {
         }
 
         .modal-info-title {
-          font-size: 24px;
+          font-size: 2rem;
           color: white;
           line-height: 42px;
           border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -597,7 +604,7 @@ section.index-section {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 10px 20px;
     color: white;
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-top: auto;
     &:hover {
       background-color: rgba(0, 0, 0, 0.4);
@@ -751,11 +758,12 @@ ul.news-in-tab {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      font-size: 1.2rem;
     }
     p.date {
       flex: 0 0 auto;
       color: rgba(255, 255, 255, 0.35);
-      font-size: 14px;
+      font-size: 0.8rem;
     }
   }
 }
@@ -911,17 +919,17 @@ section.news-top {
         margin-bottom: 15px;
         white-space: pre-wrap;
         line-height: 20px;
-        font-size: 16px;
+        font-size: 1rem;
       }
       .info {
         display: flex;
         margin-top: auto;
         p.date {
-          font-size: 14px;
+          font-size: 1rem;
         }
         p.tag {
           margin-left: auto;
-          font-size: 14px;
+          font-size: 1rem;
           color: #fad200;
         }
       }
@@ -962,16 +970,18 @@ section.news-main {
           margin: 10px 0px;
           white-space: pre-wrap;
           line-height: 20px;
-          font-size: 16px;
+          font-size: 1rem;
           color: #303030;
         }
         .info {
           display: flex;
           justify-content: end;
           p.date {
+            font-size: 1rem;
             margin: 0px 10px;
           }
           p.tag {
+            font-size: 1rem;
             margin: 0px 10px;
             color: #fad200;
           }
@@ -1005,7 +1015,7 @@ section.news-main {
 }
 
 section.news-detail {
-  background: #4d6e80 url("https://genshin.mihoyo.com/_nuxt/img/ea6ea46.jpg") no-repeat top center;
+  background: #bedfe3 url("../img/news/news_deatil.jpg") no-repeat top center;
   min-height: 100%;
   width: 100%;
   padding: 150px 0px;
@@ -1025,18 +1035,18 @@ section.news-detail {
       border-top: var(--mainColor) solid 6px;
       .news-title {
         line-height: 40px;
-        font-size: 32px;
+        font-size: 2rem;
         color: #333;
       }
       .news-date {
         margin-top: 13px;
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 22px;
         color: #999;
       }
       .news-content {
         margin-top: 51px;
-        font-size: 14px;
+        font-size: 1rem;
         color: #7d7d7d;
         line-height: 24px;
         display: flex;
@@ -1062,6 +1072,7 @@ section.news-detail {
         background-color: #eeebeb;
         text-align: center;
         line-height: 40px;
+        font-size: 1.2rem;
       }
       .last-news-box {
         background-color: #f0f0f0;
@@ -1078,15 +1089,17 @@ section.news-detail {
           padding-left: 10px;
         }
         .last-news-title {
+          font-size: 1rem;
         }
         .last-news-date {
+          font-size: 0.8rem;
           margin-top: auto;
         }
       }
       a:hover .last-news-box {
         background-color: #d6d6d6;
       }
-      @media (max-width: 900px) {
+      @media (max-width: 1280px) {
         display: none;
       }
     }
@@ -1144,7 +1157,7 @@ section.news-detail {
       position: absolute;
       width: 80px;
       height: 30px;
-      font-size: 18px;
+      font-size: 1.2rem;
       line-height: 18px;
       top: -10px;
       left: 30px;
@@ -1218,20 +1231,20 @@ section.world-story {
       .title {
         color: white;
         text-align: center;
-        font-size: 48px;
+        font-size: 2.8rem;
         padding: 10px 0px;
         border-bottom: 2px solid white;
         margin: 10px 0px;
         span {
-          font-size: 36px;
+          font-size: 2rem;
           padding: 0px 10px;
         }
       }
       .description {
         color: white;
         text-align: center;
-        font-size: 16px;
-        line-height: 28px;
+        font-size: 1.2rem;
+        line-height: 1.7rem;
         text-shadow: 0 0 12px rgba(110, 159, 193, 0.36), 0 0 12px rgba(110, 159, 193, 0.36);
       }
 
@@ -1249,9 +1262,9 @@ section.world-story {
           border-radius: 50%;
           color: #4b4b4b;
           background-color: #e2e2e2;
-          font-size: 14px;
+          font-size: 1rem;
           span {
-            font-size: 24px;
+            font-size: 1.5rem;
             display: block;
           }
           &:hover {
@@ -1269,18 +1282,6 @@ section.world-story {
 
     @media (max-width: 900px) {
       padding: 0px 20px;
-      .world-content {
-        .title {
-          font-size: 2rem;
-          span {
-            font-size: 1.8rem;
-          }
-        }
-        .description {
-          font-size: 0.8rem;
-          line-height: 1rem;
-        }
-      }
     }
   }
 }
