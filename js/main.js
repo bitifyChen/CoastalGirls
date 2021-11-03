@@ -8,14 +8,22 @@ menuBtn.addEventListener("click", () => {
 });
 
 window.addEventListener("scroll", function () {
-  const firstSection = document.querySelector('section');
-  const firstSectionToTop = firstSection.getBoundingClientRect().y
+  const firstSection = document.querySelector("section");
+  const firstSectionToTop = firstSection.getBoundingClientRect().y;
   console.log(firstSectionToTop);
   if (firstSectionToTop < -50) {
     menu.classList.remove("no-top");
   } else {
     menu.classList.add("no-top");
   }
+});
+
+//Mobile Second Nav
+const dropDownBtns = document.querySelectorAll("nav li.dropdown > input[type='checkbox']");
+dropDownBtns.forEach((dropDownBtn) => {
+  dropDownBtn.addEventListener("click", () => {
+    dropDownBtn.parentNode.classList.toggle("open");
+  });
 });
 
 //Modal JS
@@ -35,9 +43,7 @@ modalCloseBtns.forEach((modalCloseBtn) => {
 modalOpenBtns.forEach((modalOpenBtn) => {
   modalOpenBtn.addEventListener("click", () => {
     const modalName = modalOpenBtn.attributes["data-name"].value;
-    document
-      .querySelector("section.modal[data-name='" + modalName + "']")
-      .classList.add("open");
+    document.querySelector("section.modal[data-name='" + modalName + "']").classList.add("open");
     document.body.classList.toggle("lock-scroll");
   });
 });
