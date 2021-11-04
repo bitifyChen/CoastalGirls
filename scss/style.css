@@ -546,8 +546,11 @@ section.modal .modal-content .modal-video iframe {
 }
 
 section.modal .modal-content .modal-sidebar {
-  -ms-flex-preferred-size: 200px;
-      flex-basis: 200px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 section.modal .modal-content .modal-sidebar ul li {
@@ -605,7 +608,7 @@ section.modal .modal-content .modal-main .modal-infos {
 }
 
 section.modal .modal-content .modal-main .modal-infos::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
   cursor: pointer;
 }
 
@@ -618,6 +621,14 @@ section.modal .modal-content .modal-main .modal-infos::-webkit-scrollbar-thumb {
   border-radius: none !important;
 }
 
+section.modal .modal-content .modal-main .modal-infos .modal-info {
+  display: none;
+}
+
+section.modal .modal-content .modal-main .modal-infos .modal-info.active {
+  display: unset;
+}
+
 section.modal .modal-content .modal-main .modal-infos .modal-info-title {
   font-size: 2rem;
   color: white;
@@ -626,9 +637,15 @@ section.modal .modal-content .modal-main .modal-infos .modal-info-title {
 }
 
 section.modal .modal-content .modal-main .modal-infos .modal-info-content {
+  width: 100%;
   padding: 20px 10px;
   color: white;
   line-height: 20px;
+}
+
+section.modal .modal-content .modal-main .modal-infos .modal-info-content img {
+  width: 100%;
+  height: auto;
 }
 
 section.modal .modal-content .modal-main .modal-infos .modal-info + .modal-info {
@@ -641,13 +658,38 @@ section.modal .modal-content .modal-main .modal-infos .modal-info + .modal-info 
     width: calc(40% / 9 * 16);
     max-width: 100%;
     margin: 0px 20px;
+    position: relative;
+    overflow-y: hidden;
   }
   section.modal.modal-full .modal-content {
-    height: 80%;
-    width: unset;
+    height: 90%;
+    width: 100%;
   }
   section.modal.modal-full .modal-content .modal-sidebar {
     display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    top: 42px;
+    width: calc( 100% - 40px);
+    height: 100%;
+  }
+  section.modal.modal-full .modal-content .modal-sidebar.open {
+    display: block;
+  }
+  section.modal.modal-full .modal-content .modal-sidebar ul {
+    margin: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  section.modal.modal-full .modal-content .modal-sidebar ul li {
+    width: 46%;
+    margin: 2%;
   }
 }
 
@@ -690,6 +732,66 @@ section.modal button.modal-close::before {
     height: 40px;
     top: -40px;
     right: 0px;
+  }
+}
+
+section.modal .modal-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section.modal .modal-title button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  top: unset;
+  right: unset;
+  background-color: transparent;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+section.modal .modal-title button:hover {
+  background-color: var(--mainColor);
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+section.modal .modal-title button::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  line-height: 40px;
+  font-size: 30px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  display: block;
+  color: white;
+  text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
+}
+
+section.modal .modal-title button.modal-close::before {
+  content: "\f00d";
+}
+
+section.modal .modal-title button.modal-menu::before {
+  content: "\f0c9";
+  font-size: 25px;
+}
+
+section.modal .modal-title button.modal-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  section.modal .modal-title button.modal-menu {
+    display: block;
   }
 }
 
@@ -832,9 +934,8 @@ section.index-section video {
   z-index: -99;
 }
 
-section.index-section img.full-hight {
+section.index-section video.mobile {
   display: none;
-  vertical-align: middle;
 }
 
 section.index-section button {
@@ -850,21 +951,11 @@ section.index-section button:hover {
 }
 
 @media (max-width: 900px) {
-  section.index-section video {
+  section.index-section video.desktop {
     display: none;
   }
-  section.index-section img.full-hight {
+  section.index-section video.mobile {
     display: unset;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    top: -50%;
-    left: -50%;
-    -webkit-transform: translate(50%, 50%);
-            transform: translate(50%, 50%);
-    z-index: -99;
   }
 }
 

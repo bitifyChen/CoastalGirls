@@ -37,10 +37,14 @@
       <button class="menu"></button>
     </nav>
     <section class="full-hight index-section">
-      <video id="video" autoplay="true" muted="muted" loop>
+      <video id="video" class="desktop" autoplay="true" muted="muted" loop muted defaultMuted playsinline>
         <source src="img/index/高美動圖.mp4" type="video/mp4" />
+        <source src="img/index/高美動圖.webm" type="video/webm" />
       </video>
-      <img class="full-hight" src="img/index/index_m.jpg" alt="" />
+      <video id="video2" class="mobile" autoplay="true" muted="muted" loop muted defaultMuted playsinline>
+        <source src="img/index/手機.mp4" type="video/mp4" />
+        <source src="img/index/手機.webm" type="video/webm" />
+      </video>
       <button class="modal-open" data-name="video">精彩海線，隨心出發GO!</button>
     </section>
     <section class="full-hight news-section">
@@ -224,6 +228,7 @@
           delay: 5000,
         },
       });
+
     </script>
   </body>
 </html>
