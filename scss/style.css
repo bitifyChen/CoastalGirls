@@ -1,3 +1,43 @@
+/*Extend*/
+section.modal .modal-content .modal-main .modal-infos .modal-info-content, section.news-detail .news-article .news-body .news-content, .shop-page-content {
+  font-size: 1rem;
+  color: #7d7d7d;
+  line-height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section.modal .modal-content .modal-main .modal-infos .modal-info-content p, section.news-detail .news-article .news-body .news-content p, .shop-page-content p {
+  width: 100%;
+}
+
+section.modal .modal-content .modal-main .modal-infos .modal-info-content img, section.news-detail .news-article .news-body .news-content img, .shop-page-content img {
+  width: 100%;
+  height: auto;
+}
+
+footer .footer-right .footer-social ul li:hover i, footer .footer-right .footer-links ul li a:hover, ul.main-btns li:hover, ul.path li:hover, button.news-in-tab-more a:hover, .role-selector .role-cards .role-card:hover .role-name {
+  color: var(--mainColor);
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+section.modal button.modal-close:hover, section.modal .modal-title button:hover {
+  background-color: var(--mainColor);
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+/*Extend*/
+.display-none {
+  display: none !important;
+}
+
 :root {
   --mainColor: #00e4e4;
 }
@@ -410,12 +450,6 @@ footer .footer-right .footer-social ul li + li {
   margin-left: 10px;
 }
 
-footer .footer-right .footer-social ul li:hover i {
-  color: var(--mainColor);
-  -webkit-transition: color 0.3s linear;
-  transition: color 0.3s linear;
-}
-
 footer .footer-right .footer-social ul i {
   font-size: 20px;
 }
@@ -443,12 +477,6 @@ footer .footer-right .footer-links ul li {
 
 footer .footer-right .footer-links ul li a {
   color: white;
-}
-
-footer .footer-right .footer-links ul li a:hover {
-  color: var(--mainColor);
-  -webkit-transition: color 0.3s linear;
-  transition: color 0.3s linear;
 }
 
 footer .footer-right .footer-links ul li:last-child {
@@ -640,12 +668,6 @@ section.modal .modal-content .modal-main .modal-infos .modal-info-content {
   width: 100%;
   padding: 20px 10px;
   color: white;
-  line-height: 20px;
-}
-
-section.modal .modal-content .modal-main .modal-infos .modal-info-content img {
-  width: 100%;
-  height: auto;
 }
 
 section.modal .modal-content .modal-main .modal-infos .modal-info + .modal-info {
@@ -704,12 +726,6 @@ section.modal button.modal-close {
   transition: background-color 0.2s linear;
 }
 
-section.modal button.modal-close:hover {
-  background-color: var(--mainColor);
-  -webkit-transition: background-color 0.2s linear;
-  transition: background-color 0.2s linear;
-}
-
 section.modal button.modal-close::before {
   content: "\f00d";
   font-family: "Font Awesome 6 Free";
@@ -751,12 +767,6 @@ section.modal .modal-title button {
   top: unset;
   right: unset;
   background-color: transparent;
-  -webkit-transition: background-color 0.2s linear;
-  transition: background-color 0.2s linear;
-}
-
-section.modal .modal-title button:hover {
-  background-color: var(--mainColor);
   -webkit-transition: background-color 0.2s linear;
   transition: background-color 0.2s linear;
 }
@@ -821,6 +831,7 @@ section.full-hight img.full-hight {
 section.background-image {
   padding-bottom: 50px;
   position: relative;
+  height: 50%;
 }
 
 section.background-image > img {
@@ -834,6 +845,138 @@ section.background-image > img {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+  section.background-image {
+    height: 35%;
+  }
+}
+
+section.background-image.auto {
+  padding-bottom: 50px;
+  position: relative;
+  height: unset;
+}
+
+section.background-image.auto > img {
+  position: absolute;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+  section.background-image.auto {
+    height: unset;
+  }
+}
+
+section.items-main {
+  margin-bottom: 100px;
+}
+
+section.items-main .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section.items-main .items a {
+  -ms-flex-preferred-size: 33.3333%;
+      flex-basis: 33.3333%;
+  overflow: hidden;
+}
+
+section.items-main .items a.hide {
+  display: none;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+section.items-main .items a .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px;
+  border: 2px solid transparent;
+}
+
+section.items-main .items a .item > img {
+  width: 100%;
+  height: auto;
+}
+
+section.items-main .items a .item .item-description {
+  padding: 10px 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #e3e3e3;
+  margin-top: 10px;
+}
+
+section.items-main .items a .item:hover {
+  border: 2px solid var(--mainColor);
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+@media (max-width: 900px) {
+  section.items-main .items a {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+ul.main-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 10px;
+}
+
+ul.main-btns li {
+  width: 200px;
+  height: 45px;
+  background-color: #b0b0b0;
+  color: white;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+ul.main-btns li + li {
+  margin-left: 15px;
+}
+
+ul.main-btns li.active {
+  background-color: #303030;
+  color: var(--mainColor);
+}
+
+ul.main-btns li:hover {
+  background-color: #303030;
 }
 
 /*Button*/
@@ -856,10 +999,6 @@ ul.path li {
   color: #808080;
 }
 
-ul.path li:hover {
-  color: var(--mainColor);
-}
-
 ul.path li:last-child {
   color: white;
 }
@@ -868,43 +1007,6 @@ ul.path li + li::before {
   content: ">";
   color: #808080;
   margin: 0 5px;
-}
-
-ul.main-btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 20px 0px;
-}
-
-ul.main-btns li {
-  width: 200px;
-  height: 45px;
-  background-color: #b0b0b0;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-ul.main-btns li + li {
-  margin-left: 15px;
-}
-
-ul.main-btns li.active,
-ul.main-btns li:hover {
-  background-color: #303030;
-  color: var(--mainColor);
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
 }
 
 /*--------------------Index--------------------*/
@@ -1172,10 +1274,6 @@ button.news-in-tab-more {
 button.news-in-tab-more a {
   color: white;
   text-decoration: none;
-}
-
-button.news-in-tab-more a:hover {
-  color: var(--mainColor);
 }
 
 @media (max-width: 900px) {
@@ -1502,6 +1600,7 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag {
 
 section.news-detail {
   background: #bedfe3 url("../img/news/news_deatil.jpg") no-repeat top center;
+  background-size: 100% auto;
   min-height: 100%;
   width: 100%;
   padding: 150px 0px;
@@ -1555,25 +1654,6 @@ section.news-detail .news-article .news-body .news-date {
 
 section.news-detail .news-article .news-body .news-content {
   margin-top: 51px;
-  font-size: 1rem;
-  color: #7d7d7d;
-  line-height: 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-section.news-detail .news-article .news-body .news-content p {
-  width: 100%;
-}
-
-section.news-detail .news-article .news-body .news-content img {
-  width: 100%;
-  height: auto;
 }
 
 section.news-detail .news-article .news-side {
@@ -1890,94 +1970,14 @@ section.world-story .world-box .world-content .btn-list button:hover span {
   }
 }
 
-section.comics-top .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 30px 0px;
-  min-height: 300px;
-}
-
-section.comics-top .container img.webtoon-logo {
-  height: 100px;
-}
-
-section.comics-top .container .title {
-  font-size: 2rem;
-  color: white;
-  text-shadow: 0 0 0.2em var(--mainColor);
-  border-top: 2px white solid;
-  padding-top: 10px;
-  margin-top: 10px;
-}
-
-section.comics-main {
-  margin-bottom: 100px;
-}
-
-section.comics-main .comics {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-section.comics-main .comics a {
-  -ms-flex-preferred-size: 33.3333%;
-      flex-basis: 33.3333%;
-  overflow: hidden;
-}
-
-section.comics-main .comics a .comic {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 10px;
-}
-
-section.comics-main .comics a .comic > img {
-  width: 100%;
-  height: auto;
-}
-
-section.comics-main .comics a .comic .comic-description {
-  padding: 10px 20px;
-  text-align: center;
-  line-height: 20px;
-  background-color: #e3e3e3;
-  margin-top: 10px;
-}
-
-section.comics-main .comics a:hover {
-  background-color: var(--mainColor);
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
-
-@media (max-width: 900px) {
-  section.comics-main .comics a {
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%;
-  }
-}
-
 /*--------------------WORLD--------------------*/
-/*--------------------Role--------------------*/
+/*--------------------SHOP--------------------*/
+.shop-page-content {
+  margin: 10px;
+}
+
+/*--------------------SHOP--------------------*/
+/*--------------------ROLE--------------------*/
 section#role {
   position: relative;
   display: -webkit-box;
@@ -2019,23 +2019,23 @@ section#role .background.leave {
   transition: opacity 6s;
 }
 
-.roleMain {
+.role-main {
+  position: relative;
   width: 80%;
   margin-left: auto;
   height: 100%;
-  position: relative;
 }
 
-.roleMain .rolePic {
-  height: 100%;
+.role-main .role-pic {
   position: relative;
+  height: 100%;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
 
-.roleMain .rolePic img {
+.role-main .role-pic img {
   position: absolute;
   height: 90%;
   bottom: 0;
@@ -2049,11 +2049,11 @@ section#role .background.leave {
   display: none;
 }
 
-.roleMain .rolePic img.active {
+.role-main .role-pic img.active {
   display: block;
 }
 
-.roleMain .roleInfo {
+.role-main .role-info {
   position: absolute;
   width: 40%;
   height: 100%;
@@ -2070,24 +2070,22 @@ section#role .background.leave {
           justify-content: center;
 }
 
-.roleMain .roleInfo .roleName {
-  font-size: 40px;
+.role-main .role-info .role-name {
+  font-size: 2.5rem;
   color: white;
 }
 
-.roleMain .roleInfo .roleStory {
+.role-main .role-info .role-story {
   height: 40%;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   color: white;
-  overflow-x: hidden;
   overflow-y: scroll;
-  font-size: 20px;
-  letter-spacing: 0.1em;
-  border-radius: 10px;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }
 
-.roleSelector {
+.role-selector {
   position: absolute;
   min-height: 150px;
   height: 20%;
@@ -2099,7 +2097,18 @@ section#role .background.leave {
   padding: 10px 0px;
 }
 
-.roleSelector .roleCards .roleCard {
+.role-selector .container {
+  height: 100%;
+}
+
+.role-selector .role-cards {
+  height: 100%;
+}
+
+.role-selector .role-cards .role-card {
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
+  min-width: 200px;
   background-color: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2115,25 +2124,24 @@ section#role .background.leave {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
-  margin: 0 10px;
   height: 100%;
 }
 
-.roleSelector .roleCards .roleCard:hover .rolePic img {
+.role-selector .role-cards .role-card:hover .role-pic img {
   -webkit-transform: translate(-50%, -50%) scale(1.4, 1.4);
           transform: translate(-50%, -50%) scale(1.4, 1.4);
 }
 
-.roleSelector .roleCards .roleCard .rolePic {
+.role-selector .role-cards .role-card .role-pic {
+  position: relative;
   width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  position: relative;
   overflow: hidden;
 }
 
-.roleSelector .roleCards .roleCard .rolePic img {
+.role-selector .role-cards .role-card .role-pic img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2147,7 +2155,7 @@ section#role .background.leave {
   height: 100%;
 }
 
-.roleSelector .roleCards .roleCard .roleName {
+.role-selector .role-cards .role-card .role-name {
   margin-top: auto;
   color: white;
   letter-spacing: 0.5em;
@@ -2155,21 +2163,21 @@ section#role .background.leave {
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   width: 100%;
-  height: 30px;
-  font-size: 20px;
+  line-height: 2rem;
+  font-size: 1.2rem;
 }
 
-@media only screen and (max-device-width: 900px) {
-  .roleMain {
+@media (max-width: 900px) {
+  .role-main {
     width: 100%;
   }
-  .roleMain .roleInfo {
+  .role-main .role-info {
     width: 80%;
     left: 10%;
   }
 }
 
-/*--------------------Role--------------------*/
+/*--------------------ROLE--------------------*/
 /*--------------------keyframes --------------------*/
 @-webkit-keyframes scaleChange {
   0% {

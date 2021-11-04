@@ -1,3 +1,31 @@
+/*Extend*/
+%ckeditor {
+  font-size: 1rem;
+  color: #7d7d7d;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  p {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+%mainHover {
+  color: var(--mainColor);
+  transition:all .3s linear;
+}
+
+%mainBgcHover {
+  background-color: var(--mainColor);
+  transition:all .3s linear;
+}
+
+/*Extend*/
+.display-none{display: none !important ;}
 :root {
   --mainColor: #00e4e4;
 }
@@ -300,8 +328,7 @@ footer {
           margin-left: 10px;
         }
         li:hover i {
-          color: var(--mainColor);
-          transition: color 0.3s linear;
+          @extend %mainHover;
         }
         i {
           font-size: 20px;
@@ -322,8 +349,7 @@ footer {
           a {
             color: white;
             &:hover {
-              color: var(--mainColor);
-              transition: color 0.3s linear;
+              @extend %mainHover;
             }
           }
         }
@@ -462,14 +488,10 @@ section.modal {
           border-bottom: 2px solid rgba(255, 255, 255, 0.5);
         }
         .modal-info-content {
+          @extend %ckeditor;
           width: 100%;
           padding: 20px 10px;
           color: white;
-          line-height: 20px;
-          img{
-            width: 100%;
-            height: auto;
-          }
         }
         .modal-info + .modal-info {
           margin-top: 20px;
@@ -522,8 +544,7 @@ section.modal {
     background-color: rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s linear;
     &:hover {
-      background-color: var(--mainColor);
-      transition: background-color 0.2s linear;
+      @extend %mainBgcHover;
     }
     &::before {
       content: "\f00d";
@@ -559,8 +580,7 @@ section.modal {
       background-color: transparent;
       transition: background-color 0.2s linear;
       &:hover {
-        background-color: var(--mainColor);
-        transition: background-color 0.2s linear;
+        @extend %mainBgcHover;
       }
       &::before {
         font-family: "Font Awesome 6 Free";
@@ -614,6 +634,7 @@ section.full-hight {
 section.background-image {
   padding-bottom: 50px;
   position: relative;
+  height: 50%;
   > img {
     position: absolute;
     z-index: -1;
@@ -624,7 +645,101 @@ section.background-image {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  @media (max-width: 900px) {
+    height: 35%;
+  }
 }
+
+section.background-image.auto {
+  padding-bottom: 50px;
+  position: relative;
+  height: unset;
+  > img {
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @media (max-width: 900px) {
+    height: unset;
+  }
+}
+
+section.items-main {
+  margin-bottom: 100px;
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      flex-basis: 33.3333%;
+      overflow: hidden;
+      &.hide{
+        display:none;
+        transition: all .3s linear;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        border: 2px solid transparent;
+        > img {
+          width: 100%;
+          height: auto;
+        }
+        .item-description {
+          padding: 10px 20px;
+          text-align: center;
+          line-height: 20px;
+          background-color: #e3e3e3;
+          margin-top: 10px;
+        }
+        &:hover {
+          border:2px solid var(--mainColor);
+          transition: all .3s linear;
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      a {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+ul.main-btns {
+  display: flex;
+  margin: 20px 10px;
+  li {
+    width: 200px;
+    height: 45px;
+    background-color: #b0b0b0;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    & + li {
+      margin-left: 15px;
+    }
+  }
+  li.active{
+    background-color: #303030;
+    color: var(--mainColor);
+  }
+  li:hover {
+    background-color: #303030;
+    @extend %mainHover;
+  }
+}
+
 /*Button*/
 button {
   border: none;
@@ -640,7 +755,7 @@ ul.path {
     cursor: pointer;
     color: #808080;
     &:hover {
-      color: var(--mainColor);
+      @extend %mainHover;
     }
   }
   li:last-child {
@@ -655,30 +770,7 @@ ul.path {
   }
 }
 
-ul.main-btns {
-  display: flex;
-  margin: 20px 0px;
-  li {
-    width: 200px;
-    height: 45px;
-    background-color: #b0b0b0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    cursor: pointer;
-    & + li {
-      margin-left: 15px;
-    }
-  }
-  li.active,
-  li:hover {
-    background-color: #303030;
-    color: var(--mainColor);
-    transition: all 0.2s linear;
-  }
-}
+
 /*--------------------Index--------------------*/
 section.index-section {
   position: relative;
@@ -866,7 +958,7 @@ button.news-in-tab-more {
     color: white;
     text-decoration: none;
     &:hover {
-      color: var(--mainColor);
+      @extend %mainHover;
     }
   }
   @media (max-width: 900px) {
@@ -1108,6 +1200,7 @@ section.news-main {
 
 section.news-detail {
   background: #bedfe3 url("../img/news/news_deatil.jpg") no-repeat top center;
+  background-size: 100% auto;
   min-height: 100%;
   width: 100%;
   padding: 150px 0px;
@@ -1138,18 +1231,7 @@ section.news-detail {
       }
       .news-content {
         margin-top: 51px;
-        font-size: 1rem;
-        color: #7d7d7d;
-        line-height: 24px;
-        display: flex;
-        flex-direction: column;
-        p {
-          width: 100%;
-        }
-        img {
-          width: 100%;
-          height: auto;
-        }
+        @extend %ckeditor;
       }
     }
     .news-side {
@@ -1377,67 +1459,15 @@ section.world-story {
     }
   }
 }
-section.comics-top {
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px 0px;
-    min-height: 300px;
-    img.webtoon-logo {
-      height: 100px;
-    }
-    .title {
-      font-size: 2rem;
-      color: white;
-      text-shadow: 0 0 0.2em var(--mainColor);
-      border-top: 2px white solid;
-      padding-top: 10px;
-      margin-top: 10px;
-    }
-  }
-}
 
-section.comics-main {
-  margin-bottom: 100px;
-  .comics {
-    display: flex;
-    flex-wrap: wrap;
-    a {
-      flex-basis: 33.3333%;
-      overflow: hidden;
-      .comic {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        > img {
-          width: 100%;
-          height: auto;
-        }
-        .comic-description {
-          padding: 10px 20px;
-          text-align: center;
-          line-height: 20px;
-          background-color: #e3e3e3;
-          margin-top: 10px;
-        }
-      }
-      &:hover {
-        background-color: var(--mainColor);
-        transition: all 0.3s linear;
-      }
-    }
-
-    @media (max-width: 900px) {
-      a {
-        flex-basis: 100%;
-      }
-    }
-  }
-}
 /*--------------------WORLD--------------------*/
-/*--------------------Role--------------------*/
+/*--------------------SHOP--------------------*/
+.shop-page-content{
+  margin: 10px;
+  @extend %ckeditor;
+}
+/*--------------------SHOP--------------------*/
+/*--------------------ROLE--------------------*/
 section#role {
   position: relative;
   display: flex;
@@ -1467,14 +1497,14 @@ section#role {
   }
 }
 
-.roleMain {
+.role-main {
+  position: relative;
   width: 80%;
   margin-left: auto;
   height: 100%;
-  position: relative;
-  .rolePic {
-    height: 100%;
+  .role-pic {
     position: relative;
+    height: 100%;
     user-select: none;
     img {
       position: absolute;
@@ -1490,7 +1520,7 @@ section#role {
       }
     }
   }
-  .roleInfo {
+  .role-info {
     position: absolute;
     width: 40%;
     height: 100%;
@@ -1498,24 +1528,22 @@ section#role {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .roleName {
-      font-size: 40px;
+    .role-name {
+      font-size: 2.5rem;
       color: white;
     }
-    .roleStory {
+    .role-story {
       height: 40%;
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
       color: white;
-      overflow-x: hidden;
       overflow-y: scroll;
-      font-size: 20px;
-      letter-spacing: 0.1em;
-      border-radius: 10px;
+      font-size: 1.2rem;
+      letter-spacing: 0.1rem;
     }
   }
 }
-.roleSelector {
+.role-selector {
   position: absolute;
   min-height: 150px;
   height: 20%;
@@ -1525,25 +1553,33 @@ section#role {
   z-index: 99;
   cursor: pointer;
   padding: 10px 0px;
-  .roleCards {
-    .roleCard {
+  .container{
+    height: 100%;
+  }
+  .role-cards {
+      height: 100%;
+    .role-card {
+      flex-basis: 15%;
+      min-width: 200px;
       background-color: rgba(0, 0, 0, 0.5);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      margin: 0 10px;
       height: 100%;
       &:hover {
-        .rolePic img {
+        .role-name{
+          @extend %mainHover;
+        }
+        .role-pic img {
           transform: translate(-50%, -50%) scale(1.4, 1.4);
         }
       }
-      .rolePic {
+      .role-pic {
+        position: relative;
         width: 100%;
         flex: 1 1 auto;
-        position: relative;
         overflow: hidden;
         img {
           position: absolute;
@@ -1556,7 +1592,7 @@ section#role {
         }
       }
 
-      .roleName {
+      .role-name {
         margin-top: auto;
         color: white;
         letter-spacing: 0.5em;
@@ -1564,23 +1600,23 @@ section#role {
         background-color: rgba(0, 0, 0, 0.5);
         text-align: center;
         width: 100%;
-        height: 30px;
-        font-size: 20px;
+        line-height: 2rem;
+        font-size: 1.2rem;
       }
     }
   }
 }
-@media only screen and (max-device-width: 900px) {
-  .roleMain {
+@media (max-width: 900px) {
+  .role-main {
     width: 100%;
-    .roleInfo {
+    .role-info {
       width: 80%;
       left: 10%;
     }
   }
 }
 
-/*--------------------Role--------------------*/
+/*--------------------ROLE--------------------*/
 
 /*--------------------keyframes --------------------*/
 @keyframes scaleChange {
