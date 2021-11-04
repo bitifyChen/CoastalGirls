@@ -57,3 +57,76 @@ modals.forEach((modal) => {
     }
   });
 });
+
+// filter Main
+const filterBtns = document.querySelectorAll(".main-btns li");
+const items = document.querySelectorAll(".items a");
+filterBtns.forEach((filterBtn) => {
+  filterBtn.addEventListener("click", () => {
+    filterBtnsSet(filterBtn);
+    //custom page
+    if ("page" in filterBtn.dataset) {
+      //shop
+      if (filterBtn.dataset.page === "shop") {
+        shopDisplay(filterBtn.dataset.filter);
+      }
+    } else {
+      itemDisplay(filterBtn.dataset.filter);
+    }
+  });
+});
+function filterBtnsSet(thisBtn){
+  
+  //Clear active 
+  filterBtns.forEach((filterBtn)=>{
+    filterBtn.classList.remove('active')
+  })
+
+  //Set active
+  thisBtn.classList.add('active');
+}
+
+function itemDisplay(filter) {
+  // All
+  if (filter === "*") {
+    items.forEach((item) => {
+      item.classList.remove("hide");
+    });
+  } else {
+    items.forEach((item) => {
+      if (item.classList.contains(filter)) {
+        item.classList.remove("hide");
+      } else {
+        item.classList.add("hide");
+      }
+    });
+  }
+}
+
+//shop custom
+const shopPageContent = document.querySelector(".shop-page-content");
+const shopPageItems = document.querySelector(".items-main .items");
+
+function shopDisplay(filter) {
+  if (filter === "shop-page-content") {
+    shopPageContent.classList.remove("display-none");
+    shopPageItems.classList.add("display-none");
+  } 
+  else {
+    shopPageContent.classList.add("display-none");
+    shopPageItems.classList.remove("display-none");
+    if (filter === "*") {
+      items.forEach((item) => {
+        item.classList.remove("hide");
+      });
+    } else {
+      items.forEach((item) => {
+        if (item.classList.contains(filter)) {
+          item.classList.remove("hide");
+        } else {
+          item.classList.add("hide");
+        }
+      });
+    }
+  }
+}
