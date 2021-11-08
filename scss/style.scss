@@ -459,6 +459,7 @@ section.modal {
         font-size: 2rem;
         color: white;
         font-weight: 700;
+        margin-bottom: 5px;
       }
       .modal-infos {
         flex: 1 1 auto;
@@ -483,6 +484,7 @@ section.modal {
         }
         .modal-info-title {
           font-size: 2rem;
+          padding-left: 5px;
           color: white;
           line-height: 42px;
           border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -651,7 +653,7 @@ section.background-image {
 }
 
 section.background-image.auto {
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   position: relative;
   height: unset;
   > img {
@@ -686,6 +688,8 @@ section.items-main {
         flex-direction: column;
         margin: 10px;
         border: 2px solid transparent;
+        border-radius: 5px;
+        overflow: hidden;
         > img {
           width: 100%;
           height: auto;
@@ -714,7 +718,7 @@ section.items-main {
 
 ul.main-btns {
   display: flex;
-  margin: 20px 10px;
+  margin: 16px 10px;
   li {
     width: 200px;
     height: 45px;
@@ -754,12 +758,16 @@ ul.path {
   li {
     cursor: pointer;
     color: #808080;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 13rem;
     &:hover {
       @extend %mainHover;
     }
   }
   li:last-child {
-    color: white;
+    color: var(--mainColor);
   }
   li + li {
     &::before {
@@ -1097,6 +1105,8 @@ section.news-top {
 
       h3.title {
         margin: 15px 0px;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
       pre.description {
         margin-bottom: 15px;
@@ -1113,7 +1123,10 @@ section.news-top {
         p.tag {
           margin-left: auto;
           font-size: 1rem;
-          color: #fad200;
+          color:var(--mainColor);
+            &.place{
+              color: #fad200;
+            }
         }
       }
     }
@@ -1146,15 +1159,20 @@ section.news-main {
         display: flex;
         flex-direction: column;
         padding-left: 20px;
-        h3.title {
-          line-height: 26px;
+        overflow: hidden;
+        h4.title {
+          line-height: 1.625rem;
+          flex:1 1 auto;
         }
         pre {
-          margin: 10px 0px;
+          padding: 10px 0px;
           white-space: pre-wrap;
-          line-height: 20px;
+          line-height: 1.2rem;
           font-size: 1rem;
           color: #303030;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-height: calc( 10px + 4.8rem);
         }
         .info {
           display: flex;
@@ -1167,7 +1185,10 @@ section.news-main {
           p.tag {
             font-size: 1rem;
             margin: 0px 10px;
-            color: #fad200;
+            color:var(--mainColor);
+            &.place{
+              color: #fad200;
+            }
           }
         }
       }

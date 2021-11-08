@@ -625,6 +625,7 @@ section.modal .modal-content .modal-main .modal-title {
   font-size: 2rem;
   color: white;
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
 section.modal .modal-content .modal-main .modal-infos {
@@ -659,6 +660,7 @@ section.modal .modal-content .modal-main .modal-infos .modal-info.active {
 
 section.modal .modal-content .modal-main .modal-infos .modal-info-title {
   font-size: 2rem;
+  padding-left: 5px;
   color: white;
   line-height: 42px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
@@ -854,7 +856,7 @@ section.background-image > img {
 }
 
 section.background-image.auto {
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   position: relative;
   height: unset;
 }
@@ -912,6 +914,8 @@ section.items-main .items a .item {
           flex-direction: column;
   margin: 10px;
   border: 2px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 section.items-main .items a .item > img {
@@ -944,7 +948,7 @@ ul.main-btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 20px 10px;
+  margin: 16px 10px;
 }
 
 ul.main-btns li {
@@ -997,10 +1001,14 @@ ul.path {
 ul.path li {
   cursor: pointer;
   color: #808080;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 13rem;
 }
 
 ul.path li:last-child {
-  color: white;
+  color: var(--mainColor);
 }
 
 ul.path li + li::before {
@@ -1459,6 +1467,8 @@ section.news-top .news-top-boxs .news-top-box img {
 
 section.news-top .news-top-boxs .news-top-box h3.title {
   margin: 15px 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 section.news-top .news-top-boxs .news-top-box pre.description {
@@ -1482,6 +1492,10 @@ section.news-top .news-top-boxs .news-top-box .info p.date {
 section.news-top .news-top-boxs .news-top-box .info p.tag {
   margin-left: auto;
   font-size: 1rem;
+  color: var(--mainColor);
+}
+
+section.news-top .news-top-boxs .news-top-box .info p.tag.place {
   color: #fad200;
 }
 
@@ -1534,18 +1548,25 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-left: 20px;
+  overflow: hidden;
 }
 
-section.news-main .news-main-boxs .news-main-box .news-main-box-r h3.title {
-  line-height: 26px;
+section.news-main .news-main-boxs .news-main-box .news-main-box-r h4.title {
+  line-height: 1.625rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r pre {
-  margin: 10px 0px;
+  padding: 10px 0px;
   white-space: pre-wrap;
-  line-height: 20px;
+  line-height: 1.2rem;
   font-size: 1rem;
   color: #303030;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc( 10px + 4.8rem);
 }
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r .info {
@@ -1566,6 +1587,10 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.date {
 section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag {
   font-size: 1rem;
   margin: 0px 10px;
+  color: var(--mainColor);
+}
+
+section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag.place {
   color: #fad200;
 }
 
