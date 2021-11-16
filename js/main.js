@@ -29,6 +29,7 @@ dropDownBtns.forEach((dropDownBtn) => {
 //Modal JS
 const modalCloseBtns = document.querySelectorAll("button.modal-close");
 const modalOpenBtns = document.querySelectorAll("button.modal-open");
+const modalOpenDivs = document.querySelectorAll("div.modal-open");
 const modals = document.querySelectorAll("section.modal");
 
 modalCloseBtns.forEach((modalCloseBtn) => {
@@ -43,6 +44,14 @@ modalCloseBtns.forEach((modalCloseBtn) => {
 modalOpenBtns.forEach((modalOpenBtn) => {
   modalOpenBtn.addEventListener("click", () => {
     const modalName = modalOpenBtn.attributes["data-name"].value;
+    document.querySelector("section.modal[data-name='" + modalName + "']").classList.add("open");
+    document.body.classList.toggle("lock-scroll");
+  });
+});
+
+modalOpenDivs.forEach((modalOpenDiv) => {
+  modalOpenDiv.addEventListener("click", () => {
+    const modalName = modalOpenDiv.attributes["data-name"].value;
     document.querySelector("section.modal[data-name='" + modalName + "']").classList.add("open");
     document.body.classList.toggle("lock-scroll");
   });
@@ -70,11 +79,15 @@ filterBtns.forEach((filterBtn) => {
       if (filterBtn.dataset.page === "shop") {
         shopDisplay(filterBtn.dataset.filter);
       }
+      else{
+        itemDisplay(filterBtn.dataset.filter);
+      }
     } else {
       itemDisplay(filterBtn.dataset.filter);
     }
   });
 });
+
 function filterBtnsSet(thisBtn){
   
   //Clear active 
@@ -91,9 +104,11 @@ function itemDisplay(filter) {
   if (filter === "*") {
     items.forEach((item) => {
       item.classList.remove("hide");
+      item.querySelector('.item-filter').style.display="block";
     });
   } else {
     items.forEach((item) => {
+      item.querySelector('.item-filter').style.display="none";
       if (item.classList.contains(filter)) {
         item.classList.remove("hide");
       } else {
