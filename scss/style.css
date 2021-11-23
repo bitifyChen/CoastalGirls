@@ -21,7 +21,7 @@ section.modal .modal-content .modal-main .modal-infos .modal-info-content img, s
   height: auto;
 }
 
-footer .footer-right .footer-social ul li:hover i, footer .footer-right .footer-links ul li a:hover, ul.main-btns li:hover, ul.main-btns.lg li:hover, ul.path li:hover, button.news-in-tab-more a:hover, .role-selector .role-cards .role-card:hover .role-name {
+footer .footer-right .footer-social ul li:hover i, footer .footer-right .footer-links ul li a:hover, ul.main-btns li:hover, ul.main-btns.lg li:hover, ul.path li:hover, button.news-in-tab-more a:hover {
   color: var(--mainColor);
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
@@ -2082,7 +2082,7 @@ section.world-story .world-box .world-content .btn-list button:hover span {
 
 /*--------------------SHOP--------------------*/
 /*--------------------ROLE--------------------*/
-section#role {
+section.role {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2091,7 +2091,7 @@ section#role {
   height: 100%;
 }
 
-section#role .background {
+section.role .background {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -2111,13 +2111,13 @@ section#role .background {
   opacity: 0;
 }
 
-section#role .background.active {
+section.role .background.active {
   opacity: 1;
   -webkit-transition: opacity 6s;
   transition: opacity 6s;
 }
 
-section#role .background.leave {
+section.role .background.leave {
   opacity: 0;
   -webkit-transition: opacity 6s;
   transition: opacity 6s;
@@ -2125,167 +2125,128 @@ section#role .background.leave {
 
 .role-main {
   position: relative;
-  width: 80%;
-  margin-left: auto;
+  margin: auto;
   height: 100%;
 }
 
-.role-main .role-pic {
+.role-main img.role-info {
   position: relative;
+  min-width: 700px;
+  min-height: 700px;
   height: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  width: auto;
 }
 
-.role-main .role-pic img {
+.role-main img.role {
+  top: 0;
+  left: 0;
   position: absolute;
-  height: 90%;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
-  -webkit-animation-name: MoveToLeft;
-          animation-name: MoveToLeft;
+  width: 100%;
+  height: auto;
+}
+
+.role-main img.left {
+  -webkit-animation-name: RoleLeft;
+          animation-name: RoleLeft;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  display: none;
 }
 
-.role-main .role-pic img.active {
-  display: block;
+.role-main img.right {
+  -webkit-animation-name: RoleRight;
+          animation-name: RoleRight;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
-.role-main .role-info {
+.role-main .role-button {
   position: absolute;
-  width: 40%;
-  height: 100%;
-  z-index: 1;
+  bottom: 180px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.role-main .role-info .role-name {
-  font-size: 2.5rem;
-  color: white;
+.role-main .role-button img {
+  height: 65px;
+  width: auto;
+  margin-right: 10px;
 }
 
-.role-main .role-info .role-story {
-  height: 40%;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  color: white;
-  overflow-y: scroll;
-  font-size: 1.2rem;
-  letter-spacing: 0.1rem;
+.role-main-mobile {
+  display: none;
 }
 
 .role-selector {
   position: absolute;
-  min-height: 150px;
-  height: 20%;
+  height: 180px;
   bottom: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
   z-index: 99;
   cursor: pointer;
   padding: 10px 0px;
 }
 
-.role-selector .container {
-  height: 100%;
-}
-
-.role-selector .role-cards {
-  height: 100%;
-}
-
 .role-selector .role-cards .role-card {
-  -ms-flex-preferred-size: 15%;
-      flex-basis: 15%;
-  min-width: 200px;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   cursor: pointer;
-  height: 100%;
+  height: 140px;
+  width: 120px;
+  margin: 10px;
 }
 
-.role-selector .role-cards .role-card:hover .role-pic img {
-  -webkit-transform: translate(-50%, -50%) scale(1.4, 1.4);
-          transform: translate(-50%, -50%) scale(1.4, 1.4);
-}
-
-.role-selector .role-cards .role-card .role-pic {
-  position: relative;
-  width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  overflow: hidden;
-}
-
-.role-selector .role-cards .role-card .role-pic img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(1.2, 1.2);
-          transform: translate(-50%, -50%) scale(1.2, 1.2);
-  -o-object-fit: cover;
-     object-fit: cover;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  height: 100%;
-}
-
-.role-selector .role-cards .role-card .role-name {
-  margin-top: auto;
-  color: white;
-  letter-spacing: 0.5em;
-  font-weight: 900;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  width: 100%;
-  line-height: 2rem;
-  font-size: 1.2rem;
+.role-selector .role-cards .role-card:hover {
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
+          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
 }
 
 @media (max-width: 900px) {
   .role-main {
-    width: 100%;
+    display: none;
   }
-  .role-main .role-info {
-    width: 80%;
-    left: 10%;
+  .role-main-mobile {
+    display: block;
+    height: 100%;
+    background-color: black;
+  }
+  .role-main-mobile img {
+    width: 100%;
+    margin-top: 70px;
+  }
+  .role-main-mobile .role-button {
+    position: absolute;
+    bottom: 170px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 0px 25px;
+  }
+  .role-main-mobile .role-button.left {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .role-main-mobile .role-button.right {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .role-main-mobile .role-button img {
+    height: auto;
+    width: 25%;
+    margin-right: 5px;
   }
 }
 
 /*--------------------ROLE--------------------*/
 /*--------------------scenery-detail--------------------*/
 section.scenery-detail {
-  background: #bedfe3 url("../img/news/news_deatil.jpg") no-repeat top center;
-  background-size: 100% auto;
   min-height: 100%;
   width: 100%;
   padding: 150px 0px;
@@ -2311,8 +2272,6 @@ section.scenery-detail .scenery-article {
 }
 
 section.scenery-detail .scenery-article .scenery-body {
-  background-color: #f0f0f0;
-  padding: 10% 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2321,7 +2280,6 @@ section.scenery-detail .scenery-article .scenery-body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  border-top: var(--mainColor) solid 6px;
 }
 
 section.scenery-detail .scenery-article .scenery-body .scenery-title {
@@ -2362,7 +2320,7 @@ section.scenery-detail .scenery-article .scenery-body .scenery-pictures {
 
 section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure {
   width: 33%;
-  padding-bottom: 18.6%;
+  padding-bottom: 33%;
   margin-bottom: 0.5%;
   position: relative;
 }
@@ -2399,8 +2357,8 @@ section.scenery-detail .scenery-article .scenery-body .scenery-pictures .scenery
 
 @media (max-width: 900px) {
   section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure {
-    width: 100%;
-    padding-bottom: 56.25%;
+    width: 49.75%;
+    padding-bottom: 49.75%;
   }
   section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure:last-child {
     margin-left: unset;
@@ -2536,6 +2494,50 @@ section.scenery-detail .scenery-article .news-side a:hover .last-news-box {
   }
   100% {
     left: 50%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes RoleLeft {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+
+@keyframes RoleLeft {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes RoleRight {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+
+@keyframes RoleRight {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
     opacity: 1;
   }
 }

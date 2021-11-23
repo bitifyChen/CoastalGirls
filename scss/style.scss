@@ -1548,7 +1548,7 @@ section.world-story {
 }
 /*--------------------SHOP--------------------*/
 /*--------------------ROLE--------------------*/
-section#role {
+section.role {
   position: relative;
   display: flex;
   overflow: hidden;
@@ -1579,119 +1579,99 @@ section#role {
 
 .role-main {
   position: relative;
-  width: 80%;
-  margin-left: auto;
+  margin: auto;
   height: 100%;
-  .role-pic {
+  img.role-info{
     position: relative;
+    min-width: 700px;
+    min-height: 700px;
     height: 100%;
-    user-select: none;
-    img {
-      position: absolute;
-      height: 90%;
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%);
-      animation-name: MoveToLeft;
+    width: auto;
+  }
+  img.role{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: auto;
+  }
+  img{
+    &.left{
+      animation-name: RoleLeft;
       animation-duration: 1s;
-      display: none;
-      &.active {
-        display: block;
-      }
+    }
+    &.right{
+      animation-name: RoleRight;
+      animation-duration: 1s;
     }
   }
-  .role-info {
+  .role-button{
     position: absolute;
-    width: 40%;
-    height: 100%;
-    z-index: 1;
+    bottom: 180px;
     display: flex;
-    flex-direction: column;
+    width: 100%;
     justify-content: center;
-    .role-name {
-      font-size: 2.5rem;
-      color: white;
-    }
-    .role-story {
-      height: 40%;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      color: white;
-      overflow-y: scroll;
-      font-size: 1.2rem;
-      letter-spacing: 0.1rem;
+    img{
+      height: 65px;
+      width: auto;
+      margin-right: 10px;
     }
   }
 }
+.role-main-mobile{
+  display: none;
+}
 .role-selector {
   position: absolute;
-  min-height: 150px;
-  height: 20%;
+  height: 180px;
   bottom: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
   z-index: 99;
   cursor: pointer;
   padding: 10px 0px;
-  .container {
-    height: 100%;
-  }
   .role-cards {
-    height: 100%;
-    .role-card {
-      flex-basis: 15%;
-      min-width: 200px;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      height: 100%;
-      &:hover {
-        .role-name {
-          @extend %mainHover;
-        }
-        .role-pic img {
-          transform: translate(-50%, -50%) scale(1.4, 1.4);
-        }
-      }
-      .role-pic {
-        position: relative;
-        width: 100%;
-        flex: 1 1 auto;
-        overflow: hidden;
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) scale(1.2, 1.2);
-          object-fit: cover;
-          flex: 0 0 auto;
-          height: 100%;
-        }
-      }
 
-      .role-name {
-        margin-top: auto;
-        color: white;
-        letter-spacing: 0.5em;
-        font-weight: 900;
-        background-color: rgba(0, 0, 0, 0.5);
-        text-align: center;
-        width: 100%;
-        line-height: 2rem;
-        font-size: 1.2rem;
+    .role-card {
+      cursor: pointer;
+      height: 140px;
+      width: 120px;
+      margin: 10px;
+      &:hover{
+        transition: all .1s linear;
+        filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
       }
     }
   }
 }
 @media (max-width: 900px) {
   .role-main {
-    width: 100%;
-    .role-info {
-      width: 80%;
-      left: 10%;
+    display: none;
+  }
+  .role-main-mobile{
+    display: block;
+    height: 100%;
+    background-color: black;
+    img{
+      width: 100%;
+      margin-top: 70px;
+    }
+    .role-button{
+      position: absolute;
+      bottom: 170px;
+      display: flex;
+      width: 100%;
+      padding: 0px 25px;
+      &.left{
+        justify-content: flex-start;
+      }
+      &.right{
+        justify-content: flex-end;
+      }
+      img{
+        height: auto;
+        width: 25%;
+        margin-right: 5px;
+      }
     }
   }
 }
@@ -1699,8 +1679,6 @@ section#role {
 /*--------------------ROLE--------------------*/
 /*--------------------scenery-detail--------------------*/
 section.scenery-detail {
-  background: #bedfe3 url("../img/news/news_deatil.jpg") no-repeat top center;
-  background-size: 100% auto;
   min-height: 100%;
   width: 100%;
   padding: 150px 0px;
@@ -1712,12 +1690,9 @@ section.scenery-detail {
     display: flex;
     align-items: flex-start;
     .scenery-body {
-      background-color: #f0f0f0;
-      padding: 10% 5%;
       display: flex;
       flex-direction: column;
       width: 100%;
-      border-top: var(--mainColor) solid 6px;
       .scenery-title {
         line-height: 40px;
         font-size: 2rem;
@@ -1745,7 +1720,7 @@ section.scenery-detail {
         flex-wrap: wrap;
         figure{
           width:33%;
-          padding-bottom: 18.6%;
+          padding-bottom: 33%;
           margin-bottom: 0.5%;
           position: relative;
           img{
@@ -1775,8 +1750,8 @@ section.scenery-detail {
         }
         @media (max-width: 900px) {
           figure{
-            width:100%;
-            padding-bottom: 56.25%;
+            width:49.75%;
+            padding-bottom:49.75%;
             &:last-child{
               margin-left: unset;
             }
@@ -1861,6 +1836,28 @@ section.scenery-detail {
     opacity: 1;
   }
 }
+
+@keyframes RoleLeft {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+@keyframes RoleRight {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: 0%;
+    opacity: 1;
+  }
+}
+
 /*--------------------keyframes --------------------*/
 /*--------------------Others --------------------*/
 /*Scroll Bar*/

@@ -20,6 +20,9 @@
       integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
       crossorigin="anonymous"
     />
+    <!---aos-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <link rel="stylesheet" href="scss/reset.css" />
     <link rel="stylesheet" href="scss/style.css" />
   </head>
@@ -44,34 +47,38 @@
       </ul>
       <button class="menu"></button>
     </nav>
-    <section id="role">
+    <section class="role" id="role">
       <img class="background active" :src="roleShow.bannerList[0]" alt="" />
       <img class="background" :src="roleShow.bannerList[1]" alt="" />
 
       <div class="role-main">
-        <div class="role-info">
-          <div class="role-name">{{roleShow.name}}</div>
-          <div class="role-story" v-html="roleShow.info"></div>
-        </div>
-        <div class="role-pic">
-          <img v-for="(role,key) in rolePictureList" :src="role" :key="key" :class="{active:key === nowRole} " alt="" />
+          <img :src="roleShow.rolePic.info" class="role-info" :class="[roleShow.positionLeft ? 'left' : 'right']"alt="">
+          <img :src="roleShow.rolePic.desktop" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="">
+          <div class="role-button">
+            <img :src="roleShow.buttonPic.about" alt="">
+            <img :src="roleShow.buttonPic.story" alt="">
+          </div>
+      </div>
+
+      <div class="role-main-mobile">
+        <img :src="roleShow.rolePic.mobile" class="role-info"alt="">
+        <div class="role-button">
+          <img :src="roleShow.buttonPic.about" alt="">
+          <img :src="roleShow.buttonPic.story" alt="">
         </div>
       </div>
+
       <div class="role-selector">
         <div class="container">
           <div class="swiper role-cards mySwiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide role-card" @click="roleChange(index)" v-for="(role,index) in roles">
-                <div class="role-pic">
-                  <img :src="role.qPic" class="roleCardImg" @click="roleChange(0)" />
-                </div>
-                <div class="role-name">{{ role.name}}</div>
-              </div>
+              <img class="swiper-slide role-card" :src="role.rolePic.card" alt="" @click="roleChange(index)" v-for="(role,index) in roles">
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -81,7 +88,8 @@
       integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=="
       crossorigin="anonymous"
     ></script>
-
+    <!---aos-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       var app = new Vue({
         el: "#role",
@@ -90,59 +98,35 @@
           roles: [
             {
               name: "璐醬",
+              positionLeft:true,
               bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              picture: "img/role/腳色2.png",
-              qPic: "img/role/小圖1.png",
-              info: "【屬性】<br /> ‧璐醬擁有強烈的好奇心，對所有事物充滿興趣，常常把不能吃的東西往嘴裡塞。<br> ‧樂觀天真的璐醬，常不小心弄巧成拙，但多虧她極好的運氣，常誤打誤撞讓事情往好方向發展。<br> ‧璐醬頭上的角是由靈氣匯集成，由於頭上的鹿角很重，因此璐醬從小就訓練出極大的力氣，同時也造就她超乎常人的食量。 <br /> 【服裝】<br /> 在日治時期被正名為優雅的「沙鹿」，因此優雅的和服成為璐醬最喜歡的穿著，為了在森林裡奔跑，所以把衣服改為方便活動的短和服。<br /> 【成長小故事】<br /> ‧璐醬是一隻可愛的山鹿，某天變成人形後發了高燒，被獵人發現後帶回小屋照顧。<br> ．璐醬第一次在海邊看到消波塊時，誤以為是可以吃的粽子便帶了一顆回家，獵人看到嚇了一跳對於擁有強大力氣的璐醬表示佩服，璐醬認為受到了稱讚，便喜歡上了消波塊。",
+              rolePic:{
+                desktop:"img/role/璐醬/role_desktop.png",
+                info:"img/role/璐醬/role_info.png",
+                mobile:"img/role/璐醬/role_mobile.jpg",
+                card:"img/role/璐醬/role_card.png",
+                about:"img/role/璐醬/role_about.png",
+              },
+              buttonPic:{
+                about:"img/role/璐醬/role_btn_about.png",
+                story:"img/role/璐醬/role_btn_story.png",
+              }
             },
             {
-              name: "璐醬2",
-              bannerList: ["img/role/bgc3.png", "img/role/bgc4.png"],
-              picture: "img/role/腳色2.png",
-              qPic: "img/role/小圖1.png",
-              info: "【屬性】<br /> ‧璐醬擁有強烈的好奇心，對所有事物充滿興趣，常常把不能吃的東西往嘴裡塞。<br> ‧樂觀天真的璐醬，常不小心弄巧成拙，但多虧她極好的運氣，常誤打誤撞讓事情往好方向發展。<br> ‧璐醬頭上的角是由靈氣匯集成，由於頭上的鹿角很重，因此璐醬從小就訓練出極大的力氣，同時也造就她超乎常人的食量。 <br /> 【服裝】<br /> 在日治時期被正名為優雅的「沙鹿」，因此優雅的和服成為璐醬最喜歡的穿著，為了在森林裡奔跑，所以把衣服改為方便活動的短和服。<br /> 【成長小故事】<br /> ‧璐醬是一隻可愛的山鹿，某天變成人形後發了高燒，被獵人發現後帶回小屋照顧。<br> ．璐醬第一次在海邊看到消波塊時，誤以為是可以吃的粽子便帶了一顆回家，獵人看到嚇了一跳對於擁有強大力氣的璐醬表示佩服，璐醬認為受到了稱讚，便喜歡上了消波塊。",
-            },
-            {
-              name: "琴",
-              bannerList: ["img/role/新增資料夾/bgc.jpg", "img/role/新增資料夾/bgc2.jpg"],
-              picture: "img/role/腳色.png",
-              qPic: "img/role/小圖2.png",
-              info: "身為西風騎士團的代理團長，琴一直忠於職守，為人們帶來安寧。雖然並非天賦異稟，但經過刻苦訓練，如今的她已然能夠獨當一面。當風魔龍的威脅開始臨近，這位可靠的代理團長早已做好了準備，誓要守護蒙德。",
-            },
-            {
-              name: "迪魯克",
-              bannerList: ["img/role/新增資料夾/bgc.jpg", "img/role/新增資料夾/bgc2.jpg"],
-              picture: "img/role/腳色3.png",
-              qPic: "img/role/小圖3.png",
-              info: "身為蒙德城第一富豪，風度翩翩的迪盧克總是以完美的貴公子形象示人。<br>然而他真實的一面，是秉承堅定信念的戰士，他那「不惜一切守護蒙德」的意志如火焰般熾熱，令他能以恐怖的攻勢，毫不留情地將一切敵人無情擊潰。",
-            },
-            {
-              name: "璐醬",
+              name: "梧醬",
+              positionLeft:false,
               bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              picture: "img/role/腳色2.png",
-              qPic: "img/role/小圖1.png",
-              info: "【屬性】<br /> ‧璐醬擁有強烈的好奇心，對所有事物充滿興趣，常常把不能吃的東西往嘴裡塞。<br> ‧樂觀天真的璐醬，常不小心弄巧成拙，但多虧她極好的運氣，常誤打誤撞讓事情往好方向發展。<br> ‧璐醬頭上的角是由靈氣匯集成，由於頭上的鹿角很重，因此璐醬從小就訓練出極大的力氣，同時也造就她超乎常人的食量。 <br /> 【服裝】<br /> 在日治時期被正名為優雅的「沙鹿」，因此優雅的和服成為璐醬最喜歡的穿著，為了在森林裡奔跑，所以把衣服改為方便活動的短和服。<br /> 【成長小故事】<br /> ‧璐醬是一隻可愛的山鹿，某天變成人形後發了高燒，被獵人發現後帶回小屋照顧。<br> ．璐醬第一次在海邊看到消波塊時，誤以為是可以吃的粽子便帶了一顆回家，獵人看到嚇了一跳對於擁有強大力氣的璐醬表示佩服，璐醬認為受到了稱讚，便喜歡上了消波塊。",
-            },
-            {
-              name: "璐醬2",
-              bannerList: ["img/role/bgc3.png", "img/role/bgc4.png"],
-              picture: "img/role/腳色2.png",
-              qPic: "img/role/小圖1.png",
-              info: "【屬性】<br /> ‧璐醬擁有強烈的好奇心，對所有事物充滿興趣，常常把不能吃的東西往嘴裡塞。<br> ‧樂觀天真的璐醬，常不小心弄巧成拙，但多虧她極好的運氣，常誤打誤撞讓事情往好方向發展。<br> ‧璐醬頭上的角是由靈氣匯集成，由於頭上的鹿角很重，因此璐醬從小就訓練出極大的力氣，同時也造就她超乎常人的食量。 <br /> 【服裝】<br /> 在日治時期被正名為優雅的「沙鹿」，因此優雅的和服成為璐醬最喜歡的穿著，為了在森林裡奔跑，所以把衣服改為方便活動的短和服。<br /> 【成長小故事】<br /> ‧璐醬是一隻可愛的山鹿，某天變成人形後發了高燒，被獵人發現後帶回小屋照顧。<br> ．璐醬第一次在海邊看到消波塊時，誤以為是可以吃的粽子便帶了一顆回家，獵人看到嚇了一跳對於擁有強大力氣的璐醬表示佩服，璐醬認為受到了稱讚，便喜歡上了消波塊。",
-            },
-            {
-              name: "琴",
-              bannerList: ["img/role/新增資料夾/bgc.jpg", "img/role/新增資料夾/bgc2.jpg"],
-              picture: "img/role/腳色.png",
-              qPic: "img/role/小圖2.png",
-              info: "身為西風騎士團的代理團長，琴一直忠於職守，為人們帶來安寧。雖然並非天賦異稟，但經過刻苦訓練，如今的她已然能夠獨當一面。當風魔龍的威脅開始臨近，這位可靠的代理團長早已做好了準備，誓要守護蒙德。",
-            },
-            {
-              name: "迪魯克",
-              bannerList: ["img/role/新增資料夾/bgc.jpg", "img/role/新增資料夾/bgc2.jpg"],
-              picture: "img/role/腳色3.png",
-              qPic: "img/role/小圖3.png",
-              info: "身為蒙德城第一富豪，風度翩翩的迪盧克總是以完美的貴公子形象示人。<br>然而他真實的一面，是秉承堅定信念的戰士，他那「不惜一切守護蒙德」的意志如火焰般熾熱，令他能以恐怖的攻勢，毫不留情地將一切敵人無情擊潰。",
+              rolePic:{
+                desktop:"img/role/梧醬/role_desktop.png",
+                info:"img/role/梧醬/role_info.png",
+                mobile:"img/role/梧醬/role_mobile.jpg",
+                card:"img/role/梧醬/role_card.png",
+                about:"img/role/梧醬/role_about.png",
+              },
+              buttonPic:{
+                about:"img/role/梧醬/role_btn_about.png",
+                story:"img/role/梧醬/role_btn_story.png",
+              }
             },
           ],
         },
@@ -204,6 +188,9 @@
       setInterval(function () {
         backgroundNext();
       }, 12000);
+    </script>
+    <script>
+      AOS.init();
     </script>
   </body>
 </html>
