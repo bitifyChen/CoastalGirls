@@ -21,7 +21,7 @@
       crossorigin="anonymous"
     />
     <!---aos-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="scss/reset.css" />
     <link rel="stylesheet" href="scss/style.css" />
@@ -52,19 +52,25 @@
       <img class="background" :src="roleShow.bannerList[1]" alt="" />
 
       <div class="role-main">
-          <img :src="roleShow.rolePic.info" class="role-info" :class="[roleShow.positionLeft ? 'left' : 'right']"alt="">
-          <img :src="roleShow.rolePic.desktop" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="">
-          <div class="role-button">
-            <img :src="roleShow.buttonPic.about" alt="">
-            <img :src="roleShow.buttonPic.story" alt="">
-          </div>
+        <img
+          :src="roleShow.rolePic.info"
+          class="role-info"
+          :class="[roleShow.positionLeft ? 'left' : 'right']"
+          alt=""
+        />
+        <img :src="roleShow.rolePic.desktop" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
+        <div class="role-button">
+          <img class="modal-open" data-name="img" :src="roleShow.buttonPic.about" alt="" />
+          <img :src="roleShow.buttonPic.story" alt="" />
+        </div>
       </div>
 
       <div class="role-main-mobile">
-        <img :src="roleShow.rolePic.mobile" class="role-info"alt="">
+        <img :src="roleShow.rolePic.mobileBgc" class="bgc" alt="" />
+        <img :src="roleShow.rolePic.mobileRole" class="role" alt="" />
         <div class="role-button">
-          <img :src="roleShow.buttonPic.about" alt="">
-          <img :src="roleShow.buttonPic.story" alt="">
+          <img class="modal-open" data-name="img" :src="roleShow.buttonPic.about" alt="" />
+          <img :src="roleShow.buttonPic.story" alt="" />
         </div>
       </div>
 
@@ -72,15 +78,29 @@
         <div class="container">
           <div class="swiper role-cards mySwiper">
             <div class="swiper-wrapper">
-              <img class="swiper-slide role-card" :src="role.rolePic.card" alt="" @click="roleChange(index)" v-for="(role,index) in roles">
+              <img
+                class="swiper-slide role-card"
+                :src="role.rolePic.card"
+                alt=""
+                @click="roleChange(index)"
+                v-for="(role,index) in roles"
+              />
             </div>
           </div>
         </div>
       </div>
+
+      <section class="modal" data-name="img">
+        <div class="modal-content">
+          <div class="modal-img">
+            <img :src="roleShow.rolePic.about" alt="" />
+            <button class="modal-close"></button>
+          </div>
+        </div>
+      </section>
     </section>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
 
     <!---Vue-->
     <script
@@ -98,35 +118,37 @@
           roles: [
             {
               name: "璐醬",
-              positionLeft:true,
+              positionLeft: true,
               bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              rolePic:{
-                desktop:"img/role/璐醬/role_desktop.png",
-                info:"img/role/璐醬/role_info.png",
-                mobile:"img/role/璐醬/role_mobile.jpg",
-                card:"img/role/璐醬/role_card.png",
-                about:"img/role/璐醬/role_about.png",
+              rolePic: {
+                desktop: "img/role/璐醬/role_desktop.png",
+                info: "img/role/璐醬/role_info.png",
+                mobileBgc: "img/role/璐醬/role_mobile.jpg",
+                mobileRole:"",
+                card: "img/role/璐醬/role_card.png",
+                about: "img/role/璐醬/role_about.jpg",
               },
-              buttonPic:{
-                about:"img/role/璐醬/role_btn_about.png",
-                story:"img/role/璐醬/role_btn_story.png",
-              }
+              buttonPic: {
+                about: "img/role/璐醬/role_btn_about.png",
+                story: "img/role/璐醬/role_btn_story.png",
+              },
             },
             {
               name: "梧醬",
-              positionLeft:false,
+              positionLeft: false,
               bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              rolePic:{
-                desktop:"img/role/梧醬/role_desktop.png",
-                info:"img/role/梧醬/role_info.png",
-                mobile:"img/role/梧醬/role_mobile.jpg",
-                card:"img/role/梧醬/role_card.png",
-                about:"img/role/梧醬/role_about.png",
+              rolePic: {
+                desktop: "img/role/梧醬/role_desktop.png",
+                info: "img/role/梧醬/role_info.png",
+                mobileBgc: "img/role/梧醬/role_mobile_bgc.png",
+                mobileRole:"img/role/梧醬/role_mobile.png",
+                card: "img/role/梧醬/role_card.png",
+                about: "img/role/梧醬/role_about.jpg",
               },
-              buttonPic:{
-                about:"img/role/梧醬/role_btn_about.png",
-                story:"img/role/梧醬/role_btn_story.png",
-              }
+              buttonPic: {
+                about: "img/role/梧醬/role_btn_about.png",
+                story: "img/role/梧醬/role_btn_story.png",
+              },
             },
           ],
         },
@@ -189,6 +211,7 @@
         backgroundNext();
       }, 12000);
     </script>
+    <script src="js/main.js"></script>
     <script>
       AOS.init();
     </script>

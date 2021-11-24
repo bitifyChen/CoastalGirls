@@ -28,7 +28,7 @@ dropDownBtns.forEach((dropDownBtn) => {
 
 //Modal JS
 const modalCloseBtns = document.querySelectorAll("button.modal-close");
-const modalOpenBtns = document.querySelectorAll("button.modal-open");
+const modalOpenBtns = document.querySelectorAll(".modal-open");
 const modalOpenDivs = document.querySelectorAll("div.modal-open");
 const modals = document.querySelectorAll("section.modal");
 

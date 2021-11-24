@@ -382,6 +382,22 @@ footer {
 /*Modal*/
 section.modal {
   display: none;
+  &[data-name="img"]{
+    .modal-content{
+      height: 80%;
+      width: auto;
+      position: relative;
+      .modal-img {
+        height: 100%;
+        img{
+          height: 100%;
+          width: auto;
+          max-width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
   &.open {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.75);
@@ -395,7 +411,6 @@ section.modal {
     justify-content: center;
     align-items: center;
   }
-
   .modal-content {
     max-width: 1200px;
     display: flex;
@@ -1581,12 +1596,13 @@ section.role {
   position: relative;
   margin: auto;
   height: 100%;
+  min-width: 900px;
   img.role-info{
     position: relative;
-    min-width: 700px;
-    min-height: 700px;
+    min-height: 800px;
     height: 100%;
     width: auto;
+    object-fit: contain;
   }
   img.role{
     top: 0;
@@ -1594,6 +1610,8 @@ section.role {
     position: absolute;
     width: 100%;
     height: auto;
+    min-height: 700px;
+    object-fit: contain;
   }
   img{
     &.left{
@@ -1615,6 +1633,11 @@ section.role {
       height: 65px;
       width: auto;
       margin-right: 10px;
+      opacity: .8;
+      cursor: pointer;
+      &:hover{
+        opacity: 1;
+      }
     }
   }
 }
@@ -1647,13 +1670,39 @@ section.role {
   .role-main {
     display: none;
   }
+  // .role-main-mobile{
+  //   display: block;
+  //   height: 100%;
+  //   background-color: black;
+  //   img{
+  //     width: 100%;
+  //     margin-top: 70px;
+  //   }
+  // }
   .role-main-mobile{
     display: block;
     height: 100%;
+    width: 100%;
     background-color: black;
-    img{
+    position: relative;
+    img.bgc{
+      min-width: 100%;
       width: 100%;
-      margin-top: 70px;
+      height: 100%;
+      object-fit: cover;
+    }
+    img.role{
+      position: absolute;
+      height:calc(100% - 120px) ;
+      min-height:calc(75% - 120px) ;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      top: 70px;
+      left: 0px;
+      right: 0px;
+      margin-left: auto; 
+      margin-right: auto; 
     }
     .role-button{
       position: absolute;
@@ -1661,6 +1710,7 @@ section.role {
       display: flex;
       width: 100%;
       padding: 0px 25px;
+      cursor: pointer;
       &.left{
         justify-content: flex-start;
       }
