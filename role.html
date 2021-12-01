@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="scss/style.css" />
   </head>
   <body>
-    <nav class="no-top">
+    <nav>
       <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
       <ul>
         <li><a href="news.html">最新消息</a></li>
@@ -43,7 +43,7 @@
         <li><a href="shop.html">周邊小物</a></li>
         <li><a href="#">關於我們</a></li>
         <li><a href="download_scenery.html">在地美照</a></li>
-        <li><a href="#">媒體中心</a></li>
+        <li><a href="album.html">畫廊</a></li>
       </ul>
       <button class="menu"></button>
     </nav>
@@ -59,7 +59,7 @@
           alt=""
         />
         <img :src="roleShow.rolePic.desktop" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
-        <div class="role-button">
+        <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
           <img class="modal-open" data-name="img" :src="roleShow.buttonPic.about" alt="" />
           <img :src="roleShow.buttonPic.story" alt="" />
         </div>
@@ -123,8 +123,8 @@
               rolePic: {
                 desktop: "img/role/璐醬/role_desktop.png",
                 info: "img/role/璐醬/role_info.png",
-                mobileBgc: "img/role/璐醬/role_mobile.jpg",
-                mobileRole:"",
+                mobileBgc: "img/role/璐醬/role_mobile_bgc.png",
+                mobileRole: "img/role/璐醬/role_mobile.png",
                 card: "img/role/璐醬/role_card.png",
                 about: "img/role/璐醬/role_about.jpg",
               },
@@ -141,7 +141,7 @@
                 desktop: "img/role/梧醬/role_desktop.png",
                 info: "img/role/梧醬/role_info.png",
                 mobileBgc: "img/role/梧醬/role_mobile_bgc.png",
-                mobileRole:"img/role/梧醬/role_mobile.png",
+                mobileRole: "img/role/梧醬/role_mobile.png",
                 card: "img/role/梧醬/role_card.png",
                 about: "img/role/梧醬/role_about.jpg",
               },
@@ -168,6 +168,11 @@
             return picArr;
           },
         },
+        watch:{
+          roleShow(){
+            resizeCheck(this.roleShow.positionLeft);
+          }
+        }
       });
     </script>
 
@@ -210,6 +215,33 @@
       setInterval(function () {
         backgroundNext();
       }, 12000);
+    </script>
+    <script>
+      const roleInfo = document.querySelector(".role-info");
+  
+      function resizeCheck(position) {
+        const roleButton = document.querySelector(".role-button");
+        //如果高度大於800
+        if(roleInfo.offsetHeight == 800){
+          roleButton.style.top = "520px"
+          if (roleButton.classList.contains('right')) {
+            roleButton.style.left = "460px"
+          }
+          else{
+            roleButton.style.left = "60px"
+          }
+        }else{
+          roleButton.style.top = "65%"
+          if (roleButton.classList.contains('right')) {
+            roleButton.style.left = "53%";
+          }else{
+            roleButton.style.left = "7%";
+          }
+        }
+      }
+      window.addEventListener("resize",resizeCheck);
+      resizeCheck();
+
     </script>
     <script src="js/main.js"></script>
     <script>

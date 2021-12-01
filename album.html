@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>海線少女</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.css"
+      integrity="sha512-Q0DfJ+I5cbH4Wm20NlPZ/fENHil7k3ZgzI9b71LfQAB1IlM8Gt7aO7eOPX2QzYT+4fZaF6u1kSfZAHczl4r/9Q=="
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css"
+      integrity="sha512-kwJUhJJaTDzGp6VTPBbMQWBFUof6+pv0SM3s8fo+E6XnPmVmtfwENK0vHYup3tsYnqHgRDoBDTJWoq7rnQw2+g=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css"
+      integrity="sha512-yxWNfGm+7EK+hqP2CMJ13hsUNCQfHmOuCuLmOq2+uv/AVQtFAjlAJO8bHzpYGQnBghULqnPuY8NEr7f5exR3Qw=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css"
+      integrity="sha512-Rck8F2HFBjAQpszOB9Qy+NVLeIy4vUOMB7xrp46edxB3KXs2RxXRguHfrJqNK+vJ+CkfvcGqAKMJTyWYBiBsGA=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="scss/reset.css" />
+    <link rel="stylesheet" href="scss/style.css" />
+    <style>
+      .pswp__caption__center {
+        display: flex;
+        justify-content: center;
+      }
+      .pswp__caption__center button {
+        margin-left: 20px;
+        background-color: rgb(255, 255, 255);
+        color: black;
+        border-radius: 10px;
+        padding: 0px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="no-top">
+      <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
+      <ul>
+        <li><a href="news.html">最新消息</a></li>
+        <li class="dropdown">
+          <label for="btn-2">世界觀 </label>
+          <input type="checkbox" id="btn-2" />
+          <ul>
+            <li><a href="world_story.html">地區故事</a></li>
+            <li><a href="world_comic.html">漫畫</a></li>
+          </ul>
+        </li>
+        <li><a href="role.html">角色介紹</a></li>
+        <li><a href="shop.html">周邊小物</a></li>
+        <li><a href="#">關於我們</a></li>
+        <li><a href="download_scenery.html">在地美照</a></li>
+        <li><a href="album.html">畫廊</a></li>
+      </ul>
+      <button class="menu"></button>
+    </nav>
+
+    <section class="background-image top">
+      <img src="img/shop/shop-banner.jpg" alt="" />
+    </section>
+
+    <section class="items-main album-detail">
+      <div class="container">
+        <ul class="main-btns lg">
+          <li class="active" data-page="album" data-filter="*">全部</li>
+          <li data-filter="藝術照">藝術照</li>
+          <li data-filter="節日賀圖">節日賀圖</li>
+          <li data-filter="生活照">生活照</li>
+          <li data-filter="出遊照">出遊照</li>
+          <li data-filter="在地美化">在地美化</li>
+          <li data-filter="議題宣導">議題宣導</li>
+          <li data-filter="公告圖">公告圖</li>
+          <li data-filter="氛圍圖">氛圍圖</li>
+        </ul>
+
+        <div class="items">
+          <div class="album-pictures" itemscope itemtype="http://schema.org/ImageGallery">
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="https://via.placeholder.com/1920x1080" itemprop="contentUrl" data-size="1920x1080">
+                <img src="https://via.placeholder.com/1920x1080" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption
+                itemprop="caption description"
+                data-url="https://drive.google.com/file/d/1W02y7rfts8xkKO_XwCyXJBwfGR_vD67K/view?usp=sharing"
+                style="display: none"
+              >
+                標題
+              </figcaption>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="https://via.placeholder.com/1080x1920" itemprop="contentUrl" data-size="1080x1920">
+                <img src="https://via.placeholder.com/1080x1920" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption
+                itemprop="caption description"
+                data-url="https://drive.google.com/file/d/1W02y7rfts8xkKO_XwCyXJBwfGR_vD67K/view?usp=sharing"
+                style="display: none"
+              >
+                標題
+              </figcaption>
+            </figure>
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a
+                href="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg"
+                itemprop="contentUrl"
+                data-size="964x1024"
+              >
+                <img
+                  src="https://farm2.staticflickr.com/1043/5186867718_06b2e9e551_m.jpg"
+                  itemprop="thumbnail"
+                  alt="Image description"
+                />
+              </a>
+              <figcaption
+                itemprop="caption description"
+                data-url="https://drive.google.com/file/d/1W02y7rfts8xkKO_XwCyXJBwfGR_vD67K/view?usp=sharing"
+                style="display: none"
+              >
+                標題
+              </figcaption>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="藝術照">
+              <a
+                href="https://www.ikea.com.tw/dairyfarm/tw/pageImages/page__zh_tw_1628672159224163994.jpeg"
+                itemprop="contentUrl"
+                data-size="710x947"
+              >
+                <img
+                  src="https://www.ikea.com.tw/dairyfarm/tw/pageImages/page__zh_tw_1628672159224163994.jpeg"
+                  itemprop="thumbnail"
+                  alt="Image description"
+                />
+              </a>
+              <figcaption
+                itemprop="caption description"
+                data-url="https://drive.google.com/file/d/1W02y7rfts8xkKO_XwCyXJBwfGR_vD67K/view?usp=sharing"
+                style="display: none"
+              >
+                標題
+              </figcaption>
+            </figure>
+
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a
+                href="https://www.ikea.com.tw/dairyfarm/tw/pageImages/page__zh_tw_1628672159224163993.jpeg"
+                itemprop="contentUrl"
+                data-size="1440x788"
+              >
+                <img
+                  src="https://www.ikea.com.tw/dairyfarm/tw/pageImages/page__zh_tw_1628672159224163993.jpeg"
+                  itemprop="thumbnail"
+                  alt="Image description"
+                />
+              </a>
+              <figcaption
+                itemprop="caption description"
+                data-url="https://drive.google.com/file/d/1W02y7rfts8xkKO_XwCyXJBwfGR_vD67K/view?usp=sharing"
+                style="display: none"
+              >
+                標題
+              </figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+      <!--Gallery-->
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+          <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+          </div>
+          <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+              <div class="pswp__counter"></div>
+              <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+              <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+              <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+              <div class="pswp__preloader">
+                <div class="pswp__preloader__icn">
+                  <div class="pswp__preloader__cut">
+                    <div class="pswp__preloader__donut"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+              <div class="pswp__share-tooltip"></div>
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+              <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Gallery-->
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-left">
+          <img src="img/index/logo.png" alt="" class="logo" />
+        </div>
+        <div class="footer-right">
+          <div class="footer-social">
+            <ul>
+              <li>
+                <a href="#"><i class="fab fa-facebook-square fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-youtube fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-instagram fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter-square fa-fw"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="far fa-envelope fa-fw"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#">隱私權政策</a></li>
+              <li><a href="#">使用者協議</a></li>
+              <li><a href="#">使用者協議</a></li>
+            </ul>
+          </div>
+          <div class="footer-copyright">Copyright © 2021 Owlcreativecradle All Rights Reserved</div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"
+      integrity="sha512-2R4VJGamBudpzC1NTaSkusXP7QkiUYvEKhpJAxeVCqLDsgW4OqtzorZGpulE3eEA7p++U0ZYmqBwO3m+R2hRjA=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"
+      integrity="sha512-SxO0cwfxj/QhgX1SgpmUr0U2l5304ezGVhc0AO2YwOQ/C8O67ynyTorMKGjVv1fJnPQgjdxRz6x70MY9r0sKtQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var initPhotoSwipeFromDOM = function (gallerySelector) {
+        var parseThumbnailElements = function (el) {
+          var thumbElements = el.childNodes,
+            numNodes = thumbElements.length,
+            items = [],
+            figureEl,
+            linkEl,
+            size,
+            item;
+
+          for (var i = 0; i < numNodes; i++) {
+            figureEl = thumbElements[i];
+
+            if (figureEl.nodeType !== 1) {
+              continue;
+            }
+
+            linkEl = figureEl.children[0];
+
+            size = linkEl.getAttribute("data-size").split("x");
+
+            // create slide object
+            item = {
+              src: linkEl.getAttribute("href"),
+              w: parseInt(size[0], 10),
+              h: parseInt(size[1], 10),
+            };
+
+            if (figureEl.children.length > 1) {
+              // <figcaption> content
+              let google_url = figureEl.children[1].getAttribute("data-url");
+              item.title =
+                figureEl.children[1].innerHTML + "<a href=" + google_url + " target='_blank'><button>下載</button></a>";
+            }
+
+            if (linkEl.children.length > 0) {
+              // <img> thumbnail element, retrieving thumbnail url
+              item.msrc = linkEl.children[0].getAttribute("src");
+            }
+
+            item.el = figureEl; // save link to element for getThumbBoundsFn
+            items.push(item);
+          }
+
+          return items;
+        };
+
+        // find nearest parent element
+        var closest = function closest(el, fn) {
+          return el && (fn(el) ? el : closest(el.parentNode, fn));
+        };
+
+        // triggers when user clicks on thumbnail
+        var onThumbnailsClick = function (e) {
+          e = e || window.event;
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+
+          var eTarget = e.target || e.srcElement;
+
+          // find root element of slide
+          var clickedListItem = closest(eTarget, function (el) {
+            return el.tagName && el.tagName.toUpperCase() === "FIGURE";
+          });
+
+          if (!clickedListItem) {
+            return;
+          }
+
+          // find index of clicked item by looping through all child nodes
+          // alternatively, you may define index via data- attribute
+          var clickedGallery = clickedListItem.parentNode,
+            childNodes = clickedListItem.parentNode.childNodes,
+            numChildNodes = childNodes.length,
+            nodeIndex = 0,
+            index;
+
+          for (var i = 0; i < numChildNodes; i++) {
+            if (childNodes[i].nodeType !== 1) {
+              continue;
+            }
+
+            if (childNodes[i] === clickedListItem) {
+              index = nodeIndex;
+              break;
+            }
+            nodeIndex++;
+          }
+
+          if (index >= 0) {
+            // open PhotoSwipe if valid index found
+            openPhotoSwipe(index, clickedGallery);
+          }
+          return false;
+        };
+
+        // parse picture index and gallery index from URL (#&pid=1&gid=2)
+        var photoswipeParseHash = function () {
+          var hash = window.location.hash.substring(1),
+            params = {};
+
+          if (hash.length < 5) {
+            return params;
+          }
+
+          var vars = hash.split("&");
+          for (var i = 0; i < vars.length; i++) {
+            if (!vars[i]) {
+              continue;
+            }
+            var pair = vars[i].split("=");
+            if (pair.length < 2) {
+              continue;
+            }
+            params[pair[0]] = pair[1];
+          }
+
+          if (params.gid) {
+            params.gid = parseInt(params.gid, 10);
+          }
+
+          return params;
+        };
+
+        var openPhotoSwipe = function (index, galleryElement, disableAnimation, fromURL) {
+          var pswpElement = document.querySelectorAll(".pswp")[0],
+            gallery,
+            options,
+            items;
+
+          items = parseThumbnailElements(galleryElement);
+
+          // define options (if needed)
+          options = {
+            // define gallery index (for URL)
+            galleryUID: galleryElement.getAttribute("data-pswp-uid"),
+
+            getThumbBoundsFn: function (index) {
+              // See Options -> getThumbBoundsFn section of documentation for more info
+              var thumbnail = items[index].el.getElementsByTagName("img")[0], // find thumbnail
+                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                rect = thumbnail.getBoundingClientRect();
+
+              return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
+            },
+          };
+
+          // PhotoSwipe opened from URL
+          if (fromURL) {
+            if (options.galleryPIDs) {
+              // parse real index when custom PIDs are used
+              // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+              for (var j = 0; j < items.length; j++) {
+                if (items[j].pid == index) {
+                  options.index = j;
+                  break;
+                }
+              }
+            } else {
+              // in URL indexes start from 1
+              options.index = parseInt(index, 10) - 1;
+            }
+          } else {
+            options.index = parseInt(index, 10);
+          }
+
+          // exit if index not found
+          if (isNaN(options.index)) {
+            return;
+          }
+
+          if (disableAnimation) {
+            options.showAnimationDuration = 0;
+          }
+
+          // Pass data to PhotoSwipe and initialize it
+          gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+          gallery.init();
+        };
+
+        // loop through all gallery elements and bind events
+        var galleryElements = document.querySelectorAll(gallerySelector);
+
+        for (var i = 0, l = galleryElements.length; i < l; i++) {
+          galleryElements[i].setAttribute("data-pswp-uid", i + 1);
+          galleryElements[i].onclick = onThumbnailsClick;
+        }
+
+        // Parse URL and open gallery if it contains #&pid=3&gid=1
+        var hashData = photoswipeParseHash();
+        if (hashData.pid && hashData.gid) {
+          openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+        }
+      };
+
+      // execute above function
+      initPhotoSwipeFromDOM(".album-pictures");
+    </script>
+  </body>
+</html>

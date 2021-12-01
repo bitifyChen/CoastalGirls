@@ -382,14 +382,14 @@ footer {
 /*Modal*/
 section.modal {
   display: none;
-  &[data-name="img"]{
-    .modal-content{
+  &[data-name="img"] {
+    .modal-content {
       height: 80%;
       width: auto;
       position: relative;
       .modal-img {
         height: 100%;
-        img{
+        img {
           height: 100%;
           width: auto;
           max-width: 100%;
@@ -1310,9 +1310,9 @@ section.news-detail {
         font-size: 2rem;
         color: #333;
       }
-      .news-banner{
+      .news-banner {
         width: 100%;
-        img{
+        img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -1597,14 +1597,14 @@ section.role {
   margin: auto;
   height: 100%;
   min-width: 900px;
-  img.role-info{
+  img.role-info {
     position: relative;
     min-height: 800px;
     height: 100%;
     width: auto;
     object-fit: contain;
   }
-  img.role{
+  img.role {
     top: 0;
     left: 0;
     position: absolute;
@@ -1613,35 +1613,40 @@ section.role {
     min-height: 700px;
     object-fit: contain;
   }
-  img{
-    &.left{
-      animation-name: RoleLeft;
-      animation-duration: 1s;
+  img {
+    &.left {
+      animation: RoleLeft 1s;
     }
-    &.right{
-      animation-name: RoleRight;
-      animation-duration: 1s;
+    &.right {
+      animation: RoleRight 1s;
     }
   }
-  .role-button{
+  .role-button {
     position: absolute;
-    bottom: 180px;
     display: flex;
-    width: 100%;
+    height: 8%;
+    min-height: 64px;
     justify-content: center;
-    img{
-      height: 65px;
+    top: 65%;
+    &.right {
+      left: 53%;
+    }
+    &.left {
+      left: 0%;
+    }
+    img {
+      height: 100%;
       width: auto;
       margin-right: 10px;
-      opacity: .8;
+      opacity: 0.8;
       cursor: pointer;
-      &:hover{
+      &:hover {
         opacity: 1;
       }
     }
   }
 }
-.role-main-mobile{
+.role-main-mobile {
   display: none;
 }
 .role-selector {
@@ -1653,14 +1658,13 @@ section.role {
   cursor: pointer;
   padding: 10px 0px;
   .role-cards {
-
     .role-card {
       cursor: pointer;
       height: 140px;
       width: 120px;
       margin: 10px;
-      &:hover{
-        transition: all .1s linear;
+      &:hover {
+        transition: all 0.1s linear;
         filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
       }
     }
@@ -1679,45 +1683,40 @@ section.role {
   //     margin-top: 70px;
   //   }
   // }
-  .role-main-mobile{
+  .role-main-mobile {
     display: block;
     height: 100%;
     width: 100%;
     background-color: black;
     position: relative;
-    img.bgc{
+    img.bgc {
       min-width: 100%;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    img.role{
+    img.role {
       position: absolute;
-      height:calc(100% - 120px) ;
-      min-height:calc(75% - 120px) ;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      top: 70px;
-      left: 0px;
-      right: 0px;
-      margin-left: auto; 
-      margin-right: auto; 
+      width: 100%;
+      height: auto;
+      top: 30px;
+      left: 0;
+      margin-left: auto;
     }
-    .role-button{
+    .role-button {
       position: absolute;
       bottom: 170px;
       display: flex;
       width: 100%;
       padding: 0px 25px;
       cursor: pointer;
-      &.left{
+      &.left {
         justify-content: flex-start;
       }
-      &.right{
+      &.right {
         justify-content: flex-end;
       }
-      img{
+      img {
         height: auto;
         width: 25%;
         margin-right: 5px;
@@ -1749,9 +1748,9 @@ section.scenery-detail {
         color: #333;
         margin-top: 50px;
       }
-      .scenery-banner{
+      .scenery-banner {
         width: 100%;
-        img{
+        img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -1761,48 +1760,34 @@ section.scenery-detail {
         margin-top: 51px;
         @extend %ckeditor;
       }
-      .scenery-pictures{
+      .scenery-pictures {
         margin-top: 50px;
         width: 100%;
         display: flex;
         overflow: hidden;
         justify-content: space-between;
         flex-wrap: wrap;
-        figure{
-          width:33%;
+        figure {
+          width: 33%;
           padding-bottom: 33%;
           margin-bottom: 0.5%;
           position: relative;
-          img{
-            position: absolute;
-            width:100%;
-            height: 100%;
-            object-fit: cover;
-          }
-          &:last-child{
-            margin-right: auto;
-            margin-left: .5%;
-          }
-        }
-        .scenery-picture{
-          background-color: red;
-          width: 30%;
-          padding-bottom: 18.5%;
-          position: relative;
-          margin-top: 20px;
-          cursor: pointer;
-          img{
+          img {
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
           }
+          &:last-child {
+            margin-right: auto;
+            margin-left: 0.5%;
+          }
         }
         @media (max-width: 900px) {
-          figure{
-            width:49.75%;
-            padding-bottom:49.75%;
-            &:last-child{
+          figure {
+            width: 49.75%;
+            padding-bottom: 49.75%;
+            &:last-child {
               margin-left: unset;
             }
           }
@@ -1855,6 +1840,58 @@ section.scenery-detail {
   }
 }
 /*--------------------scenery-detail--------------------*/
+
+/*--------------------album-detail--------------------*/
+section.album-detail {
+  .album-pictures {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    figure {
+      width: 33%;
+      padding-bottom: 33%;
+      margin-bottom: 0.5%;
+      position: relative;
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &:last-child {
+        margin-right: auto;
+        margin-left: 0.5%;
+      }
+    }
+    .album-picture {
+      background-color: red;
+      width: 30%;
+      padding-bottom: 18.5%;
+      position: relative;
+      margin-top: 20px;
+      cursor: pointer;
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    @media (max-width: 900px) {
+      figure {
+        width: 49.75%;
+        padding-bottom: 49.75%;
+        &:last-child {
+          margin-left: unset;
+        }
+      }
+    }
+  }
+}
+/*--------------------album-detail--------------------*/
 /*--------------------keyframes --------------------*/
 @keyframes scaleChange {
   0% {

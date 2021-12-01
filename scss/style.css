@@ -2169,36 +2169,41 @@ section.role .background.leave {
 }
 
 .role-main img.left {
-  -webkit-animation-name: RoleLeft;
-          animation-name: RoleLeft;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation: RoleLeft 1s;
+          animation: RoleLeft 1s;
 }
 
 .role-main img.right {
-  -webkit-animation-name: RoleRight;
-          animation-name: RoleRight;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation: RoleRight 1s;
+          animation: RoleRight 1s;
 }
 
 .role-main .role-button {
   position: absolute;
-  bottom: 180px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  height: 8%;
+  min-height: 64px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  top: 65%;
+}
+
+.role-main .role-button.right {
+  left: 53%;
+}
+
+.role-main .role-button.left {
+  left: 0%;
 }
 
 .role-main .role-button img {
-  height: 65px;
+  height: 100%;
   width: auto;
   margin-right: 10px;
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -2228,8 +2233,8 @@ section.role .background.leave {
 }
 
 .role-selector .role-cards .role-card:hover {
-  -webkit-transition: all .1s linear;
-  transition: all .1s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
   -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
           filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
 }
@@ -2254,17 +2259,11 @@ section.role .background.leave {
   }
   .role-main-mobile img.role {
     position: absolute;
-    height: calc(100% - 120px);
-    min-height: calc(75% - 120px);
-    width: auto;
-    max-width: 100%;
-    -o-object-fit: contain;
-       object-fit: contain;
-    top: 70px;
-    left: 0px;
-    right: 0px;
+    width: 100%;
+    height: auto;
+    top: 30px;
+    left: 0;
     margin-left: auto;
-    margin-right: auto;
   }
   .role-main-mobile .role-button {
     position: absolute;
@@ -2384,24 +2383,7 @@ section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure i
 
 section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure:last-child {
   margin-right: auto;
-  margin-left: .5%;
-}
-
-section.scenery-detail .scenery-article .scenery-body .scenery-pictures .scenery-picture {
-  background-color: red;
-  width: 30%;
-  padding-bottom: 18.5%;
-  position: relative;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-section.scenery-detail .scenery-article .scenery-body .scenery-pictures .scenery-picture img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  margin-left: 0.5%;
 }
 
 @media (max-width: 900px) {
@@ -2481,6 +2463,69 @@ section.scenery-detail .scenery-article .news-side a:hover .last-news-box {
 }
 
 /*--------------------scenery-detail--------------------*/
+/*--------------------album-detail--------------------*/
+section.album-detail .album-pictures {
+  margin-top: 50px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section.album-detail .album-pictures figure {
+  width: 33%;
+  padding-bottom: 33%;
+  margin-bottom: 0.5%;
+  position: relative;
+}
+
+section.album-detail .album-pictures figure img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section.album-detail .album-pictures figure:last-child {
+  margin-right: auto;
+  margin-left: 0.5%;
+}
+
+section.album-detail .album-pictures .album-picture {
+  background-color: red;
+  width: 30%;
+  padding-bottom: 18.5%;
+  position: relative;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+section.album-detail .album-pictures .album-picture img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  section.album-detail .album-pictures figure {
+    width: 49.75%;
+    padding-bottom: 49.75%;
+  }
+  section.album-detail .album-pictures figure:last-child {
+    margin-left: unset;
+  }
+}
+
+/*--------------------album-detail--------------------*/
 /*--------------------keyframes --------------------*/
 @-webkit-keyframes scaleChange {
   0% {
