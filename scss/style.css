@@ -140,7 +140,7 @@ nav ul {
 }
 
 nav ul li {
-  margin: 0 20px;
+  margin: 0 15px;
   position: relative;
   min-height: 70px;
   height: 100%;
@@ -162,6 +162,20 @@ nav ul li label {
 nav ul li a:hover,
 nav ul li label:hover {
   text-shadow: 0 0 0.2em var(--mainColor), 0 0 0.2em var(--mainColor);
+}
+
+nav ul li.dropdown label {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 nav ul li.dropdown ul {
@@ -246,17 +260,33 @@ nav button.menu {
     width: 100%;
   }
   nav ul li {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     width: 100%;
     min-height: unset;
     height: 60px;
     margin-left: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   nav ul li a {
     width: 100%;
+    height: 100%;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   nav ul li + li {
     border-top: 1px solid oldlace;
@@ -2526,6 +2556,101 @@ section.album-detail .album-pictures .album-picture img {
 }
 
 /*--------------------album-detail--------------------*/
+/*--------------------partners--------------------*/
+section.partners {
+  margin: 50px 0px;
+}
+
+section.partners .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section.partners .partners-box {
+  width: 31.33333%;
+  margin: 1%;
+  padding: 50px 50px;
+  min-height: 200px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+section.partners .partners-box img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 80px 80px 80px 80px;
+  vertical-align: bottom;
+}
+
+section.partners .partners-box h2.partners-title {
+  margin: 15px 0px;
+  color: #1d273b;
+}
+
+section.partners .partners-box p.partners-info {
+  color: #5d6678;
+  margin-bottom: 20px;
+}
+
+section.partners .partners-box ul.partners-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+section.partners .partners-box ul.partners-links li {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 2px solid #5d6678;
+  border-radius: 50%;
+  text-align: center;
+}
+
+section.partners .partners-box ul.partners-links li i {
+  line-height: 26px;
+}
+
+section.partners .partners-box ul.partners-links a {
+  color: #5d6678;
+}
+
+section.partners .partners-box ul.partners-links li:hover {
+  border: 2px solid #5d6678;
+  background-color: #5d6678;
+}
+
+section.partners .partners-box ul.partners-links li:hover a {
+  color: white;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+@media (max-width: 900px) {
+  section.partners .partners-box {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+/*--------------------partners--------------------*/
 /*--------------------keyframes --------------------*/
 @-webkit-keyframes scaleChange {
   0% {
