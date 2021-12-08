@@ -68,7 +68,7 @@
       <div class="role-main-mobile">
         <img :src="roleShow.rolePic.mobileBgc" class="bgc" alt="" />
         <img :src="roleShow.rolePic.mobileRole" class="role" alt="" />
-        <div class="role-button">
+        <div class="role-button" :class="[roleShow.positionLeft ? 'left' : 'left']">
           <img class="modal-open" data-name="img" :src="roleShow.buttonPic.about" alt="" />
           <img :src="roleShow.buttonPic.story" alt="" />
         </div>
@@ -168,11 +168,15 @@
             return picArr;
           },
         },
-        watch:{
-          roleShow(){
-            resizeCheck(this.roleShow.positionLeft);
-          }
-        }
+        watch: {
+          roleShow() {
+            let direction = "right";
+            if (!this.roleShow.positionLeft) {
+              direction = "left";
+            }
+            resizeCheck(direction);
+          },
+        },
       });
     </script>
 
@@ -218,30 +222,53 @@
     </script>
     <script>
       const roleInfo = document.querySelector(".role-info");
-  
-      function resizeCheck(position) {
+
+      function resizeCheck(btnPosition) {
         const roleButton = document.querySelector(".role-button");
-        //如果高度大於800
-        if(roleInfo.offsetHeight == 800){
-          roleButton.style.top = "520px"
-          if (roleButton.classList.contains('right')) {
-            roleButton.style.left = "460px"
+        //如果按鈕有定位
+        if (btnPosition) {
+          if (roleInfo.offsetHeight == 800) {
+            roleButton.style.top = "520px";
+            //腳色置右
+            if (btnPosition == "right") {
+              roleButton.style.left = "460px";
+              //腳色置左
+            } else if (btnPosition == "left") {
+              roleButton.style.left = "60px";
+            }
+          } else {
+            roleButton.style.top = "65%";
+            if (btnPosition == "right") {
+              roleButton.style.left = "53%";
+            } else if (btnPosition == "left") {
+              roleButton.style.left = "7%";
+            }
           }
-          else{
-            roleButton.style.left = "60px"
-          }
-        }else{
-          roleButton.style.top = "65%"
-          if (roleButton.classList.contains('right')) {
-            roleButton.style.left = "53%";
-          }else{
-            roleButton.style.left = "7%";
+        } else {
+          //如果高度大於800
+          if (roleInfo.offsetHeight == 800) {
+            roleButton.style.top = "520px";
+            if (roleButton.classList.contains("right")) {
+              roleButton.style.left = "460px";
+            } else {
+              roleButton.style.left = "60px";
+            }
+          } else {
+            roleButton.style.top = "65%";
+            if (roleButton.classList.contains("right")) {
+              roleButton.style.left = "53%";
+            } else {
+              roleButton.style.left = "7%";
+            }
           }
         }
       }
-      window.addEventListener("resize",resizeCheck);
-      resizeCheck();
+  
+      window.addEventListener("resize", () => {
+        resizeCheck();
+      });
 
+      resizeCheck();
     </script>
     <script src="js/main.js"></script>
     <script>
