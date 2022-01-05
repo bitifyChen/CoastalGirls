@@ -61,8 +61,20 @@
         />
         <img :src="roleShow.rolePic.desktop" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
         <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
-          <img class="modal-open" data-name="img" :src="roleShow.buttonPic.about" alt="" />
-          <img :src="roleShow.buttonPic.story" alt="" />
+          <img
+            class="modal-open"
+            :class="[roleShow.buttonEnable.about ? '' : 'disable']"
+            data-name="img"
+            :src="roleShow.buttonPic.about"
+            alt=""
+          />
+          <img
+            class="modal-open"
+            data-name="world"
+            :src="roleShow.buttonPic.story"
+            :class="[roleShow.buttonEnable.story ? '' : 'disable']"
+            alt=""
+          />
         </div>
       </div>
 
@@ -70,8 +82,14 @@
         <img :src="roleShow.rolePic.mobileBgc" class="bgc" alt="" />
         <img :src="roleShow.rolePic.mobileRole" class="role" alt="" />
         <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
-          <img class="modal-open" data-name="img" :src="roleShow.buttonPic.about" alt="" />
-          <img :src="roleShow.buttonPic.story" alt="" />
+          <img
+            class="modal-open"
+            :class="[roleShow.buttonEnable.about ? '' : 'disable']"
+            data-name="img"
+            :src="roleShow.buttonPic.about"
+            alt=""
+          />
+          <img class="modal-open"  data-name="world" :src="roleShow.buttonPic.story" :class="[roleShow.buttonEnable.story ? '' : 'disable']" alt="" />
         </div>
       </div>
 
@@ -96,6 +114,29 @@
           <div class="modal-img">
             <img :src="roleShow.rolePic.about" alt="" />
             <button class="modal-close"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="modal modal-full" data-name="world">
+        <div class="modal-content">
+          <div class="modal-sidebar">
+            <ul>
+              <li :class="{ 'active': index === 0 }" v-for="(story , index) in roleShow.roleStory">{{story.title}}</li>
+            </ul>
+          </div>
+          <div class="modal-main">
+            <div class="modal-title">
+              <button class="modal-menu"></button>
+              關於{{ roleShow.name }}
+              <button class="modal-close"></button>
+            </div>
+            <div class="modal-infos">
+              <div class="modal-info" :class="{ 'active': index === 0 }" v-for="(story , index) in roleShow.roleStory">
+                <div class="modal-info-title">{{story.title}}</div>
+                <div class="modal-info-content">{{story.content}}</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -133,6 +174,24 @@
                 about: "img/role/璐醬/role_btn_about.png",
                 story: "img/role/璐醬/role_btn_story.png",
               },
+              buttonEnable: {
+                about: true,
+                story: false,
+              },
+              roleStory: [
+                {
+                  title: "這裡標題",
+                  content: "1",
+                },
+                {
+                  title: "這裡標題",
+                  content: "2",
+                },
+                {
+                  title: "這裡標題",
+                  content: "3",
+                },
+              ],
             },
             {
               name: "梧醬",
@@ -150,6 +209,16 @@
                 about: "img/role/梧醬/role_btn_about.png",
                 story: "img/role/梧醬/role_btn_story.png",
               },
+              buttonEnable: {
+                about: true,
+                story: false,
+              },
+              roleAbout: [
+                {
+                  title: "這裡標題",
+                  content: "這裡ckeditor",
+                },
+              ],
             },
           ],
         },
@@ -264,7 +333,7 @@
           }
         }
       }
-  
+
       window.addEventListener("resize", () => {
         resizeCheck();
       });

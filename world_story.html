@@ -70,6 +70,18 @@
           <div class="swiper-slide world-box">
             <img class="world-bgc" src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="" />
             <div class="world-mask" style="background-color: #ae8269"></div>
+            <div class="world-content">
+              <img class="icon" src="img/index/地區/沙鹿/首頁地區沙鹿LOGO.svg" />
+              <div class="title">沙鹿<span>ShaLu</span></div>
+              <div class="description">
+                沙鹿區品。
+              </div>
+              <div class="btn-list">
+                <button class="modal-open" data-name="world">介紹<span>沙鹿</span></button>
+                <button>介紹<span>璐醬</span></button>
+              </div>
+              <img class="role" src="img/role/小圖1.png" alt="" />
+            </div>
           </div>
           <div class="swiper-slide world-box">
             <img class="world-bgc" src="img/index/地區/清水/清水底圖.jpg" alt="" />
@@ -426,33 +438,7 @@
         }
       });
 
-      //world info display to
-      const worldBtns = document.querySelectorAll(".modal-sidebar>ul>li");
-      const worldInfos = document.querySelectorAll(".modal-info");
-      worldBtns.forEach((worldBtn, index) => {
-        worldBtn.addEventListener("click", () => {
-          worldBtns.forEach((worldBtn) => worldBtn.classList.remove("active"));
-          worldBtn.classList.add("active");
-          showInfo(index);
-        });
-      });
-
-      function showInfo(btnIndex) {
-        worldInfos.forEach((worldInfo, index) => {
-          if (index === btnIndex) {
-            worldInfo.classList.add("active");
-            modalSidebar.classList.remove("open");
-          } else {
-            worldInfo.classList.remove("active");
-          }
-        });
-      }
-
-      const modalMenuBtn = document.querySelector("button.modal-menu");
-      const modalSidebar = document.querySelector(".modal-sidebar");
-      modalMenuBtn.addEventListener("click", () => {
-        modalSidebar.classList.toggle("open");
-      });
+     
     </script>
   </body>
 </html>

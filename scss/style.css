@@ -21,7 +21,7 @@ section.modal .modal-content .modal-main .modal-infos .modal-info-content img, s
   height: auto;
 }
 
-footer .footer-right .footer-social ul li:hover i, footer .footer-right .footer-links ul li a:hover, ul.main-btns li:hover, ul.main-btns.lg li:hover, ul.path li:hover, button.news-in-tab-more a:hover {
+footer .footer-right .footer-social ul li:hover i, footer .footer-right .footer-links ul li a:hover, ul.main-btns li:hover, ul.main-btns.lg li:hover, ul.path li a:hover, button.news-in-tab-more a:hover {
   color: var(--mainColor);
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
@@ -74,11 +74,8 @@ body.lock-scroll {
   }
 }
 
-h1 {
+h2.section-title {
   font-size: 3rem;
-}
-
-h1.section-title {
   color: white;
   font-weight: 400;
   text-shadow: 0 0 0.2em rgba(0, 0, 0, 0.75);
@@ -1026,12 +1023,31 @@ ul.main-btns li {
   cursor: pointer;
 }
 
+ul.main-btns li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 ul.main-btns li + li {
   margin-left: 15px;
 }
 
 ul.main-btns li.active {
   background-color: #303030;
+  color: var(--mainColor);
+}
+
+ul.main-btns li.active a {
   color: var(--mainColor);
 }
 
@@ -1112,7 +1128,8 @@ ul.path {
   margin: 20px 0px;
 }
 
-ul.path li {
+ul.path li a {
+  display: inline-block;
   cursor: pointer;
   color: #808080;
   white-space: nowrap;
@@ -1121,7 +1138,7 @@ ul.path li {
   max-width: 13rem;
 }
 
-ul.path li:last-child {
+ul.path li:last-child a {
   color: var(--mainColor);
 }
 
@@ -1163,15 +1180,29 @@ section.index-section video.mobile {
 }
 
 section.index-section button {
-  background-color: rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
   color: white;
   font-size: 1.5rem;
   margin-top: auto;
+  position: relative;
+  background-color: transparent;
 }
 
-section.index-section button:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+section.index-section button::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: black;
+  background-color: var(--btn-index-video);
+  opacity: .2;
+}
+
+section.index-section button:hover::before {
+  opacity: .4;
 }
 
 @media (max-width: 900px) {
@@ -1335,9 +1366,7 @@ section.news-section .mySwiper .swiper-pagination-bullet-active {
 }
 
 ul.news-in-tab {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1385,6 +1414,12 @@ ul.news-in-tab a p.date {
           flex: 0 0 auto;
   color: rgba(255, 255, 255, 0.35);
   font-size: 0.8rem;
+}
+
+ul.news-in-tab.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 button.news-in-tab-more {
@@ -1549,6 +1584,48 @@ section.role-section .role-box.role-left.active img.role {
 
 /*--------------------Index--------------------*/
 /*--------------------NEWS--------------------*/
+.pagination ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.pagination li {
+  width: 6%;
+  margin: 0px 5px;
+}
+
+.pagination li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: "Calibri";
+  font-weight: 900;
+  padding: 10px 1em;
+  background-color: #b0b0b0;
+  border-radius: 5px;
+}
+
+.pagination li a:hover, .pagination li a.active {
+  background-color: black;
+  color: var(--mainColor);
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+@media (max-width: 900px) {
+  .pagination li:not(.mobile-show) {
+    display: none;
+  }
+  .pagination li.mobile-show {
+    width: 25%;
+  }
+}
+
 section.news-top .news-top-boxs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1590,6 +1667,8 @@ section.news-top .news-top-boxs .news-top-box pre.description {
   white-space: pre-wrap;
   line-height: 20px;
   font-size: 1rem;
+  height: 100px;
+  overflow: hidden;
 }
 
 section.news-top .news-top-boxs .news-top-box .info {
@@ -2076,7 +2155,7 @@ section.world-story .world-box .world-content .description {
 }
 
 section.world-story .world-box .world-content img.icon {
-  width: 20%;
+  width: 120px;
 }
 
 section.world-story .world-box .world-content img.role {
@@ -2237,7 +2316,11 @@ section.role .background.leave {
   cursor: pointer;
 }
 
-.role-main .role-button img:hover {
+.role-main .role-button img.disable {
+  cursor: inherit;
+}
+
+.role-main .role-button img:not(.disable):hover {
   opacity: 1;
 }
 

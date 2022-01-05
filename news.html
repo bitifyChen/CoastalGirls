@@ -14,6 +14,20 @@
     />
     <link rel="stylesheet" href="scss/reset.css" />
     <link rel="stylesheet" href="scss/style.css" />
+    <style>
+      .swiper-wrapper {
+        flex-direction: row;
+        align-items: stretch;
+      }
+      .swiper-slide {
+        background-color: red;
+        min-height: 100%;
+        display: block;
+      }
+      .news-top-box {
+        height: 100%;
+      }
+    </style>
   </head>
 
   <body>
@@ -51,8 +65,7 @@
                   <h3 class="title">2021XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</h3>
                   <pre class="description">
 #2021五七藝文季 又來囉🎉
-梧棲有好多活動陸續登場！
-大家不要錯過囉😆
+
 #梧棲
 #海線活動</pre
                   >
@@ -72,6 +85,12 @@
                   <h3 class="title">2021五七藝文季</h3>
                   <pre class="description">
 #2021五七藝文季 又來囉🎉
+梧棲有好多活動陸續登場！
+大家不要錯過囉😆
+#梧棲
+梧棲有好多活動陸續登場！
+大家不要錯過囉😆
+#梧棲
 梧棲有好多活動陸續登場！
 大家不要錯過囉😆
 #梧棲
@@ -112,10 +131,10 @@
     <section class="news-main">
       <div class="container">
         <ul class="main-btns">
-          <li class="active">全部</li>
-          <li>海線少女</li>
-          <li>在地消息</li>
-          <li>活動回顧</li>
+          <li class="active"><a href="#">全部</a></li>
+          <li><a href="#">海線少女</a></li>
+          <li><a href="#">在地消息</a></li>
+          <li><a href="#">活動回顧</a></li>
         </ul>
         <!--news main boxs-->
         <div class="news-main-boxs">
@@ -123,7 +142,9 @@
             <div class="news-main-box">
               <img src="https://via.placeholder.com/640x400" alt="" />
               <div class="news-main-box-r">
-                <h4 class="title">五七藝文季五五七藝文文季五五七藝文季五五七藝文季五五七藝文季五五七藝文季五五七藝文季五</h4>
+                <h4 class="title">
+                  五七藝文季五五七藝文文季五五七藝文季五五七藝文季五五七藝文季五五七藝文季五五七藝文季五
+                </h4>
                 <pre class="description">
 #2021五七藝文季 又來囉🎉
 梧棲有好多活動陸續登場！
@@ -186,6 +207,24 @@
           </a>
         </div>
         <!--news main boxs-->
+        <div class="pagination">
+          <ul>
+            <li><a href="#"><i class="fas fa-step-forward fa-rotate-180"></i></a></li>
+            <li class="mobile-show"><a href="#"><i class="fas fa-caret-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#" class="active">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li class="mobile-show"><a href="#"><i class="fas fa-caret-right"></i></a></li>
+            <li><a href="#"><i class="fas fa-step-forward"></i></a></li>
+          </ul>
+        </div>
       </div>
     </section>
 

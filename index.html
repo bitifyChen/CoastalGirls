@@ -47,12 +47,12 @@
         <source src="img/index/手機.mp4" type="video/mp4" />
         <source src="img/index/手機.webm" type="video/webm" />
       </video>
-      <button class="modal-open" data-name="video">精彩海線，隨心出發GO!</button>
+      <button class="modal-open" data-name="video" style="--btn-index-video: red">精彩海線，隨心出發GO!</button>
     </section>
     <section class="full-hight news-section">
       <img class="full-hight" src="img/index/news.jpg" alt="" />
       <div class="news-title">
-        <h1 class="section-title">最新消息</h1>
+        <h2 class="section-title">最新消息</h2>
       </div>
       <div class="container">
         <div class="news-box">
@@ -85,17 +85,81 @@
             </div>
           </div>
           <div class="news-right">
-            <div class="nav-tab">
+            <div class="nav-tab" id="indexNews">
               <ul class="nav">
-                <li class="active">全部</li>
-                <li>海線少女</li>
-                <li>在地消息</li>
+                <li class="active" data-filter="ALL">全部</li>
+                <li data-filter="COASTAL_GIRLS">海線少女</li>
+                <li data-filter="LOCAL_NEWS">在地消息</li>
               </ul>
               <div class="info-tab">
-                <ul class="news-in-tab">
+                <ul class="news-in-tab active" data-name="ALL">
                   <li>
                     <a href="">
                       <p class="title">「謎境懸兵」活動：參與邀請「燥熱旋律·辛焱(火)」</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">「鏡花聽世」玩法說明</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">【亞蘿伊探索日記】網頁活動已起跑，與亞蘿伊一起探索提瓦特大陸，贏取獎勵！</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">EP - 放浪不羈之客 ｜原神</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">「謎境懸兵」活動：參與邀請「燥熱旋律·辛焱(火)」</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="news-in-tab" data-name="COASTAL_GIRLS">
+                  <li>
+                    <a href="">
+                      <p class="title">海線少女</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">「鏡花聽世」玩法說明</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">【亞蘿伊探索日記】網頁活動已起跑，與亞蘿伊一起探索提瓦特大陸，贏取獎勵！</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">EP - 放浪不羈之客 ｜原神</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <p class="title">「謎境懸兵」活動：參與邀請「燥熱旋律·辛焱(火)」</p>
+                      <p class="date">2021.10.19</p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="news-in-tab" data-name="LOCAL_NEWS">
+                  <li>
+                    <a href="">
+                      <p class="title">在地消息</p>
                       <p class="date">2021.10.19</p>
                     </a>
                   </li>
@@ -135,25 +199,26 @@
     </section>
 
     <section class="role-section">
-      <div class="role-box role-right">
+      <div class="role-box role-right" onclick="url_role('name')">
         <img src="img/index/地區/沙鹿/沙鹿底圖.jpg" alt="" class="role-bgc" />
         <div class="role-mask" style="background-color: #ae699b"></div>
         <img src="img/index/地區/沙鹿/首頁地區沙鹿LOGO.svg" alt="" class="role-logo" />
         <img src="img/index/地區/沙鹿/璐醬立牌2.png" alt="" class="role" />
       </div>
-      <div class="role-box role-left">
+
+      <div class="role-box role-left" onclick="url_role('name')">
         <img src="img/index/地區/梧棲/梧棲底圖.jpg" alt="" class="role-bgc" />
         <div class="role-mask" style="background-color: #6985ae"></div>
         <img src="img/index/地區/梧棲/首頁地區梧棲LOGO.svg" alt="" class="role-logo" />
         <img src="img/index/地區/梧棲/梧棲立牌.png" alt="" class="role" />
       </div>
-      <div class="role-box role-left">
+
+      <div class="role-box role-left" onclick="url_role('name')">
         <img src="img/index/地區//清水/清水底圖.jpg" alt="" class="role-bgc" />
         <div class="role-mask" style="background-color: #ae8269"></div>
         <img src="img/index/地區/清水/首頁地區清水LOGO.svg" alt="" class="role-logo" />
         <img src="img/index/地區/清水/小清立牌.png" alt="" class="role" />
       </div>
-      <div class="role-box"></div>
     </section>
 
     <section class="modal" data-name="video">
@@ -230,7 +295,11 @@
           delay: 5000,
         },
       });
-
+    </script>
+    <script>
+      function url_role(roleName){
+        location.href = 'http://blog.miniasp.com/' + roleName;
+      }
     </script>
   </body>
 </html>
