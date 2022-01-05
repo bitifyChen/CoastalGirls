@@ -534,6 +534,25 @@ footer .footer-right .footer-copyright {
   }
 }
 
+/*Loding Page*/
+section.lode-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  z-index: 999;
+}
+
+section.lode-page .lode-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 /*Modal*/
 section.modal {
   display: none;
@@ -1189,7 +1208,7 @@ section.index-section button {
 }
 
 section.index-section button::before {
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   top: 0;
@@ -1198,11 +1217,11 @@ section.index-section button::before {
   position: absolute;
   background-color: black;
   background-color: var(--btn-index-video);
-  opacity: .2;
+  opacity: 0.2;
 }
 
 section.index-section button:hover::before {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 @media (max-width: 900px) {
@@ -1613,8 +1632,8 @@ section.role-section .role-box.role-left.active img.role {
 .pagination li a:hover, .pagination li a.active {
   background-color: black;
   color: var(--mainColor);
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 @media (max-width: 900px) {
@@ -2722,8 +2741,8 @@ section.partners .partners-box ul.partners-links li:hover {
 
 section.partners .partners-box ul.partners-links li:hover a {
   color: white;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 @media (max-width: 900px) {

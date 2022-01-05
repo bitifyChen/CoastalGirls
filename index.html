@@ -38,6 +38,11 @@
       </ul>
       <button class="menu"></button>
     </nav>
+
+    <section class="lode-page" id="js-loader">
+      <img src="img/index/icon.png" class="lode-icon" alt="">
+    </section>
+    
     <section class="full-hight index-section">
       <video id="video" class="desktop" autoplay="true" muted="muted" loop muted defaultMuted playsinline>
         <source src="img/index/高美動圖.mp4" type="video/mp4" />
@@ -235,7 +240,7 @@
         </div>
       </div>
     </section>
-
+ 
     <footer>
       <div class="container">
         <div class="footer-left">
@@ -301,5 +306,22 @@
         location.href = 'http://blog.miniasp.com/' + roleName;
       }
     </script>
+    <script>
+      const loader = document.getElementById("js-loader");
+      window.addEventListener("load", () => {
+          const ms = 400;
+          loader.style.transition = "opacity " + ms + "ms";
+  
+          const loaderOpacity = function () {
+              loader.style.opacity = 0;
+          };
+          const loaderDisplay = function () {
+              loader.style.display = "none";
+          };
+          setTimeout(loaderOpacity, 1000);
+          setTimeout(loaderDisplay, 1000 + ms);
+      });
+  
+  </script>
   </body>
 </html>
