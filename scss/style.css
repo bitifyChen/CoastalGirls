@@ -541,8 +541,8 @@ section.lode-page {
   left: 0;
   bottom: 0;
   right: 0;
-  background: black;
-  z-index: 999;
+  background: #ededed;
+  z-index: 998;
 }
 
 section.lode-page .lode-icon {
@@ -2615,6 +2615,20 @@ section.album-detail .album-pictures figure {
   padding-bottom: 33%;
   margin-bottom: 0.5%;
   position: relative;
+}
+
+section.album-detail .album-pictures figure.hide {
+  display: none;
+}
+
+section.album-detail .album-pictures figure .figure-filter {
+  position: absolute;
+  z-index: 1;
+  background-color: var(--mainColor);
+  padding: 0.8rem 1.5rem;
+  top: 1rem;
+  left: 1rem;
+  border-radius: 5px;
 }
 
 section.album-detail .album-pictures figure img {

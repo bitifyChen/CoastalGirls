@@ -20,7 +20,6 @@
         align-items: stretch;
       }
       .swiper-slide {
-        background-color: red;
         min-height: 100%;
         display: block;
       }
@@ -52,6 +51,11 @@
       </ul>
       <button class="menu"></button>
     </nav>
+
+    <section class="lode-page" id="js-loader">
+      <img src="img/index/loding.gif" class="lode-icon" alt="">
+    </section>
+
     <section class="news-top background-image auto top">
       <img src="https://via.placeholder.com/1920x1080" alt="" />
       <div class="container">
@@ -281,6 +285,23 @@
           },
         },
       });
+    </script>
+      <script>
+        const loader = document.getElementById("js-loader");
+        window.addEventListener("load", () => {
+            const ms = 400;
+            loader.style.transition = "opacity " + ms + "ms";
+    
+            const loaderOpacity = function () {
+                loader.style.opacity = 0;
+            };
+            const loaderDisplay = function () {
+                loader.style.display = "none";
+            };
+            setTimeout(loaderOpacity, 1000);
+            setTimeout(loaderDisplay, 1000 + ms);
+        });
+    
     </script>
   </body>
 </html>

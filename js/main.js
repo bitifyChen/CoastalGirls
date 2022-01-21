@@ -68,33 +68,35 @@ modals.forEach((modal) => {
   });
 });
 
- //world info display to
- const worldBtns = document.querySelectorAll(".modal-sidebar>ul>li");
- const worldInfos = document.querySelectorAll(".modal-info");
- worldBtns.forEach((worldBtn, index) => {
-   worldBtn.addEventListener("click", () => {
-     worldBtns.forEach((worldBtn) => worldBtn.classList.remove("active"));
-     worldBtn.classList.add("active");
-     showInfo(index);
-   });
- });
+//world info display to
+const worldBtns = document.querySelectorAll(".modal-sidebar>ul>li");
+const worldInfos = document.querySelectorAll(".modal-info");
+worldBtns.forEach((worldBtn, index) => {
+  worldBtn.addEventListener("click", () => {
+    worldBtns.forEach((worldBtn) => worldBtn.classList.remove("active"));
+    worldBtn.classList.add("active");
+    showInfo(index);
+  });
+});
 
- function showInfo(btnIndex) {
-   worldInfos.forEach((worldInfo, index) => {
-     if (index === btnIndex) {
-       worldInfo.classList.add("active");
-       modalSidebar.classList.remove("open");
-     } else {
-       worldInfo.classList.remove("active");
-     }
-   });
- }
+function showInfo(btnIndex) {
+  worldInfos.forEach((worldInfo, index) => {
+    if (index === btnIndex) {
+      worldInfo.classList.add("active");
+      modalSidebar.classList.remove("open");
+    } else {
+      worldInfo.classList.remove("active");
+    }
+  });
+}
 
- const modalMenuBtn = document.querySelector("button.modal-menu");
- const modalSidebar = document.querySelector(".modal-sidebar");
- modalMenuBtn.addEventListener("click", () => {
-   modalSidebar.classList.toggle("open");
- });
+const modalMenuBtn = document.querySelector("button.modal-menu");
+const modalSidebar = document.querySelector(".modal-sidebar");
+if (modalMenuBtn) {
+  modalMenuBtn.addEventListener("click", () => {
+    modalSidebar.classList.toggle("open");
+  });
+}
 
 // filter Main
 const filterBtns = document.querySelectorAll(".main-btns li");
@@ -107,7 +109,11 @@ filterBtns.forEach((filterBtn) => {
       //shop
       if (filterBtn.dataset.page === "shop") {
         shopDisplay(filterBtn.dataset.filter);
-      } else {
+      } 
+      else if (filterBtn.dataset.page === "album") {
+        figureDisplay(filterBtn.dataset.filter);
+      }
+      else{
         itemDisplay(filterBtn.dataset.filter);
       }
     } else {
@@ -144,7 +150,26 @@ function itemDisplay(filter) {
     });
   }
 }
-
+//For figure【畫廊】
+const figures = document.querySelectorAll(".figures figure");
+function figureDisplay(filter) {
+  // All
+  if (filter === "*") {
+    figures.forEach((item) => {
+      item.classList.remove("hide");
+      item.querySelector(".figure-filter").style.display = "block";
+    });
+  } else {
+    figures.forEach((item) => {
+      item.querySelector(".figure-filter").style.display = "none";
+      if (item.classList.contains(filter)) {
+        item.classList.remove("hide");
+      } else {
+        item.classList.add("hide");
+      }
+    });
+  }
+}
 //---【Index__news-section】 ---
 const indexNewsBtns = document.querySelectorAll("#indexNews ul.nav li");
 const indexNewsContents = document.querySelectorAll("#indexNews ul.news-in-tab");
@@ -158,27 +183,24 @@ function indexNewsBtnSet(btn) {
   btn.classList.add("active");
 }
 
-function indexNewsContentSet(name){
-   indexNewsContents.forEach((content)=>{
-    if(content.getAttribute('data-name') == name){
+function indexNewsContentSet(name) {
+  indexNewsContents.forEach((content) => {
+    if (content.getAttribute("data-name") == name) {
       //Set active
-      content.classList.add('active')
-    }else{
-        //Clear active
-      content.classList.remove('active')
-    }   
-  })
-
+      content.classList.add("active");
+    } else {
+      //Clear active
+      content.classList.remove("active");
+    }
+  });
 }
 
 indexNewsBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    indexNewsBtnSet(btn)
-    indexNewsContentSet(btn.getAttribute('data-filter'))
+    indexNewsBtnSet(btn);
+    indexNewsContentSet(btn.getAttribute("data-filter"));
   });
 });
-
-
 
 //---【Shop__】 ---
 const shopPageContent = document.querySelector(".shop-page-content");

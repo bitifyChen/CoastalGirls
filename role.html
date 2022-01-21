@@ -54,42 +54,46 @@
 
       <div class="role-main">
         <img
-          :src="roleShow.rolePic.info"
+          :src="roleShow.desktop.infoPic"
           class="role-info"
           :class="[roleShow.positionLeft ? 'left' : 'right']"
           alt=""
         />
-        <img :src="roleShow.rolePic.desktop" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
+        <img :src="roleShow.desktop.rolePic" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
         <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
           <img
             class="modal-open"
-            :class="[roleShow.buttonEnable.about ? '' : 'disable']"
+            :class="[roleShow.role.about.infoPic ? '' : 'disable']"
             data-name="img"
-            :src="roleShow.buttonPic.about"
+            :src="roleShow.role.about.buttonPic"
             alt=""
           />
           <img
-            class="modal-open"
+            :class="[roleShow.role.story.infoUrl ? '' : 'disable']"
             data-name="world"
-            :src="roleShow.buttonPic.story"
-            :class="[roleShow.buttonEnable.story ? '' : 'disable']"
+            :src="roleShow.role.story.buttonPic"
             alt=""
           />
         </div>
       </div>
 
       <div class="role-main-mobile">
-        <img :src="roleShow.rolePic.mobileBgc" class="bgc" alt="" />
-        <img :src="roleShow.rolePic.mobileRole" class="role" alt="" />
+        <img :src="roleShow.mobile.bgPic" class="bgc" alt="" />
+        <img :src="roleShow.mobile.rolePic" class="role" alt="" />
         <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
           <img
             class="modal-open"
-            :class="[roleShow.buttonEnable.about ? '' : 'disable']"
+            :class="[roleShow.role.about.infoPic ? '' : 'disable']"
             data-name="img"
-            :src="roleShow.buttonPic.about"
+            :src="roleShow.role.about.buttonPic"
             alt=""
           />
-          <img class="modal-open"  data-name="world" :src="roleShow.buttonPic.story" :class="[roleShow.buttonEnable.story ? '' : 'disable']" alt="" />
+          <img
+            :class="[roleShow.role.story.infoUrl ? '' : 'disable']"
+            data-name="world"
+            :src="roleShow.role.story.buttonPic"
+            alt=""
+          />
         </div>
       </div>
 
@@ -99,7 +103,7 @@
             <div class="swiper-wrapper">
               <img
                 class="swiper-slide role-card"
-                :src="role.rolePic.card"
+                :src="role.role.card"
                 alt=""
                 @click="roleChange(index)"
                 v-for="(role,index) in roles"
@@ -112,31 +116,8 @@
       <section class="modal" data-name="img">
         <div class="modal-content">
           <div class="modal-img">
-            <img :src="roleShow.rolePic.about" alt="" />
+            <img :src="roleShow.role.about.infoPic" alt="" />
             <button class="modal-close"></button>
-          </div>
-        </div>
-      </section>
-
-      <section class="modal modal-full" data-name="world">
-        <div class="modal-content">
-          <div class="modal-sidebar">
-            <ul>
-              <li :class="{ 'active': index === 0 }" v-for="(story , index) in roleShow.roleStory">{{story.title}}</li>
-            </ul>
-          </div>
-          <div class="modal-main">
-            <div class="modal-title">
-              <button class="modal-menu"></button>
-              關於{{ roleShow.name }}
-              <button class="modal-close"></button>
-            </div>
-            <div class="modal-infos">
-              <div class="modal-info" :class="{ 'active': index === 0 }" v-for="(story , index) in roleShow.roleStory">
-                <div class="modal-info-title">{{story.title}}</div>
-                <div class="modal-info-content">{{story.content}}</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -162,70 +143,75 @@
               name: "璐醬",
               positionLeft: true,
               bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              rolePic: {
-                desktop: "img/role/璐醬/role_desktop.png",
-                info: "img/role/璐醬/role_info.png",
-                mobileBgc: "img/role/璐醬/role_mobile_bgc.png",
-                mobileRole: "img/role/璐醬/role_mobile.png",
+              role: {
                 card: "img/role/璐醬/role_card.png",
-                about: "img/role/璐醬/role_about.jpg",
-              },
-              buttonPic: {
-                about: "img/role/璐醬/role_btn_about.png",
-                story: "img/role/璐醬/role_btn_story.png",
-              },
-              buttonEnable: {
-                about: true,
-                story: false,
-              },
-              roleStory: [
-                {
-                  title: "這裡標題",
-                  content: "1",
+                about: {
+                  buttonPic: "img/role/璐醬/role_btn_about.png",
+                  infoPic: "img/role/璐醬/role_about.jpg",
                 },
-                {
-                  title: "這裡標題",
-                  content: "2",
+                story: {
+                  buttonPic: "img/role/璐醬/role_btn_story.png",
+                  infoUrl: "123",
                 },
-                {
-                  title: "這裡標題",
-                  content: "3",
-                },
-              ],
+              },
+              desktop: {
+                rolePic: "img/role/璐醬/role_desktop.png",
+                infoPic: "img/role/璐醬/role_info.png",
+              },
+              mobile: {
+                rolePic: "img/role/璐醬/role_mobile.png",
+                bgPic: "img/role/璐醬/role_mobile_bgc.png",
+              },
             },
             {
               name: "梧醬",
               positionLeft: false,
               bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              rolePic: {
-                desktop: "img/role/梧醬/role_desktop.png",
-                info: "img/role/梧醬/role_info.png",
-                mobileBgc: "img/role/梧醬/role_mobile_bgc.png",
-                mobileRole: "img/role/梧醬/role_mobile.png",
+              role: {
                 card: "img/role/梧醬/role_card.png",
-                about: "img/role/梧醬/role_about.jpg",
-              },
-              buttonPic: {
-                about: "img/role/梧醬/role_btn_about.png",
-                story: "img/role/梧醬/role_btn_story.png",
-              },
-              buttonEnable: {
-                about: true,
-                story: false,
-              },
-              roleAbout: [
-                {
-                  title: "這裡標題",
-                  content: "這裡ckeditor",
+                about: {
+                  buttonPic: "img/role/梧醬/role_btn_about.png",
+                  infoPic: "img/role/梧醬/role_about.jpg",
                 },
-              ],
+                story: {
+                  buttonPic: "img/role/梧醬/role_btn_story.png",
+                  infoUrl: "123",
+                },
+              },
+              desktop: {
+                rolePic: "img/role/梧醬/role_desktop.png",
+                infoPic: "img/role/梧醬/role_info.png",
+              },
+              mobile: {
+                rolePic: "img/role/梧醬/role_mobile.png",
+                bgPic: "img/role/梧醬/role_mobile_bgc.png",
+              },
             },
           ],
         },
-
         methods: {
           roleChange(id) {
-            this.nowRole = id;
+            //圖片列表
+            let next_role_image = 
+              [ this.roles[id].desktop.rolePic,
+                this.roles[id].desktop.infoPic,
+                this.roles[id].role.about.buttonPic,
+                this.roles[id].role.about.infoPic,
+                this.roles[id].role.story.buttonPic,
+              ];
+            let next_role_image_num = 0
+            //圖片preload
+            next_role_image.forEach((image) =>{
+               img = new Image();
+               img.onload = () => {
+                next_role_image_num += 1
+                //確認皆以跑完
+                if( next_role_image_num == next_role_image.length){
+                  this.nowRole = id;   
+                }
+               };
+               img.src = image;
+            })            
           },
         },
         computed: {

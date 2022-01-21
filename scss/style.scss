@@ -399,8 +399,8 @@ section.lode-page {
   left: 0;
   bottom: 0;
   right: 0;
-  background: black;
-  z-index: 999;
+  background: #ededed;
+  z-index: 998;
   .lode-icon{
     position: absolute;
     top: 50%;
@@ -1952,6 +1952,18 @@ section.album-detail {
       padding-bottom: 33%;
       margin-bottom: 0.5%;
       position: relative;
+      &.hide{
+        display: none;
+      }
+      .figure-filter{
+        position: absolute;
+        z-index: 1;
+        background-color: var(--mainColor);
+        padding: 0.8rem 1.5rem;
+        top: 1rem;
+        left: 1rem;
+        border-radius: 5px;
+      }
       img {
         position: absolute;
         width: 100%;

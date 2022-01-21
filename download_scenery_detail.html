@@ -76,9 +76,9 @@
         <div class="scenery-article">
           <div class="scenery-body">
             <ul class="path">
-              <li>首頁</li>
-              <li>最新消息</li>
-              <li>「謎境懸兵」玩法說明玩法說明玩法說明玩法說明玩法說明</li>
+              <li><a href="#">首頁</a> </li>
+              <li><a href="#">最新消息</a> </li>
+              <li><a href="#">「謎境懸兵」玩法說明玩法說明玩法說明玩法說明玩法說明</a></li>
             </ul>
             <div class="scenery-banner">
               <img src="https://via.placeholder.com/1280x1024" alt="" />
@@ -170,7 +170,7 @@
                     alt="Image description"
                   />
                 </a>
-                <figcaption itemprop="caption description" data-url="https://drive.google.com/file/d/1W02y7rfts8xkKO_XwCyXJBwfGR_vD67K/view?usp=sharing" style="display: none">
+                <figcaption itemprop="caption description"style="display: none">
                   標題
                 </figcaption>
               </figure>
@@ -295,7 +295,11 @@
             if (figureEl.children.length > 1) {
               // <figcaption> content
               let google_url = figureEl.children[1].getAttribute("data-url");
-              item.title = figureEl.children[1].innerHTML + "<a href="+google_url+" target='_blank'><button>下載</button></a>";
+              item.title = figureEl.children[1].innerHTML;
+              if(google_url){
+                item.title = figureEl.children[1].innerHTML + "<a href="+google_url+" target='_blank'><button>下載</button></a>";
+              }
+              
             }
 
             if (linkEl.children.length > 0) {
