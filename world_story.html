@@ -360,42 +360,7 @@
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <div class="footer-left">
-          <img src="img/index/logo.png" alt="" class="logo" />
-        </div>
-        <div class="footer-right">
-          <div class="footer-social">
-            <ul>
-              <li>
-                <a href="#"><i class="fab fa-facebook-square fa-fw"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-youtube fa-fw"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram fa-fw"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter-square fa-fw"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="far fa-envelope fa-fw"></i></a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-links">
-            <ul>
-              <li><a href="#">隱私權政策</a></li>
-              <li><a href="#">使用者協議</a></li>
-              <li><a href="#">使用者協議</a></li>
-            </ul>
-          </div>
-          <div class="footer-copyright">Copyright © 2021 Owlcreativecradle All Rights Reserved</div>
-        </div>
-      </div>
-    </footer>
+
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script>
@@ -403,9 +368,7 @@
       let names = ["初始", "沙鹿", "梧棲", "沙鹿", "梧棲", "沙鹿", "梧棲", "沙鹿"];
       var swiper = new Swiper(".storySwiper", {
         direction: "vertical",
-        mousewheel: {
-          sensitivity: 0,
-        },
+        mousewheel: true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -419,26 +382,12 @@
             //在非首頁時，顯示導覽列
             if (this.activeIndex > 0) {
               document.querySelector(".swiper-pagination").classList.add("active");
-              if (this.activeIndex == swiper.slides.length - 1) {
-                swiper.mousewheel.disable();
-              }
             } else if (this.activeIndex == 0) {
               document.querySelector(".swiper-pagination").classList.remove("active");
             }
           },
         },
       });
-
-      //如果在頂端時開啟
-      window.addEventListener("scroll", function (e) {
-        if (window.scrollY == 0) {
-          swiper.mousewheel.enable();
-        } else {
-          swiper.mousewheel.disable();
-        }
-      });
-
-     
     </script>
   </body>
 </html>

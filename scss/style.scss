@@ -167,12 +167,13 @@ nav {
     backdrop-filter: none;
     flex-direction: column;
     padding: 15px;
+    height: 56px;
     img {
       position: absolute;
-      height: 40px;
+      height: 42px;
       width: auto;
       left: 15px;
-      top: 15px;
+      top: 7px;
     }
     &.no-top {
       background-color: rgba(0, 0, 0, 0.75);
@@ -259,23 +260,21 @@ nav {
     }
     button.menu {
       position: absolute;
-      top: 15px;
+      top: 13px;
       right: 15px;
       display: unset;
-      height: 40px;
-      width: 40px;
+      height: 30px;
+      width: 30px;
       background-color: transparent;
       &::before {
         content: "\f0c9";
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
-        line-height: 40px;
+        line-height: 30px;
         font-size: 30px;
         position: absolute;
         top: 0px;
         right: 0px;
-        width: 40px;
-        height: 40px;
         display: block;
         color: white;
         text-shadow: 0 0 0.2em rgba(255, 255, 255, 0.5);
@@ -393,19 +392,67 @@ footer {
   }
 }
 /*Loding Page*/
-section.lode-page {
+section.load-page {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: #ededed;
+  background: rgba(0, 0, 0,.5);
+  backdrop-filter: blur(20px);
   z-index: 998;
-  .lode-icon{
+  .load-icon {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    max-width: 100px;
+    max-height: 100px;
+    bottom: 0%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+  }
+  &.full{
+    background: black;
+    z-index: 999;
+    .load-icon {
+      position: absolute;
+      max-width: 200px;
+      max-height: 200px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+section.error{
+  .container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h2{
+    font-weight: 900;
+  }
+  .error-image{
+    max-width: 300px;
+    max-height: 300px;
+  }
+  button{
+    color: white;
+    background-color: var(--mainColor);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px 20px;
+    margin: 20px;
+    border-radius: 10px;
+    i{
+      margin-right: 5px;
+    }
+    &:hover{
+      background-color: #b0b0b0;
+      transition: background-color 0.2s linear;
+    }
   }
 }
 /*Modal*/
@@ -496,6 +543,7 @@ section.modal {
       height: 100%;
       .modal-title {
         background-image: url("../img/world/modal.png");
+        padding-left: 5px;
         background-repeat: no-repeat;
         background-size: cover;
         line-height: 42px;
@@ -549,9 +597,7 @@ section.modal {
   @media (max-width: 900px) {
     .modal-content {
       height: 40%;
-      width: calc(40% / 9 * 16);
       max-width: 100%;
-      margin: 0px 20px;
       position: relative;
     }
     &.modal-full .modal-content {
@@ -806,6 +852,11 @@ ul.main-btns {
     background-color: #303030;
     @extend %mainHover;
   }
+  @media (max-width: 900px) {
+    li {
+      height: 38px;
+    }
+  }
 }
 
 ul.main-btns.lg {
@@ -845,6 +896,9 @@ ul.main-btns.lg {
       grid-row-start: 1;
       grid-row-end: 3;
       height: 100%;
+    }
+    li {
+      height: 38px;
     }
   }
 }
@@ -1033,7 +1087,10 @@ section.news-section {
       }
       img {
         &.news-role-left {
-          display: none;
+          height: 70px;
+          left: 10px;
+          top: -70px;
+          z-index: 99;
         }
         &.news-role-right {
           height: 80px;
@@ -1169,6 +1226,7 @@ section.role-section {
       width: 100%;
       height: 100%;
       opacity: 0.5;
+      background-color: var(--role-box-color);
       transition: opacity 0.3s linear;
     }
     &:hover .role-mask {
@@ -1598,6 +1656,8 @@ section.world-story {
         padding: 10px 0px;
         border-bottom: 2px solid white;
         margin: 10px 0px;
+        font-weight: 900;
+        text-shadow: 0 0 12px rgba(14, 22, 27, 0.8);
         span {
           font-size: 2rem;
           padding: 0px 10px;
@@ -1608,7 +1668,8 @@ section.world-story {
         text-align: center;
         font-size: 1.2rem;
         line-height: 1.7rem;
-        text-shadow: 0 0 12px rgba(110, 159, 193, 0.36), 0 0 12px rgba(110, 159, 193, 0.36);
+        text-shadow: 0 0 12px rgba(14, 22, 27, 0.5);
+        font-weight: 600;
       }
 
       img.icon {
@@ -1640,6 +1701,9 @@ section.world-story {
             }
           }
         }
+        button + button {
+          margin-left: 18px;
+        }
       }
     }
 
@@ -1662,6 +1726,10 @@ section.role {
   display: flex;
   overflow: hidden;
   height: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   .background {
     position: absolute;
     height: 100%;
@@ -1952,10 +2020,10 @@ section.album-detail {
       padding-bottom: 33%;
       margin-bottom: 0.5%;
       position: relative;
-      &.hide{
+      &.hide {
         display: none;
       }
-      .figure-filter{
+      .figure-filter {
         position: absolute;
         z-index: 1;
         background-color: var(--mainColor);
@@ -2010,9 +2078,9 @@ section.partners {
     flex-wrap: wrap;
   }
   .partners-box {
-    width: 31.33333%;
+    width: 23%;
     margin: 1%;
-    padding: 50px 50px;
+    padding: 10px 20px;
     min-height: 200px;
     background-color: white;
     display: flex;
@@ -2031,7 +2099,7 @@ section.partners {
     }
     p.partners-info {
       color: #5d6678;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     ul.partners-links {
       display: flex;
@@ -2060,10 +2128,13 @@ section.partners {
       }
     }
     @media (max-width: 900px) {
-      width: 100%;
-      margin-bottom: 40px;
+      width: 48%;
+      margin-bottom: 1%;
     }
   }
+}
+section.partners-pagination {
+  margin-bottom: 20px;
 }
 /*--------------------partners--------------------*/
 
@@ -2146,3 +2217,30 @@ section.partners {
 // }
 
 /*--------------------Others --------------------*/
+
+/*photoswipe*/
+
+.pswp__bg {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.pswp__caption__center {
+  display: flex;
+  justify-content: center;
+}
+.pswp__caption__center a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pswp__caption__center button {
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-weight: 900;
+  border-radius: 10px;
+  padding: 0px 20px;
+}
+.pswp__caption__center button:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}

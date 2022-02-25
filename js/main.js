@@ -1,5 +1,6 @@
-//---【Base】 ---
-//Nav
+//============通用===========
+
+//【Nav】-導覽列縮放與相關
 const menuBtn = document.querySelector("nav > button.menu");
 const menu = document.querySelector("nav");
 menuBtn.addEventListener("click", () => {
@@ -8,18 +9,17 @@ menuBtn.addEventListener("click", () => {
   document.body.classList.toggle("lock-scroll");
 });
 
-window.addEventListener("scroll", function () {
-  const firstSection = document.querySelector("section");
-  const firstSectionToTop = firstSection.getBoundingClientRect().y;
-  console.log(firstSectionToTop);
-  if (firstSectionToTop < -50) {
+const body = document.querySelector('body')
+body.addEventListener("scroll", function () {
+  let bodyScroll = body.scrollTop
+  if (bodyScroll < 50) {
     menu.classList.remove("no-top");
   } else {
     menu.classList.add("no-top");
   }
 });
 
-//Mobile Second Nav
+//【Nav】-m-導覽列縮放與相關
 const dropDownBtns = document.querySelectorAll("nav li.dropdown > input[type='checkbox']");
 dropDownBtns.forEach((dropDownBtn) => {
   dropDownBtn.addEventListener("click", () => {
@@ -27,21 +27,22 @@ dropDownBtns.forEach((dropDownBtn) => {
   });
 });
 
-//Modal JS
+//【Modal】-Lightbox 用於彈出視窗
 const modalCloseBtns = document.querySelectorAll("button.modal-close");
 const modalOpenBtns = document.querySelectorAll(".modal-open");
 const modalOpenDivs = document.querySelectorAll("div.modal-open");
 const modals = document.querySelectorAll("section.modal");
-
+//--【關閉】由關閉按鈕 關閉所有名稱modal
 modalCloseBtns.forEach((modalCloseBtn) => {
   modalCloseBtn.addEventListener("click", () => {
     modals.forEach((modal) => {
       modal.classList.remove("open");
     });
     document.body.classList.remove("lock-scroll");
+    stopAllYouTubeVideos();
   });
 });
-
+//--由Btn 開啟對應名稱modal
 modalOpenBtns.forEach((modalOpenBtn) => {
   modalOpenBtn.addEventListener("click", () => {
     const modalName = modalOpenBtn.attributes["data-name"].value;
@@ -50,6 +51,7 @@ modalOpenBtns.forEach((modalOpenBtn) => {
   });
 });
 
+//--由Div 開啟對應名稱modal
 modalOpenDivs.forEach((modalOpenDiv) => {
   modalOpenDiv.addEventListener("click", () => {
     const modalName = modalOpenDiv.attributes["data-name"].value;
@@ -58,47 +60,29 @@ modalOpenDivs.forEach((modalOpenDiv) => {
   });
 });
 
+//--【關閉】如點擊黑色部分關閉視窗
 modals.forEach((modal) => {
   modal.addEventListener("click", (e) => {
     const clickModal = e.target.classList.contains("modal");
     if (clickModal) {
       modal.classList.remove("open");
       document.body.classList.remove("lock-scroll");
+      stopAllYouTubeVideos();
     }
   });
 });
-
-//world info display to
-const worldBtns = document.querySelectorAll(".modal-sidebar>ul>li");
-const worldInfos = document.querySelectorAll(".modal-info");
-worldBtns.forEach((worldBtn, index) => {
-  worldBtn.addEventListener("click", () => {
-    worldBtns.forEach((worldBtn) => worldBtn.classList.remove("active"));
-    worldBtn.classList.add("active");
-    showInfo(index);
-  });
-});
-
-function showInfo(btnIndex) {
-  worldInfos.forEach((worldInfo, index) => {
-    if (index === btnIndex) {
-      worldInfo.classList.add("active");
-      modalSidebar.classList.remove("open");
-    } else {
-      worldInfo.classList.remove("active");
-    }
-  });
+//--暫停撥放功能 stopAllYouTubeVideos();
+/**iframe網址限用youtube，並且要在url後方加上 ?enablejsapi=1 **/
+var stopAllYouTubeVideos = () => { 
+  var iframes = document.querySelectorAll('iframe');
+  Array.prototype.forEach.call(iframes, iframe => { 
+    iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', 
+  func: 'pauseVideo' }), '*');
+ });
 }
 
-const modalMenuBtn = document.querySelector("button.modal-menu");
-const modalSidebar = document.querySelector(".modal-sidebar");
-if (modalMenuBtn) {
-  modalMenuBtn.addEventListener("click", () => {
-    modalSidebar.classList.toggle("open");
-  });
-}
 
-// filter Main
+//【分類按鈕】-全站分類按鈕
 const filterBtns = document.querySelectorAll(".main-btns li");
 const items = document.querySelectorAll(".items a");
 filterBtns.forEach((filterBtn) => {
@@ -109,11 +93,9 @@ filterBtns.forEach((filterBtn) => {
       //shop
       if (filterBtn.dataset.page === "shop") {
         shopDisplay(filterBtn.dataset.filter);
-      } 
-      else if (filterBtn.dataset.page === "album") {
+      } else if (filterBtn.dataset.page === "album") {
         figureDisplay(filterBtn.dataset.filter);
-      }
-      else{
+      } else {
         itemDisplay(filterBtn.dataset.filter);
       }
     } else {
@@ -150,7 +132,41 @@ function itemDisplay(filter) {
     });
   }
 }
-//For figure【畫廊】
+
+
+//============世界===========
+//【世界】-調整Modal開啟之內容，由Sidebar決定顯示哪個對應內容
+const worldBtns = document.querySelectorAll(".modal-sidebar>ul>li");
+const worldInfos = document.querySelectorAll(".modal-info");
+worldBtns.forEach((worldBtn, index) => {
+  worldBtn.addEventListener("click", () => {
+    worldBtns.forEach((worldBtn) => worldBtn.classList.remove("active"));
+    worldBtn.classList.add("active");
+    showInfo(index);
+  });
+});
+
+function showInfo(btnIndex) {
+  worldInfos.forEach((worldInfo, index) => {
+    if (index === btnIndex) {
+      worldInfo.classList.add("active");
+      modalSidebar.classList.remove("open");
+    } else {
+      worldInfo.classList.remove("active");
+    }
+  });
+}
+
+const modalMenuBtn = document.querySelector("button.modal-menu");
+const modalSidebar = document.querySelector(".modal-sidebar");
+if (modalMenuBtn) {
+  modalMenuBtn.addEventListener("click", () => {
+    modalSidebar.classList.toggle("open");
+  });
+}
+
+//============畫廊===========
+//【畫廊】-圖片依照分類顯示與隱藏
 const figures = document.querySelectorAll(".figures figure");
 function figureDisplay(filter) {
   // All
@@ -170,7 +186,10 @@ function figureDisplay(filter) {
     });
   }
 }
-//---【Index__news-section】 ---
+
+
+//============首頁===========
+// 【新聞區段】-依照點選之分類，顯示其分類。
 const indexNewsBtns = document.querySelectorAll("#indexNews ul.nav li");
 const indexNewsContents = document.querySelectorAll("#indexNews ul.news-in-tab");
 function indexNewsBtnSet(btn) {
@@ -202,7 +221,8 @@ indexNewsBtns.forEach((btn) => {
   });
 });
 
-//---【Shop__】 ---
+//============商店===========
+//【商店敘述】-顯示商店敘述區塊與商品列表之調整
 const shopPageContent = document.querySelector(".shop-page-content");
 const shopPageItems = document.querySelector(".items-main .items");
 
