@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>海線少女</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.css"
+      integrity="sha512-Q0DfJ+I5cbH4Wm20NlPZ/fENHil7k3ZgzI9b71LfQAB1IlM8Gt7aO7eOPX2QzYT+4fZaF6u1kSfZAHczl4r/9Q=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="scss/reset.css" />
+    <link rel="stylesheet" href="scss/style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
+      <ul>
+        <li><a href="news.html">最新消息</a></li>
+        <li class="dropdown">
+          <label for="btn-2">世界觀 </label>
+          <input type="checkbox" id="btn-2" />
+          <ul>
+            <li><a href="world_story.html">地區故事</a></li>
+            <li><a href="world_comic.html">漫畫</a></li>
+          </ul>
+        </li>
+        <li><a href="role.html">角色介紹</a></li>
+        <li><a href="partners.html">合作夥伴</a></li>
+        <li><a href="shop.html">周邊小物</a></li>
+        <li><a href="about.html">關於我們</a></li>
+        <li><a href="download_scenery.html">在地美照</a></li>
+        <li><a href="album.html">畫廊</a></li>
+      </ul>
+      <button class="menu"></button>
+    </nav>
+
+    <!-- <section class="load-page" id="js-loader">
+      <img src="img/index/loading.gif" class="load-icon" alt="">
+    </section>
+     -->
+    <section class="error">
+      <div class="container">
+        <img class="error-image" src="img/index/error.png" alt="">
+        <h2>糟糕!頁面出錯了!</h2>
+        <a href="#"><button class="back"><i class="fa-solid fa-circle-arrow-left"></i>返回首頁</button></a>
+      </div>
+    </section>
+ 
+    
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      //Role JS
+      const roleBoxs = document.querySelectorAll(".role-section > .role-box");
+      roleBoxs.forEach((rolebox) => {
+        rolebox.addEventListener("mouseenter", () => {
+          rolebox.addEventListener("animationend", () => {
+            rolebox.classList.add("active");
+          });
+        });
+      });
+
+      //swiper
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        autoplay: {
+          delay: 5000,
+        },
+      });
+    </script>
+    <script>
+      function url_role(roleName){
+        location.href = 'http://blog.miniasp.com/' + roleName;
+      }
+    </script>
+    <script>
+      const loader = document.getElementById("js-loader");
+      window.addEventListener("load", () => {
+          const ms = 400;
+          loader.style.transition = "opacity " + ms + "ms";
+  
+          const loaderOpacity = function () {
+              loader.style.opacity = 0;
+          };
+          const loaderDisplay = function () {
+              loader.style.display = "none";
+          };
+          setTimeout(loaderOpacity, 1000);
+          setTimeout(loaderDisplay, 1000 + ms);
+      });
+  
+  </script>
+  </body>
+</html>
