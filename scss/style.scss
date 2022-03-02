@@ -764,6 +764,7 @@ section.background-image.auto {
 section.items-main {
   margin-bottom: 100px;
   .items {
+    margin-top: -10px;
     display: flex;
     flex-wrap: wrap;
     a {
@@ -820,7 +821,7 @@ ul.main-btns {
   margin: 16px 10px;
   li {
     width: 200px;
-    height: 45px;
+    height: 40px;
     background-color: #b0b0b0;
     color: white;
     border-radius: 5px;
@@ -867,7 +868,7 @@ ul.main-btns.lg {
   grid-column-gap: 5px;
   li {
     width: unset;
-    height: 45px;
+    height: 40px;
     background-color: #b0b0b0;
     color: white;
     border-radius: 5px;
@@ -1726,10 +1727,13 @@ section.role {
   display: flex;
   overflow: hidden;
   height: 100%;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+  *{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
   .background {
     position: absolute;
     height: 100%;
@@ -2009,7 +2013,6 @@ section.scenery-detail {
 /*--------------------album-detail--------------------*/
 section.album-detail {
   .album-pictures {
-    margin-top: 50px;
     width: 100%;
     display: flex;
     overflow: hidden;

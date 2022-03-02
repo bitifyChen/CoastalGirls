@@ -1010,6 +1010,7 @@ section.items-main {
 }
 
 section.items-main .items {
+  margin-top: -10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1088,7 +1089,7 @@ ul.main-btns {
 
 ul.main-btns li {
   width: 200px;
-  height: 45px;
+  height: 40px;
   background-color: #b0b0b0;
   color: white;
   border-radius: 5px;
@@ -1155,7 +1156,7 @@ ul.main-btns.lg {
 
 ul.main-btns.lg li {
   width: unset;
-  height: 45px;
+  height: 40px;
   background-color: #b0b0b0;
   color: white;
   border-radius: 5px;
@@ -2318,6 +2319,10 @@ section.role {
   display: flex;
   overflow: hidden;
   height: 100%;
+}
+
+section.role * {
+  -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -o-user-select: none;
@@ -2685,7 +2690,6 @@ section.scenery-detail .scenery-article .news-side a:hover .last-news-box {
 /*--------------------scenery-detail--------------------*/
 /*--------------------album-detail--------------------*/
 section.album-detail .album-pictures {
-  margin-top: 50px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
