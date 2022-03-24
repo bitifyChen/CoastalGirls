@@ -12,6 +12,9 @@
     width: 100%;
     height: auto;
   }
+  iframe{
+    max-width: 100%;
+  }
 }
 
 %mainHover {
@@ -403,11 +406,16 @@ section.load-page {
   z-index: 998;
   .load-icon {
     position: absolute;
-    max-width: 100px;
-    max-height: 100px;
-    bottom: 0%;
-    right: 0%;
-    transform: translate(-50%, -50%);
+    max-width: 300px;
+    max-height: 300px;
+    bottom: 5%;
+    right: 5%;
+    @media (max-width: 900px) {
+      right: 0;
+      left: 0;
+      margin-left:auto;
+      margin-right:auto;
+    }
   }
   &.full{
     background: black;
@@ -1380,7 +1388,6 @@ section.news-main {
         overflow: hidden;
         h4.title {
           line-height: 1.625rem;
-          flex: 1 1 auto;
         }
         pre {
           padding: 10px 0px;
@@ -1391,6 +1398,8 @@ section.news-main {
           overflow: hidden;
           text-overflow: ellipsis;
           max-height: calc(10px + 4.8rem);
+          margin-bottom: auto;
+          
         }
         .info {
           display: flex;
@@ -1412,7 +1421,7 @@ section.news-main {
       }
       @media (max-width: 900px) {
         padding: 10px;
-        height: unset;
+        height:120px;
         img {
           max-width: 40%;
           object-fit: contain;
@@ -1458,6 +1467,9 @@ section.news-detail {
       flex-direction: column;
       width: 900px;
       border-top: var(--mainColor) solid 6px;
+      @media (max-width: 900px) {
+        width: 100%;
+      }
       .news-title {
         line-height: 40px;
         font-size: 2rem;
@@ -2015,13 +2027,13 @@ section.album-detail {
   .album-pictures {
     width: 100%;
     display: flex;
+    padding: 10px;
     overflow: hidden;
-    justify-content: space-between;
     flex-wrap: wrap;
     figure {
-      width: 33%;
-      padding-bottom: 33%;
-      margin-bottom: 0.5%;
+      width: 31.33333%;
+      margin: 1%;
+      padding-bottom: 33.33333%;
       position: relative;
       &.hide {
         display: none;
@@ -2040,10 +2052,6 @@ section.album-detail {
         width: 100%;
         height: 100%;
         object-fit: cover;
-      }
-      &:last-child {
-        margin-right: auto;
-        margin-left: 0.5%;
       }
     }
     .album-picture {
@@ -2064,9 +2072,7 @@ section.album-detail {
       figure {
         width: 49.75%;
         padding-bottom: 49.75%;
-        &:last-child {
-          margin-left: unset;
-        }
+        margin: 0.125%;
       }
     }
   }
