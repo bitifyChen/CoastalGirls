@@ -1,334 +1,330 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>海線少女</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.css"
-      integrity="sha512-Q0DfJ+I5cbH4Wm20NlPZ/fENHil7k3ZgzI9b71LfQAB1IlM8Gt7aO7eOPX2QzYT+4fZaF6u1kSfZAHczl4r/9Q=="
-      crossorigin="anonymous"
-    />
-    <!--Slick-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-      integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-      crossorigin="anonymous"
-    />
-    <!---aos-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="scss/reset.css" />
-    <link rel="stylesheet" href="scss/style.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
-      <ul>
-        <li><a href="news.html">最新消息</a></li>
-        <li class="dropdown">
-          <label for="btn-2">世界觀 </label>
-          <input type="checkbox" id="btn-2" />
-          <ul>
-            <li><a href="world_story.html">地區故事</a></li>
-            <li><a href="world_comic.html">漫畫</a></li>
-          </ul>
-        </li>
-        <li><a href="role.html">角色介紹</a></li>
-        <li><a href="partners.html">合作夥伴</a></li>
-        <li><a href="shop.html">周邊小物</a></li>
-        <li><a href="about.html">關於我們</a></li>
-        <li><a href="download_scenery.html">在地美照</a></li>
-        <li><a href="album.html">畫廊</a></li>
-      </ul>
-      <button class="menu"></button>
-    </nav>
-    <section class="role" id="role">
-      <img class="background active" :src="roleShow.bannerList[0]" alt="" />
-      <img class="background" :src="roleShow.bannerList[1]" alt="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>海線少女</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.css"
+    integrity="sha512-Q0DfJ+I5cbH4Wm20NlPZ/fENHil7k3ZgzI9b71LfQAB1IlM8Gt7aO7eOPX2QzYT+4fZaF6u1kSfZAHczl4r/9Q=="
+    crossorigin="anonymous" />
+  <!--Slick-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" />
+  <!---aos-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-      <div class="role-main">
-        <img
-          :src="roleShow.desktop.infoPic"
-          class="role-info"
-          :class="[roleShow.positionLeft ? 'left' : 'right']"
-          alt=""
-        />
-        <img :src="roleShow.desktop.rolePic" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
-        <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
-          <img
-            class="modal-open"
-            :class="[roleShow.role.about.infoPic ? '' : 'disable']"
-            data-name="img"
-            :src="roleShow.role.about.buttonPic"
-            alt=""
-          />
-          <img
-            :class="[roleShow.role.story.infoUrl ? '' : 'disable']"
-            data-name="world"
-            :src="roleShow.role.story.buttonPic"
-            alt=""
-          />
-        </div>
+  <link rel="stylesheet" href="scss/reset.css" />
+  <link rel="stylesheet" href="scss/style.css" />
+</head>
+
+<body>
+  <nav>
+    <a href="index.html"><img class="logo" src="img/index/logo.png" alt="" /></a>
+    <ul>
+      <li><a href="news.html">最新消息</a></li>
+      <li class="dropdown">
+        <label for="btn-2">世界觀 </label>
+        <input type="checkbox" id="btn-2" />
+        <ul>
+          <li><a href="world_story.html">地區故事</a></li>
+          <li><a href="world_comic.html">漫畫</a></li>
+        </ul>
+      </li>
+      <li><a href="role.html">角色介紹</a></li>
+      <li><a href="partners.html">合作夥伴</a></li>
+      <li><a href="shop.html">周邊小物</a></li>
+      <li><a href="about.html">關於我們</a></li>
+      <li><a href="download_scenery.html">在地美照</a></li>
+      <li><a href="album.html">畫廊</a></li>
+    </ul>
+    <button class="menu"></button>
+  </nav>
+  <section class="role" id="role">
+    <img class="background active" :src="roleShow.bannerList[0]" alt="" />
+    <img class="background" :src="roleShow.bannerList[1]" alt="" />
+
+    <div class="role-main">
+      <img :src="roleShow.desktop.infoPic" class="role-info" :class="[roleShow.positionLeft ? 'left' : 'right']"
+        alt="" />
+      <img :src="roleShow.desktop.rolePic" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
+      <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
+        <img class="modal-open" :class="[roleShow.role.about.infoPic ? '' : 'disable']" data-name="img"
+          :src="roleShow.role.about.buttonPic" alt="" />
+        <img :class="[roleShow.role.story.infoUrl ? '' : 'disable']" data-name="world"
+          :src="roleShow.role.story.buttonPic" @click="roleStoryOpen" alt="" />
       </div>
+    </div>
 
-      <div class="role-main-mobile">
-        <img :src="roleShow.mobile.bgPic" class="bgc" alt="" />
-        <img :src="roleShow.mobile.rolePic" class="role" alt="" />
-        <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
-          <img
-            class="modal-open"
-            :class="[roleShow.role.about.infoPic ? '' : 'disable']"
-            data-name="img"
-            :src="roleShow.role.about.buttonPic"
-            alt=""
-          />
-          <img
-            :class="[roleShow.role.story.infoUrl ? '' : 'disable']"
-            data-name="world"
-            :src="roleShow.role.story.buttonPic"
-            alt=""
-          />
-        </div>
+    <div class="role-main-mobile">
+      <img :src="roleShow.mobile.bgPic" class="bgc" alt="" />
+      <img :src="roleShow.mobile.rolePic" class="role" alt="" />
+      <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
+        <img class="modal-open" :class="[roleShow.role.about.infoPic ? '' : 'disable']" data-name="img"
+          :src="roleShow.role.about.buttonPic" alt="" />
+        <img :class="[roleShow.role.story.infoUrl ? '' : 'disable']" data-name="world"
+          :src="roleShow.role.story.buttonPic" alt="" @click="roleStoryOpen" />
       </div>
+    </div>
 
-      <div class="role-selector">
-        <div class="container">
-          <div class="swiper role-cards mySwiper">
-            <div class="swiper-wrapper">
-              <img
-                class="swiper-slide role-card"
-                :src="role.role.card"
-                alt=""
-                @click="roleChange(index)"
-                v-for="(role,index) in roles"
-              />
-            </div>
+    <div class="role-selector">
+      <div class="container">
+        <div class="swiper role-cards mySwiper">
+          <div class="swiper-wrapper">
+            <img class="swiper-slide role-card" :src="role.role.card" alt="" @click="roleChange(index)"
+              v-for="(role,index) in roles" />
           </div>
         </div>
       </div>
+    </div>
 
-      <section class="modal" data-name="img">
-        <div class="modal-content">
-          <div class="modal-img">
-            <img :src="roleShow.role.about.infoPic" alt="" />
-            <button class="modal-close"></button>
-          </div>
+    <section class="modal" data-name="img">
+      <div class="modal-content">
+        <div class="modal-img">
+          <img :src="roleShow.role.about.infoPic" alt="" />
+          <button class="modal-close"></button>
         </div>
-      </section>
+      </div>
     </section>
+  </section>
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-    <!---Vue-->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"
-      integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=="
-      crossorigin="anonymous"
-    ></script>
-    <!---aos-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      var app = new Vue({
-        el: "#role",
-        data: {
-          nowRole: 0,
-          roles: [
-            {
-              name: "璐醬",
-              positionLeft: true,
-              bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              role: {
-                card: "img/role/璐醬/role_card.png",
-                about: {
-                  buttonPic: "img/role/璐醬/role_btn_about.png",
-                  infoPic: "img/role/璐醬/role_about.jpg",
-                },
-                story: {
-                  buttonPic: "img/role/璐醬/role_btn_story.png",
-                  infoUrl: "123",
-                },
+  <!---Vue-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.js"
+    integrity="sha512-pSyYzOKCLD2xoGM1GwkeHbdXgMRVsSqQaaUoHskx/HF09POwvow2VfVEdARIYwdeFLbu+2FCOTRYuiyeGxXkEg=="
+    crossorigin="anonymous"></script>
+  <!---aos-->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#role",
+      data: {
+        nowRole: 0,
+        roles: [
+          {
+            name: "璐醬",
+            positionLeft: true,
+            bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
+            role: {
+              card: "img/role/璐醬/role_card.png",
+              about: {
+                buttonPic: "img/role/璐醬/role_btn_about.png",
+                infoPic: "img/role/璐醬/role_about.jpg",
               },
-              desktop: {
-                rolePic: "img/role/璐醬/role_desktop.png",
-                infoPic: "img/role/璐醬/role_info.png",
-              },
-              mobile: {
-                rolePic: "img/role/璐醬/role_mobile.png",
-                bgPic: "img/role/璐醬/role_mobile_bgc.png",
+              story: {
+                buttonPic: "img/role/璐醬/role_btn_story.png",
+                infoUrl: "123",
               },
             },
-            {
-              name: "梧醬",
-              positionLeft: false,
-              bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
-              role: {
-                card: "img/role/梧醬/role_card.png",
-                about: {
-                  buttonPic: "img/role/梧醬/role_btn_about.png",
-                  infoPic: "img/role/梧醬/role_about.jpg",
-                },
-                story: {
-                  buttonPic: "img/role/梧醬/role_btn_story.png",
-                  infoUrl: "123",
-                },
+            desktop: {
+              rolePic: "img/role/璐醬/role_desktop.png",
+              infoPic: "img/role/璐醬/role_info.png",
+            },
+            mobile: {
+              rolePic: "img/role/璐醬/role_mobile.png",
+              bgPic: "img/role/璐醬/role_mobile_bgc.png",
+            },
+          },
+          {
+            name: "梧醬",
+            positionLeft: false,
+            bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
+            role: {
+              card: "img/role/梧醬/role_card.png",
+              about: {
+                buttonPic: "img/role/梧醬/role_btn_about.png",
+                infoPic: "img/role/梧醬/role_about.jpg",
               },
-              desktop: {
-                rolePic: "img/role/梧醬/role_desktop.png",
-                infoPic: "img/role/梧醬/role_info.png",
-              },
-              mobile: {
-                rolePic: "img/role/梧醬/role_mobile.png",
-                bgPic: "img/role/梧醬/role_mobile_bgc.png",
+              story: {
+                buttonPic: "img/role/梧醬/role_btn_story.png",
+                infoUrl: "123",
               },
             },
-          ],
-        },
-        methods: {
-          roleChange(id) {
-            //圖片列表
-            let next_role_image = 
-              [ this.roles[id].desktop.rolePic,
-                this.roles[id].desktop.infoPic,
-                this.roles[id].role.about.buttonPic,
-                this.roles[id].role.about.infoPic,
-                this.roles[id].role.story.buttonPic,
-              ];
-            let next_role_image_num = 0
-            //圖片preload
-            next_role_image.forEach((image) =>{
-               img = new Image();
-               img.onload = () => {
-                next_role_image_num += 1
-                //確認皆以跑完
-                if( next_role_image_num == next_role_image.length){
-                  this.nowRole = id;   
-                }
-               };
-               img.src = image;
-            })            
+            desktop: {
+              rolePic: "img/role/梧醬/role_desktop.png",
+              infoPic: "img/role/梧醬/role_info.png",
+            },
+            mobile: {
+              rolePic: "img/role/梧醬/role_mobile.png",
+              bgPic: "img/role/梧醬/role_mobile_bgc.png",
+            },
           },
+        ],
+      },
+      methods: {
+        roleChange(id) {
+          //圖片列表
+          let next_role_image =
+            [this.roles[id].desktop.rolePic,
+            this.roles[id].desktop.infoPic,
+            this.roles[id].role.about.buttonPic,
+            this.roles[id].role.about.infoPic,
+            this.roles[id].role.story.buttonPic,
+            ];
+          let next_role_image_num = 0
+          //圖片preload
+          next_role_image.forEach((image) => {
+            img = new Image();
+            img.onload = () => {
+              next_role_image_num += 1
+              //確認皆以跑完
+              if (next_role_image_num == next_role_image.length)
+              {
+                this.nowRole = id;
+              }
+            };
+            img.src = image;
+          })
         },
-        computed: {
-          roleShow() {
-            return this.roles[this.nowRole];
-          },
-          rolePictureList() {
-            let picArr = [];
-            this.roles.forEach((role) => picArr.push(role.picture));
-            return picArr;
-          },
+        roleStoryOpen() {
+          let storyUrl = this.roleShow.role.story.infoUrl
+          if (storyUrl)
+          {
+            window.open(storyUrl, '_blank').focus();
+          }
+        }
+      },
+      computed: {
+        roleShow() {
+          return this.roles[this.nowRole];
         },
-        watch: {
-          roleShow() {
-            let direction = "right";
-            if (!this.roleShow.positionLeft) {
-              direction = "left";
-            }
-            resizeCheck(direction);
-          },
+        rolePictureList() {
+          let picArr = [];
+          this.roles.forEach((role) => picArr.push(role.picture));
+          return picArr;
         },
+      },
+      watch: {
+        roleShow() {
+          let direction = "right";
+          if (!this.roleShow.positionLeft)
+          {
+            direction = "left";
+          }
+          resizeCheck(direction);
+        },
+      },
+    });
+  </script>
+
+  <script>
+    //swiper
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+    });
+  </script>
+
+  <script>
+    const backgroundList = document.querySelectorAll(".background");
+    let nowIndex = 0;
+    let nextIndex = 0;
+    function backgroundNext() {
+      backgroundList.forEach((background, index) => {
+        if (background.className.match("active"))
+        {
+          nowIndex = index;
+          if (index === backgroundList.length - 1)
+          {
+            nextIndex = 0;
+          } else
+          {
+            nextIndex = index + 1;
+          }
+        }
       });
-    </script>
-
-    <script>
-      //swiper
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: "auto",
-        spaceBetween: 10,
+      backgroundChange();
+    }
+    function backgroundChange() {
+      backgroundList.forEach((background, index) => {
+        background.classList.remove("leave");
+        background.classList.remove("active");
+        if (index === nextIndex)
+        {
+          background.classList.add("active");
+        } else if (index === nowIndex)
+        {
+          background.classList.add("leave");
+        }
       });
-    </script>
+    }
+    setInterval(function () {
+      backgroundNext();
+    }, 12000);
+  </script>
+  <script>
+    const roleInfo = document.querySelector(".role-info");
 
-    <script>
-      const backgroundList = document.querySelectorAll(".background");
-      let nowIndex = 0;
-      let nextIndex = 0;
-      function backgroundNext() {
-        backgroundList.forEach((background, index) => {
-          if (background.className.match("active")) {
-            nowIndex = index;
-            if (index === backgroundList.length - 1) {
-              nextIndex = 0;
-            } else {
-              nextIndex = index + 1;
-            }
+    function resizeCheck(btnPosition) {
+      const roleButton = document.querySelector(".role-button");
+      //如果按鈕有定位
+      if (btnPosition)
+      {
+        if (roleInfo.offsetHeight == 800)
+        {
+          roleButton.style.top = "520px";
+          //腳色置右
+          if (btnPosition == "right")
+          {
+            roleButton.style.left = "460px";
+            //腳色置左
+          } else if (btnPosition == "left")
+          {
+            roleButton.style.left = "60px";
           }
-        });
-        backgroundChange();
-      }
-      function backgroundChange() {
-        backgroundList.forEach((background, index) => {
-          background.classList.remove("leave");
-          background.classList.remove("active");
-          if (index === nextIndex) {
-            background.classList.add("active");
-          } else if (index === nowIndex) {
-            background.classList.add("leave");
+        } else
+        {
+          roleButton.style.top = "65%";
+          if (btnPosition == "right")
+          {
+            roleButton.style.left = "53%";
+          } else if (btnPosition == "left")
+          {
+            roleButton.style.left = "7%";
           }
-        });
-      }
-      setInterval(function () {
-        backgroundNext();
-      }, 12000);
-    </script>
-    <script>
-      const roleInfo = document.querySelector(".role-info");
-
-      function resizeCheck(btnPosition) {
-        const roleButton = document.querySelector(".role-button");
-        //如果按鈕有定位
-        if (btnPosition) {
-          if (roleInfo.offsetHeight == 800) {
-            roleButton.style.top = "520px";
-            //腳色置右
-            if (btnPosition == "right") {
-              roleButton.style.left = "460px";
-              //腳色置左
-            } else if (btnPosition == "left") {
-              roleButton.style.left = "60px";
-            }
-          } else {
-            roleButton.style.top = "65%";
-            if (btnPosition == "right") {
-              roleButton.style.left = "53%";
-            } else if (btnPosition == "left") {
-              roleButton.style.left = "7%";
-            }
+        }
+      } else
+      {
+        //如果高度大於800
+        if (roleInfo.offsetHeight == 800)
+        {
+          roleButton.style.top = "520px";
+          if (roleButton.classList.contains("right"))
+          {
+            roleButton.style.left = "460px";
+          } else
+          {
+            roleButton.style.left = "60px";
           }
-        } else {
-          //如果高度大於800
-          if (roleInfo.offsetHeight == 800) {
-            roleButton.style.top = "520px";
-            if (roleButton.classList.contains("right")) {
-              roleButton.style.left = "460px";
-            } else {
-              roleButton.style.left = "60px";
-            }
-          } else {
-            roleButton.style.top = "65%";
-            if (roleButton.classList.contains("right")) {
-              roleButton.style.left = "53%";
-            } else {
-              roleButton.style.left = "7%";
-            }
+        } else
+        {
+          roleButton.style.top = "65%";
+          if (roleButton.classList.contains("right"))
+          {
+            roleButton.style.left = "53%";
+          } else
+          {
+            roleButton.style.left = "7%";
           }
         }
       }
+    }
 
-      window.addEventListener("resize", () => {
-        resizeCheck();
-      });
-
+    window.addEventListener("resize", () => {
       resizeCheck();
-    </script>
-    <script src="js/main.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
+    });
+
+    resizeCheck();
+  </script>
+  <script src="js/main.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>
