@@ -1775,6 +1775,10 @@ section.role {
   margin: auto;
   height: 100%;
   min-width: 900px;
+  display: none;
+  &.active{
+    display: block;
+  }
   img.role-info {
     position: relative;
     min-height: 800px;
@@ -1852,24 +1856,27 @@ section.role {
   }
 }
 @media (max-width: 900px) {
-  .role-main {
+  .role-main,.role-main.active {
     display: none;
   }
-  // .role-main-mobile{
-  //   display: block;
-  //   height: 100%;
-  //   background-color: black;
-  //   img{
-  //     width: 100%;
-  //     margin-top: 70px;
-  //   }
-  // }
   .role-main-mobile {
-    display: block;
     height: 100%;
     width: 100%;
     background-color: black;
-    position: relative;
+    position: relative;  
+    &.active{
+      display: block;
+    }
+    .mask{
+      position: absolute;
+      background-color: white;
+      animation: RoleMaskOpacity 1.5s forwards;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+    }
     img.bgc {
       min-width: 100%;
       width: 100%;
@@ -2197,6 +2204,15 @@ section.partners-pagination {
   100% {
     left: 0%;
     opacity: 1;
+  }
+}
+
+@keyframes RoleMaskOpacity {
+  0% {
+    opacity:.8;
+  }
+  100% {
+    opacity:0;
   }
 }
 
