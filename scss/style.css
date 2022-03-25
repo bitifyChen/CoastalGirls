@@ -2430,6 +2430,8 @@ section.role .background.leave {
       -ms-flex-pack: center;
           justify-content: center;
   top: 65%;
+  -webkit-animation: BtnShowOpacity 2s forwards;
+          animation: BtnShowOpacity 2s forwards;
 }
 
 .role-main .role-button.right {
@@ -2506,7 +2508,7 @@ section.role .background.leave {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 20;
+    z-index: 2;
   }
   .role-main-mobile img.bgc {
     min-width: 100%;
@@ -2531,7 +2533,10 @@ section.role .background.leave {
     display: flex;
     width: 100%;
     padding: 0px 25px;
+    z-index: 3;
     cursor: pointer;
+    -webkit-animation: BtnShowOpacity 2s forwards;
+            animation: BtnShowOpacity 2s forwards;
   }
   .role-main-mobile .role-button.left {
     -webkit-box-pack: start;
@@ -3012,6 +3017,24 @@ section.partners-pagination {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes BtnShowOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes BtnShowOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

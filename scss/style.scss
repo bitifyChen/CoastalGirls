@@ -1810,6 +1810,7 @@ section.role {
     min-height: 64px;
     justify-content: center;
     top: 65%;
+    animation:BtnShowOpacity 2s forwards ;
     &.right {
       left: 53%;
     }
@@ -1875,7 +1876,7 @@ section.role {
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 20;
+      z-index: 2;
     }
     img.bgc {
       min-width: 100%;
@@ -1897,7 +1898,9 @@ section.role {
       display: flex;
       width: 100%;
       padding: 0px 25px;
+      z-index: 3;
       cursor: pointer;
+      animation:BtnShowOpacity 2s forwards ;
       &.left {
         justify-content: flex-start;
       }
@@ -2213,6 +2216,15 @@ section.partners-pagination {
   }
   100% {
     opacity:0;
+  }
+}
+
+@keyframes BtnShowOpacity {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
   }
 }
 

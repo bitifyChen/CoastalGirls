@@ -48,26 +48,27 @@
     <img class="background active" :src="roleShow.bannerList[0]" alt="" />
     <img class="background" :src="roleShow.bannerList[1]" alt="" />
 
-    <div class="role-main">
-      <img :src="roleShow.desktop.infoPic" class="role-info" :class="[roleShow.positionLeft ? 'left' : 'right']"
-        alt="" />
-      <img :src="roleShow.desktop.rolePic" class="role" :class="[roleShow.positionLeft ? 'right' : 'left']" alt="" />
-      <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
-        <img class="modal-open" :class="[roleShow.role.about.infoPic ? '' : 'disable']" data-name="img"
-          :src="roleShow.role.about.buttonPic" alt="" />
-        <img :class="[roleShow.role.story.infoUrl ? '' : 'disable']" data-name="world"
-          :src="roleShow.role.story.buttonPic" @click="roleStoryOpen" alt="" />
+    <div class="role-main" v-for="(role,index) in roles" :data-position="[role.positionLeft ? 'right' : 'left']"
+      :class="[index == nowRole ? 'active' : ''] ">
+      <img :src="role.desktop.infoPic" class="role-info" :class="[role.positionLeft ? 'left' : 'right']" alt="" />
+      <img :src="role.desktop.rolePic" class="role" :class="[role.positionLeft ? 'right' : 'left']" alt="" />
+      <div class="role-button" :class="[role.positionLeft ? 'right' : 'left']">
+        <img class="modal-open" :class="[role.role.about.infoPic ? '' : 'disable']" data-name="img"
+          :src="role.role.about.buttonPic" alt="" />
+        <img :class="[role.role.story.infoUrl ? '' : 'disable']" data-name="world" :src="role.role.story.buttonPic"
+          @click="roleStoryOpen" alt="" />
       </div>
     </div>
 
-    <div class="role-main-mobile">
-      <img :src="roleShow.mobile.bgPic" class="bgc" alt="" />
-      <img :src="roleShow.mobile.rolePic" class="role" alt="" />
-      <div class="role-button" :class="[roleShow.positionLeft ? 'right' : 'left']">
-        <img class="modal-open" :class="[roleShow.role.about.infoPic ? '' : 'disable']" data-name="img"
-          :src="roleShow.role.about.buttonPic" alt="" />
-        <img :class="[roleShow.role.story.infoUrl ? '' : 'disable']" data-name="world"
-          :src="roleShow.role.story.buttonPic" alt="" @click="roleStoryOpen" />
+    <div class="role-main-mobile" v-for="(role,index) in roles" :class="[index == nowRole ? 'active' : '']">
+      <div class="mask"></div>
+      <img :src="role.mobile.bgPic" class="bgc" alt="" />
+      <img :src="role.mobile.rolePic" class="role" alt="" />
+      <div class="role-button" :class="[role.positionLeft ? 'right' : 'left']">
+        <img class="modal-open" :class="[role.role.about.infoPic ? '' : 'disable']" data-name="img"
+          :src="role.role.about.buttonPic" alt="" />
+        <img :class="[role.role.story.infoUrl ? '' : 'disable']" data-name="world" :src="role.role.story.buttonPic"
+          @click="roleStoryOpen" alt="" />
       </div>
     </div>
 
@@ -133,7 +134,7 @@
           {
             name: "梧醬",
             positionLeft: false,
-            bannerList: ["img/role/bgc.png", "img/role/bgc2.png"],
+            bannerList: ["img/role/bgc4.jpg", "img/role/bgc5.png"],
             role: {
               card: "img/role/梧醬/role_card.png",
               about: {
@@ -158,28 +159,7 @@
       },
       methods: {
         roleChange(id) {
-          //圖片列表
-          let next_role_image =
-            [this.roles[id].desktop.rolePic,
-            this.roles[id].desktop.infoPic,
-            this.roles[id].role.about.buttonPic,
-            this.roles[id].role.about.infoPic,
-            this.roles[id].role.story.buttonPic,
-            ];
-          let next_role_image_num = 0
-          //圖片preload
-          next_role_image.forEach((image) => {
-            img = new Image();
-            img.onload = () => {
-              next_role_image_num += 1
-              //確認皆以跑完
-              if (next_role_image_num == next_role_image.length)
-              {
-                this.nowRole = id;
-              }
-            };
-            img.src = image;
-          })
+          this.nowRole = id;
         },
         roleStoryOpen() {
           let storyUrl = this.roleShow.role.story.infoUrl
@@ -192,21 +172,6 @@
       computed: {
         roleShow() {
           return this.roles[this.nowRole];
-        },
-        rolePictureList() {
-          let picArr = [];
-          this.roles.forEach((role) => picArr.push(role.picture));
-          return picArr;
-        },
-      },
-      watch: {
-        roleShow() {
-          let direction = "right";
-          if (!this.roleShow.positionLeft)
-          {
-            direction = "left";
-          }
-          resizeCheck(direction);
         },
       },
     });
@@ -258,59 +223,38 @@
     }, 12000);
   </script>
   <script>
-    const roleInfo = document.querySelector(".role-info");
+    //腳色按鈕定位
+    function resizeCheck() {
+      let roles = document.querySelectorAll(".role-main");
+      roles.forEach((role,index)=>{
+        let roleButton = role.querySelector(".role-button");
+        let position = role.getAttribute('data-position')
+        btnPosition(roleButton,position);
+      })
+    }
 
-    function resizeCheck(btnPosition) {
-      const roleButton = document.querySelector(".role-button");
-      //如果按鈕有定位
-      if (btnPosition)
+    function btnPosition(roleButton, position) {
+      if (window.innerHeight <= 800)
       {
-        if (roleInfo.offsetHeight == 800)
+        roleButton.style.top = "520px";
+        //腳色置右
+        if (position == "right")
         {
-          roleButton.style.top = "520px";
-          //腳色置右
-          if (btnPosition == "right")
-          {
-            roleButton.style.left = "460px";
-            //腳色置左
-          } else if (btnPosition == "left")
-          {
-            roleButton.style.left = "60px";
-          }
-        } else
+          roleButton.style.left = "460px";
+          //腳色置左
+        } else if (position == "left")
         {
-          roleButton.style.top = "65%";
-          if (btnPosition == "right")
-          {
-            roleButton.style.left = "53%";
-          } else if (btnPosition == "left")
-          {
-            roleButton.style.left = "7%";
-          }
+          roleButton.style.left = "60px";
         }
       } else
       {
-        //如果高度大於800
-        if (roleInfo.offsetHeight == 800)
+        roleButton.style.top = "65%";
+        if (position == "right")
         {
-          roleButton.style.top = "520px";
-          if (roleButton.classList.contains("right"))
-          {
-            roleButton.style.left = "460px";
-          } else
-          {
-            roleButton.style.left = "60px";
-          }
-        } else
+          roleButton.style.left = "53%";
+        } else if (position == "left")
         {
-          roleButton.style.top = "65%";
-          if (roleButton.classList.contains("right"))
-          {
-            roleButton.style.left = "53%";
-          } else
-          {
-            roleButton.style.left = "7%";
-          }
+          roleButton.style.left = "7%";
         }
       }
     }
@@ -320,6 +264,7 @@
     });
 
     resizeCheck();
+
   </script>
   <script src="js/main.js"></script>
   <script>
