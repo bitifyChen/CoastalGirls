@@ -45,8 +45,9 @@
     <button class="menu"></button>
   </nav>
   <section class="role" id="role">
-    <img class="background active" :src="nowBgc[0]" alt="" />
-    <img class="background" :src="nowBgc[1]" alt="" />
+    <template v-for="(role,index) in roles">
+      <img class="background" v-for="banner in role.bannerList" :data-role-id="index" :src="banner" :alt="role.name" />
+    </template>
 
     <div class="role-main" v-for="(role,index) in roles" :data-position="[role.positionLeft ? 'right' : 'left']"
       :class="[index == nowRole ? 'active' : ''] ">
@@ -101,7 +102,9 @@
     crossorigin="anonymous"></script>
   <!---aos-->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
   <script>
+    
     var app = new Vue({
       el: "#role",
       data: {
@@ -160,7 +163,7 @@
       methods: {
         roleChange(id) {
           this.nowRole = id;
-          this.roleBgcChange()
+          backgroundChange(id);
         },
         roleStoryOpen() {
           let storyUrl = this.roleShow.role.story.infoUrl
@@ -169,47 +172,11 @@
             window.open(storyUrl, '_blank').focus();
           }
         },
-        roleBgcChange() {
-          //取得bgc之index
-          const bgcs = document.querySelectorAll('#role .background');
-          let bgcActiveIndex = 0;
-          let bgcNonActiveIndex = 1;
-          bgcs.forEach((bgc, index) => {
-            if (bgc.classList.contains('active'))
-            {
-              bgcActiveIndex = index
-            }
-            else{
-              //替換下一張照片
-              bgcNonActiveIndex = index
-              this.nowBgc[index] = this.roles[this.nowRole].bannerList[0]
-            }
-          })
-          //搜尋非active之背景
-          const bgcNonActive = document.querySelector('#role .background:not(.active)')
-          
-          //搜尋active之背景
-          const bgcActive = document.querySelector('#role .background.active')
-          //照片轉場
-          bgcNonActive.classList.toggle('leave')
-          bgcNonActive.classList.add('active')
-        
-          bgcActive.classList.toggle('active')
-          bgcActive.classList.add('leave')
-
-          //體換另外一張照片
-          this.nowBgc[bgcActiveIndex] = this.roles[this.nowRole].bannerList[1]
-          
-        }
       },
       computed: {
         roleShow() {
           return this.roles[this.nowRole];
         },
-        //預設背景為第一個腳色
-        nowBgc() {
-          return [,]
-        }
       },
     });
   </script>
@@ -221,12 +188,26 @@
       spaceBetween: 10,
     });
   </script>
-
   <script>
-    const backgroundList = document.querySelectorAll(".background");
-    let nowIndex = 0;
-    let nextIndex = 0;
-
+    let nowRoleId = 0;
+    let nowIndex = 0;//照片順序
+    let nextIndex = 0;//照片順序
+    let backgroundList ;
+    function backgroundChange(id) {
+      //更新目前腳色如果有id
+      if(id || id == 0){
+        nowRoleId = id;
+        nowIndex = 0;//照片順序重新計數
+        nextIndex = 0;//照片順序重新計數
+        backgroundClear();//移除用不到之bgc
+        window.clearInterval(myTimer);//清除計算時間
+        myTimer = window.setInterval(function () {backgroundNext();}, 5000);//重新計算時間
+      }
+      backgroundList = document.querySelectorAll("[data-role-id='"+ nowRoleId + "']");
+      backgroundLoop()
+        
+    }
+    //計算照片id
     function backgroundNext() {
       backgroundList.forEach((background, index) => {
         if (background.className.match("active"))
@@ -242,10 +223,10 @@
           }
         }
       });
-      backgroundChange();
+      backgroundLoop();
     }
-
-    function backgroundChange() {
+    //背景轉換 active -> leave ， leave-> active
+    function backgroundLoop() {
       backgroundList.forEach((background, index) => {
         background.classList.remove("leave");
         background.classList.remove("active");
@@ -259,9 +240,25 @@
       });
     }
 
-    setInterval(function () {
+    //移除用不到之bgc
+    const backgroundListAll = document.querySelectorAll("#role .background");
+    function backgroundClear(){
+      backgroundListAll.forEach((bgc)=>{
+        let thisRoleId = bgc.getAttribute('data-role-id')
+        if(thisRoleId != nowRoleId){
+          bgc.classList.add('leave')
+          bgc.classList.remove('active')
+        }
+      })
+      
+    }
+    //定期轉換
+    var myTimer = window.setInterval(function () {
       backgroundNext();
-    }, 12000);
+    }, 5000);
+    
+    //背景初始化
+    backgroundChange();
 
   </script>
   <script>
