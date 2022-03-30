@@ -45,8 +45,8 @@
     <button class="menu"></button>
   </nav>
   <section class="role" id="role">
-    <img class="background active" :src="roleShow.bannerList[0]" alt="" />
-    <img class="background" :src="roleShow.bannerList[1]" alt="" />
+    <img class="background active" :src="nowBgc[0]" alt="" />
+    <img class="background" :src="nowBgc[1]" alt="" />
 
     <div class="role-main" v-for="(role,index) in roles" :data-position="[role.positionLeft ? 'right' : 'left']"
       :class="[index == nowRole ? 'active' : ''] ">
@@ -134,7 +134,7 @@
           {
             name: "梧醬",
             positionLeft: false,
-            bannerList: ["img/role/bgc4.jpg", "img/role/bgc5.png"],
+            bannerList: ["img/role/bgc5.jpg", "img/role/bgc6.png"],
             role: {
               card: "img/role/梧醬/role_card.png",
               about: {
@@ -160,6 +160,7 @@
       methods: {
         roleChange(id) {
           this.nowRole = id;
+          this.roleBgcChange()
         },
         roleStoryOpen() {
           let storyUrl = this.roleShow.role.story.infoUrl
@@ -167,12 +168,48 @@
           {
             window.open(storyUrl, '_blank').focus();
           }
+        },
+        roleBgcChange() {
+          //取得bgc之index
+          const bgcs = document.querySelectorAll('#role .background');
+          let bgcActiveIndex = 0;
+          let bgcNonActiveIndex = 1;
+          bgcs.forEach((bgc, index) => {
+            if (bgc.classList.contains('active'))
+            {
+              bgcActiveIndex = index
+            }
+            else{
+              //替換下一張照片
+              bgcNonActiveIndex = index
+              this.nowBgc[index] = this.roles[this.nowRole].bannerList[0]
+            }
+          })
+          //搜尋非active之背景
+          const bgcNonActive = document.querySelector('#role .background:not(.active)')
+          
+          //搜尋active之背景
+          const bgcActive = document.querySelector('#role .background.active')
+          //照片轉場
+          bgcNonActive.classList.toggle('leave')
+          bgcNonActive.classList.add('active')
+        
+          bgcActive.classList.toggle('active')
+          bgcActive.classList.add('leave')
+
+          //體換另外一張照片
+          this.nowBgc[bgcActiveIndex] = this.roles[this.nowRole].bannerList[1]
+          
         }
       },
       computed: {
         roleShow() {
           return this.roles[this.nowRole];
         },
+        //預設背景為第一個腳色
+        nowBgc() {
+          return [,]
+        }
       },
     });
   </script>
@@ -189,6 +226,7 @@
     const backgroundList = document.querySelectorAll(".background");
     let nowIndex = 0;
     let nextIndex = 0;
+
     function backgroundNext() {
       backgroundList.forEach((background, index) => {
         if (background.className.match("active"))
@@ -197,7 +235,8 @@
           if (index === backgroundList.length - 1)
           {
             nextIndex = 0;
-          } else
+          }
+          else
           {
             nextIndex = index + 1;
           }
@@ -205,6 +244,7 @@
       });
       backgroundChange();
     }
+
     function backgroundChange() {
       backgroundList.forEach((background, index) => {
         background.classList.remove("leave");
@@ -218,22 +258,26 @@
         }
       });
     }
+
     setInterval(function () {
       backgroundNext();
     }, 12000);
+
   </script>
   <script>
-    //腳色按鈕定位
+    //====腳色按鈕定位====
+    //---搜尋所有須定位之按鈕
     function resizeCheck() {
       let roles = document.querySelectorAll(".role-main");
-      roles.forEach((role,index)=>{
+      roles.forEach((role, index) => {
         let roleButton = role.querySelector(".role-button");
         let position = role.getAttribute('data-position')
-        btnPosition(roleButton,position);
+        btnPosition(roleButton, position);
       })
     }
-
+    //---定位按鈕
     function btnPosition(roleButton, position) {
+      //---如畫面小於800，固定高度
       if (window.innerHeight <= 800)
       {
         roleButton.style.top = "520px";
@@ -247,6 +291,7 @@
           roleButton.style.left = "60px";
         }
       } else
+      //---如畫面大於800，浮動高度
       {
         roleButton.style.top = "65%";
         if (position == "right")
@@ -258,15 +303,16 @@
         }
       }
     }
-
+    //---畫面大小變動時跑定位
     window.addEventListener("resize", () => {
       resizeCheck();
     });
-
+    //---載入時先定位
     resizeCheck();
-
   </script>
+
   <script src="js/main.js"></script>
+
   <script>
     AOS.init();
   </script>
