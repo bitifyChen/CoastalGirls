@@ -923,6 +923,8 @@ ul.path {
   color: white;
   display: flex;
   margin: 20px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   li a {
     display: inline-block;
     cursor: pointer;
@@ -935,14 +937,20 @@ ul.path {
       @extend %mainHover;
     }
   }
+  li:last-child{
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 13rem;
+  }
   li:last-child a {
+    width: 100%;
     color: var(--mainColor);
   }
-  li + li {
+  li + li a{
     &::before {
       content: ">";
       color: #808080;
-      margin: 0 5px;
     }
   }
 }
@@ -1421,9 +1429,11 @@ section.news-main {
       }
       @media (max-width: 900px) {
         padding: 10px;
-        height:120px;
+        height: unset;
         img {
+          height: unset;
           max-width: 40%;
+          aspect-ratio: 640 / 400;
           object-fit: contain;
         }
         .news-main-box-r {
