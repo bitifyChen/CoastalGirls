@@ -10,6 +10,8 @@ section.modal .modal-content .modal-main .modal-infos .modal-info-content, secti
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 section.modal .modal-content .modal-main .modal-infos .modal-info-content p, section.news-detail .news-article .news-body .news-content p, .shop-page-content p, section.scenery-detail .scenery-article .scenery-body .scenery-content p {
@@ -298,6 +300,11 @@ nav button.menu {
     display: -ms-flexbox;
     display: flex;
     position: relative;
+  }
+  nav ul li.dropdown:after {
+    position: absolute;
+    top: 50%;
+    right: 0;
   }
   nav ul li.dropdown ul {
     display: none;
@@ -1777,8 +1784,10 @@ section.news-top .news-top-boxs .news-top-box img {
 
 section.news-top .news-top-boxs .news-top-box h3.title {
   margin: 15px 0px;
+  width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 section.news-top .news-top-boxs .news-top-box pre.description {
@@ -1885,13 +1894,14 @@ section.news-main .news-main-boxs .news-main-box .news-main-box-r .info {
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
   margin-top: 10px;
 }
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.date {
   font-size: 1rem;
   margin: 0px 10px;
+  color: #808080;
 }
 
 section.news-main .news-main-boxs .news-main-box .news-main-box-r .info p.tag {
@@ -2746,7 +2756,7 @@ section.album-detail .album-pictures {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px;
+  margin-top: -10px;
   overflow: hidden;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -2799,10 +2809,16 @@ section.album-detail .album-pictures .album-picture img {
 }
 
 @media (max-width: 900px) {
+  section.album-detail .album-pictures {
+    margin: 0px;
+  }
   section.album-detail .album-pictures figure {
-    width: 49.75%;
-    padding-bottom: 49.75%;
-    margin: 0.125%;
+    width: calc( 50% - 20px);
+    padding-bottom: calc( 50% - 20px);
+    margin: 10px;
+  }
+  section.album-detail .album-pictures figure .figure-filter {
+    padding: 5px;
   }
 }
 

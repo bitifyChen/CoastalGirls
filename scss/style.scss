@@ -5,6 +5,8 @@
   line-height: 24px;
   display: flex;
   flex-direction: column;
+  white-space:pre-wrap;
+  overflow-wrap: break-word;
   p {
     width: 100%;
   }
@@ -210,6 +212,11 @@ nav {
       li.dropdown {
         display: flex;
         position: relative;
+        &:after{
+          position: absolute;
+          top: 50%;
+          right: 0;
+        }
         ul {
           display: none;
           position: absolute;
@@ -1338,8 +1345,10 @@ section.news-top {
 
       h3.title {
         margin: 15px 0px;
+        width: 100%;
         text-overflow: ellipsis;
         overflow: hidden;
+        white-space:nowrap;
       }
       pre.description {
         margin-bottom: 15px;
@@ -1412,11 +1421,12 @@ section.news-main {
         }
         .info {
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
           margin-top: 10px;
           p.date {
             font-size: 1rem;
             margin: 0px 10px;
+            color:#808080;
           }
           p.tag {
             font-size: 1rem;
@@ -2048,7 +2058,7 @@ section.album-detail {
   .album-pictures {
     width: 100%;
     display: flex;
-    padding: 10px;
+    margin-top: -10px;
     overflow: hidden;
     flex-wrap: wrap;
     figure {
@@ -2090,10 +2100,14 @@ section.album-detail {
       }
     }
     @media (max-width: 900px) {
+      margin: 0px;
       figure {
-        width: 49.75%;
-        padding-bottom: 49.75%;
-        margin: 0.125%;
+        width: calc( 50% - 20px );
+        padding-bottom:  calc( 50% - 20px );
+        margin: 10px;
+        .figure-filter{
+          padding: 5px;
+        }
       }
     }
   }
