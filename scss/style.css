@@ -2640,23 +2640,19 @@ section.scenery-detail .scenery-article .scenery-body .scenery-content {
 }
 
 section.scenery-detail .scenery-article .scenery-body .scenery-pictures {
-  margin-top: 50px;
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin: 50px -0.167% 0 -0.167%;
 }
 
 section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure {
   width: 33%;
   padding-bottom: 33%;
-  margin-bottom: 0.5%;
+  margin: 0.167%;
   position: relative;
 }
 
@@ -2668,14 +2664,13 @@ section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure i
      object-fit: cover;
 }
 
-section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure:last-child {
-  margin-right: auto;
-  margin-left: 0.5%;
-}
-
 @media (max-width: 900px) {
+  section.scenery-detail .scenery-article .scenery-body .scenery-pictures {
+    margin: 20px -0.125% 0 -0.125%;
+  }
   section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure {
     width: 49.75%;
+    margin: 0.125%;
     padding-bottom: 49.75%;
   }
   section.scenery-detail .scenery-article .scenery-body .scenery-pictures figure:last-child {
@@ -2810,15 +2805,17 @@ section.album-detail .album-pictures .album-picture img {
 
 @media (max-width: 900px) {
   section.album-detail .album-pictures {
-    margin: 0px;
+    padding: 10px;
   }
   section.album-detail .album-pictures figure {
-    width: calc( 50% - 20px);
-    padding-bottom: calc( 50% - 20px);
-    margin: 10px;
+    width: 49.75%;
+    padding-bottom: 49.75%;
+    margin: 0.125%;
   }
   section.album-detail .album-pictures figure .figure-filter {
     padding: 5px;
+    top: 5px;
+    left: 5px;
   }
 }
 

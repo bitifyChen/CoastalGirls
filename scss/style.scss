@@ -1973,16 +1973,14 @@ section.scenery-detail {
         @extend %ckeditor;
       }
       .scenery-pictures {
-        margin-top: 50px;
-        width: 100%;
         display: flex;
         overflow: hidden;
-        justify-content: space-between;
         flex-wrap: wrap;
+        margin: 50px -0.167% 0 -0.167%;
         figure {
           width: 33%;
           padding-bottom: 33%;
-          margin-bottom: 0.5%;
+          margin: 0.167%;
           position: relative;
           img {
             position: absolute;
@@ -1990,14 +1988,12 @@ section.scenery-detail {
             height: 100%;
             object-fit: cover;
           }
-          &:last-child {
-            margin-right: auto;
-            margin-left: 0.5%;
-          }
         }
         @media (max-width: 900px) {
+          margin: 20px -0.125% 0 -0.125%;
           figure {
             width: 49.75%;
+            margin:0.125% ;
             padding-bottom: 49.75%;
             &:last-child {
               margin-left: unset;
@@ -2100,13 +2096,15 @@ section.album-detail {
       }
     }
     @media (max-width: 900px) {
-      margin: 0px;
+      padding: 10px;
       figure {
-        width: calc( 50% - 20px );
-        padding-bottom:  calc( 50% - 20px );
-        margin: 10px;
+        width: 49.75%;;
+        padding-bottom: 49.75%;;
+        margin:0.125%;
         .figure-filter{
           padding: 5px;
+          top:5px;
+          left: 5px;
         }
       }
     }
